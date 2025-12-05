@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Course | DAA Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #000000, #0a1a3c);
+            color: white;
+        }
+
+        /* ---------------- NAVBAR ---------------- */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15,23,42,0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.6);
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 45px;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-right a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-right a:hover {
+            color: #60a5fa;
+        }
+
+        /* ---------------- PAGE HEADER ---------------- */
+        .page-header {
+            text-align: center;
+            padding-top: 130px;
+            padding-bottom: 25px;
+        }
+
+        .page-header h1 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .page-header h3 {
+            font-size: 22px;
+            color: #94a3b8;
+        }
+
+        /* ---------------- COURSE GRID ---------------- */
+        .course-grid {
+            padding: 20px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            transition: 0.4s;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .course-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            border-color: #60a5fa;
+            box-shadow: 0 12px 30px rgba(96,165,250,0.3);
+        }
+
+        .course-card h2 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ---------------- NAVBAR ---------------- -->
+    <nav class="navbar">
+        <img src="kle_tech.png" class="logo">
+        <div class="nav-right">
+            <a href="in.html">Home</a>
+            <a href="aboutcourse.html" style="color:#60a5fa;">About Course</a>
+            <a href="Reflection.html">Course Reflection</a>
+            <a href="Project.html">Course Project</a>
+            <a href="Us.html">About Us</a>
+        </div>
+    </nav>
+
+    <!-- ---------------- PAGE HEADER ---------------- -->
+    <div class="page-header">
+        <h1>DESIGN AND ANALYSIS OF ALGORITHMS</h1>
+        <h3>Course Details</h3>
+    </div>
+
+    <!-- ---------------- COURSE CARDS ---------------- -->
+    <div class="course-grid">
+
+        <div class="course-card scroll">
+            <h2>Linear Search Algorithms</h2>
+            <p>Sequential searching technique that checks each element one by one.</p>
+        </div>
+
+        <div class="course-card scroll">
+            <h2>Sorting & Searching Algorithms</h2>
+            <p>Techniques used to organize and efficiently locate data.</p>
+        </div>
+
+        <div class="course-card scroll">
+            <h2>Divide and Conquer</h2>
+            <p>Splits the problem into smaller subproblems, solves them independently, then combines results.</p>
+        </div>
+
+        <div class="course-card scroll">
+            <h2>Graph Algorithms</h2>
+            <p>Algorithms for traversing, searching, and processing graph structures.</p>
+        </div>
+
+        <div class="course-card scroll">
+            <h2>Greedy Algorithms</h2>
+            <p>Choosing the best immediate option in each step to reach a global solution.</p>
+        </div>
+
+        <div class="course-card scroll">
+            <h2>Dynamic Programming</h2>
+            <p>Solving problems using memoization and overlapping subproblems.</p>
+        </div>
+
+    </div>
+
+    <!-- ---------------- SCROLL ANIMATION ---------------- -->
+    <script>
+        function revealCards() {
+            document.querySelectorAll('.scroll').forEach(card => {
+                let rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    card.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealCards);
+        window.addEventListener('load', revealCards);
+    </script>
+
+</body>
+</html>
