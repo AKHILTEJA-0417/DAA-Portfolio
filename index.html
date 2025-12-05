@@ -11,12 +11,12 @@
     <style>
         body {
             margin: 0;
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(145deg, #000000, #0a1a3c);
             color: white;
-            font-family: 'Poppins', sans-serif;
         }
 
-        /* NAVBAR */
+        /* -------- NAVBAR -------- */
         .navbar {
             position: fixed;
             top: 20px;
@@ -29,11 +29,12 @@
             padding: 10px 25px;
             border-radius: 12px;
             backdrop-filter: blur(6px);
+            z-index: 999;
         }
 
-        /* ⭐ INCREASED LOGO SIZE */
+        /* ⭐ BIGGER LOGO – now 90px */
         .logo {
-            height: 70px;
+            height: 90px;
             width: auto;
         }
 
@@ -48,13 +49,14 @@
             color: #60a5fa;
         }
 
-        /* HERO SECTION */
+        /* -------- HERO SECTION -------- */
         .hero-container {
             display: flex;
-            align-items: center;       /* ⭐ Fixes correct alignment */
-            justify-content: space-between;
-            flex-wrap: nowrap;         /* ⭐ Forces animation to stay on right */
-            padding: 130px 5% 60px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;   /* ⭐ Keeps animation on RIGHT */
+            gap: 40px;
+            padding: 140px 5% 60px;
         }
 
         .hero-text {
@@ -69,25 +71,30 @@
         .subheading {
             font-size: 20px;
             color: #94a3b8;
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .hero-animation {
             flex: 1;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;  /* ⭐ Forces RIGHT alignment */
         }
 
-        /* TEAM SECTION */
+        dotlottie-wc {
+            width: 480px !important;
+            height: 480px !important;
+        }
+
+        /* -------- TEAM SECTION -------- */
         .team-section {
             padding: 50px 10%;
         }
 
         .team-title {
             font-size: 28px;
+            color: #60a5fa;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #60a5fa;
         }
 
         .team-grid {
@@ -102,12 +109,12 @@
             border-radius: 12px;
             padding: 25px;
             text-align: center;
-            transition: 0.4s;
         }
 
         .card:hover {
             transform: translateY(-10px);
             border-color: #60a5fa;
+            transition: 0.3s;
         }
     </style>
 </head>
@@ -126,7 +133,7 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- -------- HERO SECTION -------- -->
     <div class="hero-container">
 
         <div class="hero-text">
@@ -134,19 +141,16 @@
             <p class="subheading">Learning Portfolio</p>
         </div>
 
-        <!-- ⭐ Animation stays on RIGHT SIDE now -->
         <div class="hero-animation">
             <dotlottie-wc 
                 src="https://lottie.host/4152d5fe-532b-4dc2-b06f-f01b9af12601/3BF2wPkBFD.lottie"
-                style="width: 450px; height: 450px;" 
-                autoplay 
-                loop>
+                autoplay loop>
             </dotlottie-wc>
         </div>
 
     </div>
 
-    <!-- TEAM SECTION -->
+    <!-- -------- TEAM SECTION -------- -->
     <div class="team-section">
         <h2 class="team-title">Meet the Team</h2>
 
@@ -160,4 +164,3 @@
 
 </body>
 </html>
-
