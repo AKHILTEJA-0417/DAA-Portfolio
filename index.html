@@ -1,3 +1,4 @@
+<!-- THIS IS daa.html (HOME PAGE) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +12,12 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
             background: linear-gradient(145deg, #000000, #0a1a3c);
             color: white;
+            font-family: 'Poppins', sans-serif;
         }
 
-        /* -------- NAVBAR -------- */
+        /* NAVBAR */
         .navbar {
             position: fixed;
             top: 20px;
@@ -25,17 +26,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(15,23,42,0.85);
-            padding: 10px 25px;
+            background: rgba(15, 23, 42, 0.85);
+            padding: 10px 20px;
             border-radius: 12px;
             backdrop-filter: blur(6px);
-            z-index: 999;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
         }
 
-        /* ⭐ BIGGER LOGO – now 90px */
         .logo {
-            height: 90px;
-            width: auto;
+            height: 45px;
         }
 
         .nav-right a {
@@ -49,18 +48,12 @@
             color: #60a5fa;
         }
 
-        /* -------- HERO SECTION -------- */
+        /* HERO */
         .hero-container {
+            padding: 130px 5% 60px;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;   /* ⭐ Keeps animation on RIGHT */
-            gap: 40px;
-            padding: 140px 5% 60px;
-        }
-
-        .hero-text {
-            flex: 1;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .big-heading {
@@ -71,30 +64,11 @@
         .subheading {
             font-size: 20px;
             color: #94a3b8;
-            margin-top: 10px;
         }
 
-        .hero-animation {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;  /* ⭐ Forces RIGHT alignment */
-        }
-
-        dotlottie-wc {
-            width: 480px !important;
-            height: 480px !important;
-        }
-
-        /* -------- TEAM SECTION -------- */
+        /* TEAM SECTION */
         .team-section {
-            padding: 50px 10%;
-        }
-
-        .team-title {
-            font-size: 28px;
-            color: #60a5fa;
-            font-weight: 700;
-            margin-bottom: 20px;
+            padding: 40px 10%;
         }
 
         .team-grid {
@@ -104,17 +78,11 @@
         }
 
         .card {
-            background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
             border-radius: 12px;
             padding: 25px;
             text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #60a5fa;
-            transition: 0.3s;
         }
     </style>
 </head>
@@ -125,7 +93,7 @@
         <img src="kle_tech.png" class="logo">
 
         <div class="nav-right">
-            <a href="index.html" style="color:#60a5fa;">Home</a>
+            <a href="daa.html">Home</a>
             <a href="aboutcourse.html">About Course</a>
             <a href="Reflection.html">Course Reflection</a>
             <a href="Project.html">Course Project</a>
@@ -133,32 +101,25 @@
         </div>
     </nav>
 
-    <!-- -------- HERO SECTION -------- -->
     <div class="hero-container">
-
-        <div class="hero-text">
+        <div>
             <h1 class="big-heading">DESIGN AND ANALYSIS OF ALGORITHMS</h1>
             <p class="subheading">Learning Portfolio</p>
         </div>
 
-        <div class="hero-animation">
-            <dotlottie-wc 
-                src="https://lottie.host/4152d5fe-532b-4dc2-b06f-f01b9af12601/3BF2wPkBFD.lottie"
-                autoplay loop>
-            </dotlottie-wc>
-        </div>
-
+        <dotlottie-wc 
+            src="https://lottie.host/4152d5fe-532b-4dc2-b06f-f01b9af12601/3BF2wPkBFD.lottie" 
+            style="width: 450px; height: 450px;" autoplay loop></dotlottie-wc>
     </div>
 
-    <!-- -------- TEAM SECTION -------- -->
     <div class="team-section">
-        <h2 class="team-title">Meet the Team</h2>
+        <h2>Meet the Team</h2>
 
         <div class="team-grid">
-            <div class="card">AKHIL TEJA KS<br>ROLL NO - 421</div>
-            <div class="card">SUHAS HALVI<br>ROLL NO - 401</div>
-            <div class="card">GAURAV AGARWAL<br>ROLL NO - 406</div>
-            <div class="card">AKASH HUGAR<br>ROLL NO - 4</div>
+            <div class="card">AKHIL TEJA KS<br>Roll No: 421</div>
+            <div class="card">SUHAS HALVI<br>Roll No: 401</div>
+            <div class="card">GAURAV AGARWAL<br>Roll No: 406</div>
+            <div class="card">AKASH HUGAR<br>Roll No: 4</div>
         </div>
     </div>
 
