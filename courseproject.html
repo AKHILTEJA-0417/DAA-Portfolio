@@ -14,9 +14,10 @@
             background: linear-gradient(145deg, #000000, #0a1a3c);
             color: white;
             font-family: 'Poppins', sans-serif;
+            display: flex;
         }
 
-        /* NAVBAR (same as index.html) */
+        /* NAVBAR */
         .navbar {
             position: fixed;
             top: 0;
@@ -43,35 +44,86 @@
             transition: 0.3s;
         }
 
-        .nav-right a:hover,
-        .nav-right .active {
+        .nav-right .active,
+        .nav-right a:hover {
             color: #60a5fa;
         }
 
-        /* PAGE TITLE */
+        /* ===== LEFT SIDEBAR TOC ===== */
+        .sidebar {
+            position: fixed;
+            top: 130px;
+            left: 0;
+            width: 250px;
+            background: rgba(255,255,255,0.07);
+            border-right: 1px solid rgba(255,255,255,0.15);
+            height: 100%;
+            padding: 20px;
+            overflow-y: auto;
+            backdrop-filter: blur(6px);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 15px;
+            color: #60a5fa;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 8px;
+            margin-bottom: 6px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255,255,255,0.12);
+            color: #60a5fa;
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-content {
+            margin-left: 270px;
+            flex: 1;
+            padding-bottom: 50px;
+        }
+
         .page-title {
             text-align: center;
             font-size: 34px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             text-align: center;
-            color: #94a3b8;
             font-size: 18px;
+            color: #94a3b8;
             margin-bottom: 40px;
+        }
+
+        /* GRID LAYOUT */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 90%;
+            margin: 0 auto;
         }
 
         /* CASE BOX STYLE */
         .case-box {
             background: rgba(255,255,255,0.06);
-            padding: 25px;
+            padding: 22px;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.15);
-            width: 82%;
-            margin: 0 auto 30px auto;
             transition: 0.3s;
+            scroll-margin-top: 150px;
         }
 
         .case-box:hover {
@@ -80,16 +132,62 @@
         }
 
         .case-box h2 {
-            font-size: 22px;
+            font-size: 20px;
             color: #60a5fa;
             margin-bottom: 10px;
         }
 
+        .case-box .icon {
+            font-size: 23px;
+            margin-right: 10px;
+        }
+
         .case-box p {
             color: #d1d5db;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
             margin-bottom: 6px;
+        }
+
+        /* LAST CASE CENTERED */
+        .last-case {
+            width: 45%;
+            margin: 40px auto;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .sidebar {
+                width: 200px;
+            }
+            .main-content {
+                margin-left: 220px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .last-case {
+                width: 85%;
+            }
         }
     </style>
 </head>
@@ -109,89 +207,107 @@
         </div>
     </nav>
 
-    <!-- PAGE TITLE -->
-    <h1 class="page-title">DAA Course Project</h1>
-    <p class="subtitle">Health & Infrastructure – 10 Detailed Case Studies</p>
 
+    <!-- ========== LEFT SIDEBAR TOC ========== -->
+    <div class="sidebar">
+        <h3>Case Studies</h3>
 
-    <!-- =================== CASE STUDY 1 =================== -->
-    <div class="case-box">
-        <h2>1. Multi-Hospital Network Planning for a Tier-2 City</h2>
-        <p><strong>Business Context:</strong> A 150 sq km region needs 2 super-specialty, 6 general hospitals, 18 PHCs.</p>
-        <p><strong>Algorithmic Need:</strong> Facility Location / K-Medoids.</p>
-        <p><strong>Outcome:</strong> Saved ₹1,200 crore. 95% reach hospital within 20 minutes.</p>
+        <a href="#c1">🏥 1. Hospital Network</a>
+        <a href="#c2">🚑 2. Ambulance Deployment</a>
+        <a href="#c3">🚚 3. Supply Chain</a>
+        <a href="#c4">🦟 4. Dengue Prediction</a>
+        <a href="#c5">💰 5. Budget Allocation</a>
+        <a href="#c6">📡 6. Telemedicine</a>
+        <a href="#c7">👨‍⚕️ 7. Workforce</a>
+        <a href="#c8">⏱️ 8. Patient Flow</a>
+        <a href="#c9">💳 9. Smart Health Card</a>
+        <a href="#c10">🛡️ 10. Pandemic Prep</a>
     </div>
 
-    <!-- =================== CASE STUDY 2 =================== -->
-    <div class="case-box">
-        <h2>2. Ambulance Deployment Strategy for Emergency Response</h2>
-        <p><strong>Business Context:</strong> 54 ambulances deployed in high-traffic zones.</p>
-        <p><strong>Algorithmic Need:</strong> Dijkstra / A* and Greedy standby-point selection.</p>
-        <p><strong>Outcome:</strong> Response time reduced 16 → 7 minutes; 18% fuel savings.</p>
-    </div>
 
-    <!-- =================== CASE STUDY 3 =================== -->
-    <div class="case-box">
-        <h2>3. Medical Supply Chain Optimization</h2>
-        <p><strong>Business Context:</strong> Distribute drugs, vaccines, dialysis items to 26 facilities.</p>
-        <p><strong>Algorithmic Need:</strong> TSP Approximation + VRP.</p>
-        <p><strong>Outcome:</strong> 32% fuel reduction; stockouts dropped from 21% → 3%.</p>
-    </div>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
 
-    <!-- =================== CASE STUDY 4 =================== -->
-    <div class="case-box">
-        <h2>4. Predictive Dengue Hotspot Identification</h2>
-        <p><strong>Business Context:</strong> Use climate + complaint + patient data to predict outbreaks.</p>
-        <p><strong>Algorithmic Need:</strong> DBSCAN + Graph Propagation.</p>
-        <p><strong>Outcome:</strong> Cases reduced 28% via proactive fogging.</p>
-    </div>
+        <h1 class="page-title">DAA Course Project</h1>
+        <p class="subtitle">Health & Infrastructure – 10 Case Studies</p>
 
-    <!-- =================== CASE STUDY 5 =================== -->
-    <div class="case-box">
-        <h2>5. Budget Allocation for ₹20,000 Crore Health Infrastructure</h2>
-        <p><strong>Business Context:</strong> Trauma centers, digital health, PHCs, training.</p>
-        <p><strong>Algorithmic Need:</strong> 0/1 Knapsack + Multi-objective optimization.</p>
-        <p><strong>Outcome:</strong> 21% more coverage; avoided ₹1,800 cr redundant work.</p>
-    </div>
 
-    <!-- =================== CASE STUDY 6 =================== -->
-    <div class="case-box">
-        <h2>6. Telemedicine Expansion to Rural Areas</h2>
-        <p><strong>Business Context:</strong> 7 villages need digital clinics.</p>
-        <p><strong>Algorithmic Need:</strong> MST + Network Flow.</p>
-        <p><strong>Outcome:</strong> Access increased 4×; travel reduced by 63%.</p>
-    </div>
+        <!-- ========== 3×3 GRID ========== -->
+        <div class="grid-container">
 
-    <!-- =================== CASE STUDY 7 =================== -->
-    <div class="case-box">
-        <h2>7. Healthcare Workforce Scheduling</h2>
-        <p><strong>Business Context:</strong> 730 doctors, 2800 nurses, 1100 technicians.</p>
-        <p><strong>Algorithmic Need:</strong> Hungarian Algorithm + Greedy Heuristics.</p>
-        <p><strong>Outcome:</strong> Staff shortage reduced 17% → 4%.</p>
-    </div>
+            <div class="case-box" id="c1">
+                <h2><span class="icon">🏥</span>1. Multi-Hospital Network Planning</h2>
+                <p><strong>Business Context:</strong> Plan 2 super-specialty, 6 general hospitals, 18 PHCs.</p>
+                <p><strong>Algorithmic Need:</strong> K-Medoids / Facility Location.</p>
+                <p><strong>Outcome:</strong> Saved ₹1,200 crore.</p>
+            </div>
 
-    <!-- =================== CASE STUDY 8 =================== -->
-    <div class="case-box">
-        <h2>8. Hospital Patient Flow Optimization</h2>
-        <p><strong>Business Context:</strong> 2000 OPD + 600 diagnostics daily = long delays.</p>
-        <p><strong>Algorithmic Need:</strong> Queue Models + Shortest Job First.</p>
-        <p><strong>Outcome:</strong> OPD wait reduced to 55 minutes; lab delay reduced 41%.</p>
-    </div>
+            <div class="case-box" id="c2">
+                <h2><span class="icon">🚑</span>2. Ambulance Deployment Strategy</h2>
+                <p><strong>Business Context:</strong> 54 ambulances across traffic hotspots.</p>
+                <p><strong>Algorithmic Need:</strong> Dijkstra / A* + Greedy.</p>
+                <p><strong>Outcome:</strong> 16 → 7 minute response.</p>
+            </div>
 
-    <!-- =================== CASE STUDY 9 =================== -->
-    <div class="case-box">
-        <h2>9. Smart Health Card & Data Retrieval System</h2>
-        <p><strong>Business Context:</strong> Digital card for 32 lakh citizens.</p>
-        <p><strong>Algorithmic Need:</strong> Hashing + AVL Trees + Encryption.</p>
-        <p><strong>Outcome:</strong> Verification time = 0.3 sec; duplicates reduced 26%.</p>
-    </div>
+            <div class="case-box" id="c3">
+                <h2><span class="icon">🚚</span>3. Medical Supply Chain</h2>
+                <p><strong>Business Context:</strong> Deliver medicines to 26 hospitals.</p>
+                <p><strong>Algorithmic Need:</strong> VRP + TSP Approx.</p>
+                <p><strong>Outcome:</strong> 32% fuel reduction.</p>
+            </div>
 
-    <!-- =================== CASE STUDY 10 =================== -->
-    <div class="case-box">
-        <h2>10. Pandemic Preparedness: ICU & Oxygen Planning</h2>
-        <p><strong>Business Context:</strong> Need 1800 ICU beds, oxygen plants.</p>
-        <p><strong>Algorithmic Need:</strong> Linear Programming + Dynamic Programming.</p>
-        <p><strong>Outcome:</strong> Region surge-ready in 22 days; oxygen risk ↓ 87%.</p>
+            <div class="case-box" id="c4">
+                <h2><span class="icon">🦟</span>4. Dengue Hotspot Prediction</h2>
+                <p><strong>Business Context:</strong> Predict outbreaks using multi-factor datasets.</p>
+                <p><strong>Algorithmic Need:</strong> DBSCAN + Graph Spread.</p>
+                <p><strong>Outcome:</strong> 28% fewer cases.</p>
+            </div>
+
+            <div class="case-box" id="c5">
+                <h2><span class="icon">💰</span>5. Budget Allocation (₹20,000 Cr)</h2>
+                <p><strong>Business Context:</strong> Trauma centers, PHCs, digital infra.</p>
+                <p><strong>Algorithmic Need:</strong> Knapsack + multi-objective.</p>
+                <p><strong>Outcome:</strong> 21% more coverage.</p>
+            </div>
+
+            <div class="case-box" id="c6">
+                <h2><span class="icon">📡</span>6. Telemedicine Expansion</h2>
+                <p><strong>Business Context:</strong> Digital clinics for rural villages.</p>
+                <p><strong>Algorithmic Need:</strong> MST + Flow networks.</p>
+                <p><strong>Outcome:</strong> 4× increase in access.</p>
+            </div>
+
+            <div class="case-box" id="c7">
+                <h2><span class="icon">👨‍⚕️</span>7. Workforce Scheduling</h2>
+                <p><strong>Business Context:</strong> 730 doctors, 2800 nurses, 1100 techs.</p>
+                <p><strong>Algorithmic Need:</strong> Hungarian Algorithm.</p>
+                <p><strong>Outcome:</strong> Shortage reduced to 4%.</p>
+            </div>
+
+            <div class="case-box" id="c8">
+                <h2><span class="icon">⏱️</span>8. Patient Flow Optimization</h2>
+                <p><strong>Business Context:</strong> OPD 2000/day.</p>
+                <p><strong>Algorithmic Need:</strong> SJF + Queue Theory.</p>
+                <p><strong>Outcome:</strong> Wait time → 55 mins.</p>
+            </div>
+
+            <div class="case-box" id="c9">
+                <h2><span class="icon">💳</span>9. Smart Health Card</h2>
+                <p><strong>Business Context:</strong> Health card for 32 lakh users.</p>
+                <p><strong>Algorithmic Need:</strong> AVL Trees + Hashing.</p>
+                <p><strong>Outcome:</strong> 0.3 sec verification.</p>
+            </div>
+        </div>
+
+
+        <!-- ========= CENTERED LAST CASE ========= -->
+        <div class="case-box last-case" id="c10">
+            <h2><span class="icon">🛡️</span>10. Pandemic Preparedness</h2>
+            <p><strong>Business Context:</strong> ICU beds + oxygen planning.</p>
+            <p><strong>Algorithmic Need:</strong> Linear Programming + Dynamic Programming.</p>
+            <p><strong>Outcome:</strong> Region surge-ready in 22 days.</p>
+        </div>
+
     </div>
 
 </body>
