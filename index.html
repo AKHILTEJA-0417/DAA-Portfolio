@@ -9,36 +9,26 @@
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
     <style>
-        /* -------- BODY -------- */
         body {
             margin: 0;
-            padding-top: 130px; /* Adds space so navbar doesn’t overlap */
+            padding-top: 130px;
             background: linear-gradient(145deg, #000000, #0a1a3c);
             color: white;
             font-family: 'Poppins', sans-serif;
         }
 
-        /* -------- NAVBAR -------- */
         .navbar {
             position: fixed;
-            top: 0;                     /* Always stays at top */
-            left: 0;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(15, 23, 42, 0.9);
+            top: 0; left: 0; width: 100%;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(15,23,42,0.9);
             padding: 12px 30px;
             border-bottom: 1px solid rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
-            z-index: 1000;              /* Always on top */
+            z-index: 1000;
         }
 
-        /* Bigger Logo */
-        .logo {
-            height: 85px;
-            width: auto;
-        }
+        .logo { height: 85px; width: auto; }
 
         .nav-right a {
             margin-left: 22px;
@@ -47,91 +37,36 @@
             font-weight: 600;
             transition: 0.3s;
         }
+        .nav-right a:hover, .nav-right .active { color: #60a5fa; }
 
-        .nav-right a:hover {
-            color: #60a5fa;
-        }
-
-        /* Active link (Home) */
-        .nav-right .active {
-            color: #60a5fa;
-        }
-
-        /* -------- HERO -------- */
         .hero-container {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
             padding: 40px 8% 50px;
             gap: 40px;
         }
+        .hero-left { flex: 1.2; }
 
-        .hero-left {
-            flex: 1.2;
-        }
+        .big-heading { font-size: 42px; font-weight: 700; margin-bottom: 8px; }
+        .subheading { font-size: 20px; color: #94a3b8; margin-bottom: 20px; }
 
-        .big-heading {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .subheading {
-            font-size: 20px;
-            color: #94a3b8;
-            margin-bottom: 20px;
-        }
-
-        /* -------- INTUITIVE THINKING BOX -------- */
         .intuition-box {
             background: rgba(255,255,255,0.08);
             padding: 20px;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.18);
             backdrop-filter: blur(6px);
-            margin-top: 10px;
         }
 
-        .intuition-box h2 {
-            font-size: 22px;
-            color: #60a5fa;
-            margin-bottom: 8px;
-        }
+        dotlottie-wc { width: 430px !important; height: 430px !important; }
 
-        .intuition-box p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #d1d5db;
-        }
-
-        /* -------- ANIMATION -------- */
-        .hero-right {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        dotlottie-wc {
-            width: 430px !important;
-            height: 430px !important;
-        }
-
-        /* -------- TEAM SECTION -------- */
-        .team-section {
-            padding: 60px 10%;
-        }
-
-        .team-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #60a5fa;
-            margin-bottom: 25px;
-        }
+        .team-section { padding: 60px 10%; }
+        .team-title { font-size: 28px; font-weight: 700; color:#60a5fa; margin-bottom:25px; }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+            gap:25px;
         }
 
         .card {
@@ -139,62 +74,45 @@
             padding: 25px;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.15);
-            text-align: center;
-            transition: 0.3s;
+            text-align:center;
+            transition:0.3s;
         }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #60a5fa;
-        }
+        .card:hover { transform: translateY(-10px); border-color:#60a5fa; }
     </style>
 </head>
 
 <body>
 
-    <!-- -------- NAVBAR -------- -->
     <nav class="navbar">
         <img src="kle_tech.png" class="logo">
-
         <div class="nav-right">
             <a href="index.html" class="active">Home</a>
             <a href="aboutcourse.html">About Course</a>
-            <a href="Reflection.html">Course Reflection</a>
+            <a href="coursereflection.html">Course Reflection</a>
             <a href="courseproject.html">Course Project</a>
-            <a href="Us.html">About Us</a>
+            <a href="about.html">About Us</a>
         </div>
     </nav>
 
-    <!-- -------- HERO SECTION -------- -->
     <div class="hero-container">
-
-        <!-- LEFT SIDE TEXT -->
         <div class="hero-left">
             <h1 class="big-heading">DESIGN AND ANALYSIS OF ALGORITHMS</h1>
             <p class="subheading">Learning Portfolio</p>
 
             <div class="intuition-box">
-                <h2>How Intuitive Thinking Solves Real-World Problems</h2>
+                <h2>How Intuition Helps Solve Real Problems</h2>
                 <p>
-                    Intuitive thinking helps us analyze complex problems quickly by recognizing 
-                    patterns, making logical connections, and simplifying challenges into clear 
-                    steps. In engineering and algorithm design, intuition guides faster, smarter, 
-                    and more efficient problem-solving strategies.
+                    Intuition helps recognize patterns, simplify complexity, and design faster, 
+                    smarter algorithmic solutions in engineering and computation.
                 </p>
             </div>
         </div>
 
-        <!-- RIGHT SIDE ANIMATION -->
         <div class="hero-right">
-            <dotlottie-wc 
-                src="https://lottie.host/4152d5fe-532b-4dc2-b06f-f01b9af12601/3BF2wPkBFD.lottie"
-                autoplay loop>
-            </dotlottie-wc>
+            <dotlottie-wc src="https://lottie.host/4152d5fe-532b-4dc2-b06f-f01b9af12601/3BF2wPkBFD.lottie" autoplay loop></dotlottie-wc>
         </div>
-
     </div>
 
-    <!-- -------- TEAM SECTION -------- -->
     <div class="team-section">
         <h2 class="team-title">Meet the Team</h2>
 
@@ -202,7 +120,7 @@
             <div class="card">AKHIL TEJA KS<br>ROLL NO - 421</div>
             <div class="card">SUHAS HALVI<br>ROLL NO - 401</div>
             <div class="card">GAURAV AGARWAL<br>ROLL NO - 406</div>
-            <div class="card">AKASH HUGAR<br>ROLL NO - 409 </div>
+            <div class="card">AKASH HUGAR<br>ROLL NO - 409</div>
         </div>
     </div>
 
