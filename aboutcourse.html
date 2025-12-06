@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Course Project – DAA Portfolio</title>
+    <title>About Course | DAA</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -14,13 +14,13 @@
             background: linear-gradient(145deg, #000000, #0a1a3c);
             color: white;
             font-family: 'Poppins', sans-serif;
-            display: flex;
         }
 
-        /* NAVBAR */
+        /* ---------- NAVBAR ---------- */
         .navbar {
             position: fixed;
-            top: 0;
+            top: 0; 
+            left: 0;
             width: 100%;
             display: flex;
             align-items: center;
@@ -41,154 +41,83 @@
             text-decoration: none;
             color: #cbd5e1;
             font-weight: 600;
-            transition: 0.3s;
         }
 
-        .nav-right .active,
         .nav-right a:hover {
             color: #60a5fa;
         }
 
-        /* ===== LEFT SIDEBAR TOC ===== */
-        .sidebar {
-            position: fixed;
-            top: 130px;
-            left: 0;
-            width: 250px;
-            background: rgba(255,255,255,0.07);
-            border-right: 1px solid rgba(255,255,255,0.15);
-            height: 100%;
-            padding: 20px;
-            overflow-y: auto;
-            backdrop-filter: blur(6px);
-        }
-
-        .sidebar h3 {
-            margin-bottom: 15px;
-            color: #60a5fa;
-            font-size: 20px;
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {
             text-align: center;
+            padding: 20px 10%;
+            margin-top: 20px;
         }
 
-        .sidebar a {
-            display: block;
-            padding: 8px;
-            margin-bottom: 6px;
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 15px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            background: rgba(255,255,255,0.12);
-            color: #60a5fa;
-        }
-
-        /* MAIN CONTENT AREA */
-        .main-content {
-            margin-left: 270px;
-            flex: 1;
-            padding-bottom: 50px;
-        }
-
-        .page-title {
-            text-align: center;
-            font-size: 34px;
+        .page-header h1 {
+            font-size: 38px;
             font-weight: 700;
-            margin-bottom: 8px;
+            color: #60a5fa;
         }
 
-        .subtitle {
-            text-align: center;
+        .page-header p {
             font-size: 18px;
-            color: #94a3b8;
-            margin-bottom: 40px;
+            color: #d4d4d8;
         }
 
-        /* GRID LAYOUT */
-        .grid-container {
+        /* ---------- APPLICATIONS GRID ---------- */
+        .apps-section {
+            padding: 40px 10%;
+        }
+
+        .apps-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #93c5fd;
+        }
+
+        .apps-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            width: 90%;
-            margin: 0 auto;
         }
 
-        /* CASE BOX STYLE */
-        .case-box {
-            background: rgba(255,255,255,0.06);
+        /* ---------- ANIMATED CARDS ---------- */
+        .app-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
             padding: 22px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.15);
-            transition: 0.3s;
-            scroll-margin-top: 150px;
+            transition: 0.4s ease;
+            backdrop-filter: blur(6px);
+
+            opacity: 0;
+            transform: translateY(40px);
         }
 
-        .case-box:hover {
-            transform: translateY(-8px);
+        .app-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
             border-color: #60a5fa;
+            box-shadow: 0 10px 35px rgba(96,165,250,0.25);
         }
 
-        .case-box h2 {
-            font-size: 20px;
-            color: #60a5fa;
+        .app-card h3 {
             margin-bottom: 10px;
+            font-size: 19px;
+            color: #60a5fa;
         }
 
-        .case-box .icon {
-            font-size: 23px;
-            margin-right: 10px;
-        }
-
-        .case-box p {
-            color: #d1d5db;
+        .app-card p {
             font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 6px;
+            color: #d1d5db;
         }
 
-        /* LAST CASE CENTERED */
-        .last-case {
-            width: 45%;
-            margin: 40px auto;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .sidebar {
-                width: 200px;
-            }
-            .main-content {
-                margin-left: 220px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.15);
-            }
-            .main-content {
-                margin-left: 0;
-            }
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .last-case {
-                width: 85%;
-            }
-        }
     </style>
 </head>
 
@@ -200,115 +129,83 @@
 
         <div class="nav-right">
             <a href="index.html">Home</a>
-            <a href="aboutcourse.html">About Course</a>
+            <a href="aboutcourse.html" style="color:#60a5fa;">About Course</a>
             <a href="Reflection.html">Course Reflection</a>
-            <a class="active" href="courseproject.html">Course Project</a>
+            <a href="Project.html">Course Project</a>
             <a href="Us.html">About Us</a>
         </div>
     </nav>
 
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>Design and Analysis of Algorithms</h1>
+        <p>Explore how algorithms shape technology, innovation, and real-world problem-solving.</p>
+    </section>
 
-    <!-- ========== LEFT SIDEBAR TOC ========== -->
-    <div class="sidebar">
-        <h3>Case Studies</h3>
+    <!-- APPLICATIONS SECTION -->
+    <section class="apps-section">
+        <h2 class="apps-title">Applications of Design and Analysis of Algorithms</h2>
 
-        <a href="#c1">🏥 1. Hospital Network</a>
-        <a href="#c2">🚑 2. Ambulance Deployment</a>
-        <a href="#c3">🚚 3. Supply Chain</a>
-        <a href="#c4">🦟 4. Dengue Prediction</a>
-        <a href="#c5">💰 5. Budget Allocation</a>
-        <a href="#c6">📡 6. Telemedicine</a>
-        <a href="#c7">👨‍⚕️ 7. Workforce</a>
-        <a href="#c8">⏱️ 8. Patient Flow</a>
-        <a href="#c9">💳 9. Smart Health Card</a>
-        <a href="#c10">🛡️ 10. Pandemic Prep</a>
-    </div>
+        <div class="apps-grid">
 
-
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-
-        <h1 class="page-title">DAA Course Project</h1>
-        <p class="subtitle">Health & Infrastructure – 10 Case Studies</p>
-
-
-        <!-- ========== 3×3 GRID ========== -->
-        <div class="grid-container">
-
-            <div class="case-box" id="c1">
-                <h2><span class="icon">🏥</span>1. Multi-Hospital Network Planning</h2>
-                <p><strong>Business Context:</strong> Plan 2 super-specialty, 6 general hospitals, 18 PHCs.</p>
-                <p><strong>Algorithmic Need:</strong> K-Medoids / Facility Location.</p>
-                <p><strong>Outcome:</strong> Saved ₹1,200 crore.</p>
+            <div class="app-card reveal">
+                <h3>Web Development</h3>
+                <p>Search engines and recommendation systems use graph traversal, indexing, and dynamic programming to deliver fast results.</p>
             </div>
 
-            <div class="case-box" id="c2">
-                <h2><span class="icon">🚑</span>2. Ambulance Deployment Strategy</h2>
-                <p><strong>Business Context:</strong> 54 ambulances across traffic hotspots.</p>
-                <p><strong>Algorithmic Need:</strong> Dijkstra / A* + Greedy.</p>
-                <p><strong>Outcome:</strong> 16 → 7 minute response.</p>
+            <div class="app-card reveal">
+                <h3>Artificial Intelligence</h3>
+                <p>Machine learning and decision-making depend on optimization algorithms and dynamic programming strategies.</p>
             </div>
 
-            <div class="case-box" id="c3">
-                <h2><span class="icon">🚚</span>3. Medical Supply Chain</h2>
-                <p><strong>Business Context:</strong> Deliver medicines to 26 hospitals.</p>
-                <p><strong>Algorithmic Need:</strong> VRP + TSP Approx.</p>
-                <p><strong>Outcome:</strong> 32% fuel reduction.</p>
+            <div class="app-card reveal">
+                <h3>Networking</h3>
+                <p>Dijkstra’s and A* algorithms route data efficiently across networks, ensuring fast and reliable communication.</p>
             </div>
 
-            <div class="case-box" id="c4">
-                <h2><span class="icon">🦟</span>4. Dengue Hotspot Prediction</h2>
-                <p><strong>Business Context:</strong> Predict outbreaks using multi-factor datasets.</p>
-                <p><strong>Algorithmic Need:</strong> DBSCAN + Graph Spread.</p>
-                <p><strong>Outcome:</strong> 28% fewer cases.</p>
+            <div class="app-card reveal">
+                <h3>Big Data</h3>
+                <p>Sorting, searching, and hashing algorithms enable high-speed analysis of massive datasets.</p>
             </div>
 
-            <div class="case-box" id="c5">
-                <h2><span class="icon">💰</span>5. Budget Allocation (₹20,000 Cr)</h2>
-                <p><strong>Business Context:</strong> Trauma centers, PHCs, digital infra.</p>
-                <p><strong>Algorithmic Need:</strong> Knapsack + multi-objective.</p>
-                <p><strong>Outcome:</strong> 21% more coverage.</p>
+            <div class="app-card reveal">
+                <h3>Healthcare</h3>
+                <p>Genome sequencing, medical imaging, and large-scale healthcare analysis rely heavily on advanced algorithms.</p>
             </div>
 
-            <div class="case-box" id="c6">
-                <h2><span class="icon">📡</span>6. Telemedicine Expansion</h2>
-                <p><strong>Business Context:</strong> Digital clinics for rural villages.</p>
-                <p><strong>Algorithmic Need:</strong> MST + Flow networks.</p>
-                <p><strong>Outcome:</strong> 4× increase in access.</p>
+            <div class="app-card reveal">
+                <h3>Navigation Systems</h3>
+                <p>GPS and robotics apply pathfinding algorithms like A* for mapping, navigation, and obstacle avoidance.</p>
             </div>
 
-            <div class="case-box" id="c7">
-                <h2><span class="icon">👨‍⚕️</span>7. Workforce Scheduling</h2>
-                <p><strong>Business Context:</strong> 730 doctors, 2800 nurses, 1100 techs.</p>
-                <p><strong>Algorithmic Need:</strong> Hungarian Algorithm.</p>
-                <p><strong>Outcome:</strong> Shortage reduced to 4%.</p>
+            <div class="app-card reveal">
+                <h3>Cybersecurity</h3>
+                <p>Cryptographic algorithms protect sensitive information, secure communication, and authenticate users.</p>
             </div>
 
-            <div class="case-box" id="c8">
-                <h2><span class="icon">⏱️</span>8. Patient Flow Optimization</h2>
-                <p><strong>Business Context:</strong> OPD 2000/day.</p>
-                <p><strong>Algorithmic Need:</strong> SJF + Queue Theory.</p>
-                <p><strong>Outcome:</strong> Wait time → 55 mins.</p>
+            <div class="app-card reveal">
+                <h3>Social Media</h3>
+                <p>Graph theory and ML algorithms power recommendations, ranking systems, user connections, and engagement analysis.</p>
             </div>
 
-            <div class="case-box" id="c9">
-                <h2><span class="icon">💳</span>9. Smart Health Card</h2>
-                <p><strong>Business Context:</strong> Health card for 32 lakh users.</p>
-                <p><strong>Algorithmic Need:</strong> AVL Trees + Hashing.</p>
-                <p><strong>Outcome:</strong> 0.3 sec verification.</p>
-            </div>
         </div>
+    </section>
 
+    <!-- REVEAL ANIMATION SCRIPT -->
+    <script>
+        function revealCards() {
+            document.querySelectorAll('.reveal').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    card.classList.add('show');
+                }
+            });
+        }
 
-        <!-- ========= CENTERED LAST CASE ========= -->
-        <div class="case-box last-case" id="c10">
-            <h2><span class="icon">🛡️</span>10. Pandemic Preparedness</h2>
-            <p><strong>Business Context:</strong> ICU beds + oxygen planning.</p>
-            <p><strong>Algorithmic Need:</strong> Linear Programming + Dynamic Programming.</p>
-            <p><strong>Outcome:</strong> Region surge-ready in 22 days.</p>
-        </div>
-
-    </div>
+        window.addEventListener('scroll', revealCards);
+        window.addEventListener('load', revealCards);
+    </script>
 
 </body>
 </html>
+
