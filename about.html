@@ -3,39 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us – DAA Portfolio</title>
+<title>About Me – DAA Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
-    margin:0; padding-top:130px;
+    margin:0;
+    padding-top:130px; /* Prevent navbar overlap */
     background:linear-gradient(145deg,#000000,#0a1a3c);
-    color:white; font-family:'Poppins',sans-serif;
+    color:white;
+    font-family:'Poppins',sans-serif;
 }
+
+/* ---------- NAVBAR ---------- */
 .navbar {
-    position:fixed; top:0; width:100%;
-    display:flex; justify-content:space-between; align-items:center;
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    display:flex; justify-content:space-between;
+    align-items:center;
     background:rgba(15,23,42,0.9);
     padding:12px 30px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(8px);
+    z-index:1000;
 }
 .logo { height:85px; }
 
 .nav-right a {
-    margin-left:22px; text-decoration:none; color:#cbd5e1;
+    margin-left:22px;
+    text-decoration:none;
+    color:#cbd5e1;
+    font-weight:600;
 }
-.nav-right a:hover, .active { color:#60a5fa; }
+.nav-right a:hover,
+.nav-right .active {
+    color:#60a5fa;
+}
 
+/* ---------- CONTENT BOX ---------- */
 .box {
-    width:80%; margin:auto; background:rgba(255,255,255,0.06);
+    width:80%;
+    margin:auto;
+    margin-top:25px;
+    background:rgba(255,255,255,0.06);
+    padding:30px;
+    border-radius:12px;
     border:1px solid rgba(255,255,255,0.15);
-    padding:20px; border-radius:12px;
+    backdrop-filter:blur(6px);
+}
+
+.box h1 {
+    font-size:32px;
+    color:#60a5fa;
+    margin-bottom:15px;
+}
+
+.box p {
+    font-size:16px;
+    color:#d1d5db;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+/* ---------- MY PROFILE CARD ---------- */
+.profile-card {
+    width:50%;
+    margin:auto;
+    margin-top:30px;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.15);
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.profile-card:hover {
+    transform:translateY(-8px);
+    border-color:#60a5fa;
+}
+
+.profile-card .icon {
+    font-size:40px;
+    margin-bottom:10px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
     <img src="kle_tech.png" class="logo">
     <div class="nav-right">
@@ -47,14 +106,36 @@ body {
     </div>
 </nav>
 
+<!-- MAIN CONTENT -->
 <div class="box">
-    <h1>About Us</h1>
+    <h1>About Me</h1>
+
     <p>
-        We are a team of CSE students passionate about algorithms and their applications 
-        in solving realistic problems.
+        I am <strong>Akhil Teja K S</strong>, a Computer Science Engineering student with 
+        a strong interest in algorithms, optimization, real-world problem solving, and 
+        applying computational techniques to improve system efficiency.
     </p>
+
+    <p>
+        This DAA portfolio represents my work and understanding of algorithmic techniques, 
+        including graph algorithms, greedy strategies, dynamic programming, and 
+        advanced data structures. I applied these concepts to the domain of 
+        health and infrastructure, exploring how algorithms can optimize 
+        medical systems, emergency services, budget allocation, and city-wide planning.
+    </p>
+
+    <p>
+        Through this project, I developed analytical thinking, problem modeling skills, 
+        and the ability to design solutions that are both efficient and practical.
+    </p>
+
+    <div class="profile-card">
+        <div class="icon">🧑‍💻</div>
+        <strong>Akhil Teja K S</strong><br><br>
+        Roll Number: <strong>421</strong><br>
+        USN: <strong>01FE24BCS284</strong>
+    </div>
 </div>
 
 </body>
 </html>
-
