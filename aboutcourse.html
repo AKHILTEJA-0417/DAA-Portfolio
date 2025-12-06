@@ -16,7 +16,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* NAVBAR */
+/* ---------- NAVBAR ---------- */
 .navbar {
     position: fixed;
     top: 0; width: 100%;
@@ -35,43 +35,72 @@ body {
     text-decoration: none;
     color: #cbd5e1;
     font-weight: 600;
-    transition: 0.3s;
 }
 .nav-right a:hover,
 .nav-right .active {
     color: #60a5fa;
 }
 
-/* CONTENT BOX */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    background: rgba(255,255,255,0.06);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.15);
-}
-
-.container h1 {
+/* ---------- TITLE ---------- */
+.page-title {
+    text-align: center;
     font-size: 32px;
+    font-weight: 700;
     color: #60a5fa;
     margin-bottom: 20px;
 }
 
-.container h2 {
+/* ---------- 2×2 GRID ---------- */
+.grid-container {
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* ---------- GLASS CARD ---------- */
+.card-box {
+    background: rgba(255,255,255,0.06);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+}
+.card-box:hover {
+    transform: translateY(-8px);
+    border-color: #60a5fa;
+}
+
+.card-box h2 {
     font-size: 22px;
+    margin-bottom: 10px;
     color: #60a5fa;
-    margin-top: 28px;
 }
 
-.container p, .container li {
-    font-size: 16px;
+.card-box h2 .icon {
+    font-size: 26px;
+    margin-right: 8px;
+}
+
+.card-box ul {
+    margin-top: 10px;
+    padding-left: 18px;
+}
+
+.card-box li {
     color: #d1d5db;
+    font-size: 15px;
     line-height: 1.7;
+    margin-bottom: 6px;
 }
 
-ul {
-    padding-left: 20px;
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -90,71 +119,68 @@ ul {
     </div>
 </nav>
 
-<!-- MAIN CONTENT -->
-<div class="container">
-    <h1>About the Course – Design and Analysis of Algorithms</h1>
+<!-- PAGE TITLE -->
+<h1 class="page-title">About the Course – Design and Analysis of Algorithms</h1>
 
-    <p>
-        The Design and Analysis of Algorithms (DAA) course provides a strong foundation in understanding
-        how computational problems can be solved efficiently. It teaches structured approaches to 
-        algorithmic design, performance evaluation, and the application of algorithms to real-world 
-        engineering challenges.
-    </p>
+<!-- 2×2 GRID -->
+<div class="grid-container">
 
-    <h2>What This Course Covers</h2>
-    <ul>
-        <li>Foundations of algorithmic design</li>
-        <li>Time and space complexity analysis</li>
-        <li>Recurrence relations and asymptotic notation</li>
-        <li>Divide and conquer techniques</li>
-        <li>Dynamic programming</li>
-        <li>Greedy algorithms</li>
-        <li>Graph algorithms:
-            <ul>
-                <li>Dijkstra’s Algorithm</li>
-                <li>Bellman–Ford Algorithm</li>
-                <li>BFS (Breadth-First Search)</li>
-                <li>DFS (Depth-First Search)</li>
-                <li>MST (Minimum Spanning Tree – Prim’s & Kruskal’s Algorithms)</li>
-            </ul>
-        </li>
-        <li>Sorting and searching algorithms</li>
-        <li>Advanced data structures:
-            <ul>
-                <li>AVL Trees</li>
-                <li>Red–Black Trees</li>
-                <li>Fenwick Tree (Binary Indexed Tree)</li>
-                <li>Segment Tree</li>
-            </ul>
-        </li>
-    </ul>
+    <!-- BOX 1 -->
+    <div class="card-box">
+        <h2><span class="icon">📘</span>What This Course Covers</h2>
+        <ul>
+            <li>Foundations of algorithmic design</li>
+            <li>Time and space complexity analysis</li>
+            <li>Recurrence relations & asymptotic notation</li>
+            <li>Divide and conquer strategies</li>
+            <li>Dynamic programming</li>
+            <li>Greedy algorithms</li>
+            <li>Graph algorithms: Dijkstra, Bellman–Ford, BFS, DFS</li>
+            <li>MST (Minimum Spanning Tree — Prim’s & Kruskal’s)</li>
+            <li>Sorting & searching algorithms</li>
+            <li>Advanced structures: AVL, Red–Black, Fenwick, Segment Tree</li>
+        </ul>
+    </div>
 
-    <h2>Why This Course Matters</h2>
-    <p>
-        Algorithms form the backbone of every modern digital system. They help in optimizing complex 
-        tasks such as hospital planning, ambulance routing, supply chain management, network traffic 
-        control, artificial intelligence, and cybersecurity. The ability to analyze and design efficient 
-        algorithms ensures that systems are faster, scalable, and more resource-efficient.
-    </p>
+    <!-- BOX 2 -->
+    <div class="card-box">
+        <h2><span class="icon">💡</span>Why This Course Matters</h2>
+        <ul>
+            <li>Algorithms power real-world systems</li>
+            <li>Used in health infrastructure & hospital planning</li>
+            <li>Critical for ambulance routing & city navigation</li>
+            <li>Improves supply chain & resource allocation</li>
+            <li>Forms backbone of AI, ML & cybersecurity</li>
+            <li>Helps design scalable and efficient software systems</li>
+        </ul>
+    </div>
 
-    <h2>Learning Outcomes</h2>
-    <ul>
-        <li>Analyze algorithm performance using time and space complexity</li>
-        <li>Choose efficient strategies for solving computational problems</li>
-        <li>Apply graph- and tree-based models to real-world systems</li>
-        <li>Design optimized solutions using dynamic programming and greedy methods</li>
-        <li>Understand trade-offs in algorithm design (speed, memory, accuracy)</li>
-        <li>Model real-world problems in domains like healthcare, logistics, and communication networks</li>
-    </ul>
+    <!-- BOX 3 -->
+    <div class="card-box">
+        <h2><span class="icon">🎯</span>Learning Outcomes</h2>
+        <ul>
+            <li>Analyze algorithms with time/space complexity</li>
+            <li>Select optimal strategies for different problems</li>
+            <li>Model real systems using graphs & trees</li>
+            <li>Use dynamic programming & greedy methods effectively</li>
+            <li>Understand algorithm trade-offs: speed vs memory</li>
+            <li>Apply algorithmic thinking to real-world domains</li>
+        </ul>
+    </div>
 
-    <h2>Skills Gained</h2>
-    <ul>
-        <li>Efficient computational thinking</li>
-        <li>Logical and mathematical reasoning</li>
-        <li>Optimization and problem decomposition</li>
-        <li>Real-world system modeling using graphs and trees</li>
-        <li>Understanding and implementing advanced data structures</li>
-    </ul>
+    <!-- BOX 4 -->
+    <div class="card-box">
+        <h2><span class="icon">🧠</span>Skills Gained</h2>
+        <ul>
+            <li>Efficient computational thinking</li>
+            <li>Strong analytical & logical reasoning</li>
+            <li>Optimization and problem decomposition skills</li>
+            <li>Advanced understanding of data structures</li>
+            <li>Ability to design scalable, efficient solutions</li>
+            <li>Real-world system modeling expertise</li>
+        </ul>
+    </div>
+
 </div>
 
 </body>
