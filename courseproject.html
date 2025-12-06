@@ -1,1 +1,184 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Project – DAA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR (same as other pages) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">DAA Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="coursereflection.html">Course Reflection</a></li>
+                <li><a class="active" href="courseproject.html">Course Project</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <section class="container">
+        <h1 class="section-title">Course Project: Health & Infrastructure Case Studies</h1>
+        <p class="page-desc">
+            Below are 10 realistic business case studies developed using advanced 
+            Design and Analysis of Algorithm techniques applied to a 
+            <strong>150 sq km region</strong> with a <strong>₹20,000 Crore</strong> planning budget.
+        </p>
+
+        <!-- ======================= CASE STUDY 1 ======================= -->
+        <div class="case-box">
+            <h2>1. Multi-Hospital Network Planning for a Tier-2 City</h2>
+            <p><strong>Business Context:</strong>  
+                A metropolitan development authority plans a 3-tier hospital system:
+                2 super-specialty hospitals, 6 general hospitals, 18 PHCs.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                Location Allocation using Facility Location / K-Medoids.
+            </p>
+            <p><strong>Outcome:</strong>  
+                Saved ₹1,200 crore in land acquisition. Ensured 95% people reach hospitals within 20 minutes.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 2 ======================= -->
+        <div class="case-box">
+            <h2>2. Ambulance Deployment Strategy for Emergency Response</h2>
+            <p><strong>Business Context:</strong>  
+                54 ambulances deployed across traffic-dense areas (IT corridor, market areas, ORR).
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                Dijkstra / A* for fastest routes, Greedy for selecting 14 standby points.
+            </p>
+            <p><strong>Outcome:</strong>  
+                Reduced average response time from 16 → 7 minutes. Annual fuel cost down 18%.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 3 ======================= -->
+        <div class="case-box">
+            <h2>3. Medical Supply Chain Revamp for Government Hospitals</h2>
+            <p><strong>Business Context:</strong>  
+                Distribution of drugs, vaccines, dialysis consumables to 26 facilities.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                TSP Approximation + Vehicle Routing Problem.
+            </p>
+            <p><strong>Outcome:</strong>  
+                32% reduction in fuel usage. Stockout reduced from 21% → 3%.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 4 ======================= -->
+        <div class="case-box">
+            <h2>4. Predictive Hotspot Identification for Dengue Control</h2>
+            <p><strong>Business Context:</strong>  
+                Prediction using rainfall, complaints, water stagnation, and hospital data.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                DBSCAN clustering + Graph propagation modeling.
+            </p>
+            <p><strong>Outcome:</strong>  
+                28% reduction in Dengue cases after proactive fogging.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 5 ======================= -->
+        <div class="case-box">
+            <h2>5. Budget Allocation Plan for ₹20,000 Crore Health Infra</h2>
+            <p><strong>Business Context:</strong>  
+                Projects: Trauma centers, PHCs, staff training, digital health systems.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                0/1 Knapsack + Multi-objective Optimization.
+            </p>
+            <p><strong>Outcome:</strong>  
+                21% more patient coverage within same budget. Avoided ₹1,800 crore redundant works.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 6 ======================= -->
+        <div class="case-box">
+            <h2>6. Telemedicine Expansion to Rural Fringes</h2>
+            <p><strong>Business Context:</strong>  
+                7 villages integrated using 4 digital clinics with hybrid 5G-fiber network.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                MST for fiber network + Network Flow for stable video connectivity.
+            </p>
+            <p><strong>Outcome:</strong>  
+                Remote consultation access increased 4×. Travel reduced by 63%.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 7 ======================= -->
+        <div class="case-box">
+            <h2>7. Healthcare Workforce Scheduling Across 26 Facilities</h2>
+            <p><strong>Business Context:</strong>  
+                730 doctors, 2,800 nurses, 1,100 technicians — shortage during peak days.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                Hungarian Algorithm + Greedy Constraint Scheduling.
+            </p>
+            <p><strong>Outcome:</strong>  
+                Shortage reduced from 17% → 4%. Saved ₹38 crore per year.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 8 ======================= -->
+        <div class="case-box">
+            <h2>8. Hospital Patient Flow Optimization</h2>
+            <p><strong>Business Context:</strong>  
+                OPD: 2,000/day, Diagnostics: 600/day, 3+ hour delays.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                Queue Models + Shortest-Job-First + internal graph routing.
+            </p>
+            <p><strong>Outcome:</strong>  
+                OPD time reduced to 55 mins. Lab time reduced by 41%.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 9 ======================= -->
+        <div class="case-box">
+            <h2>9. Smart Health Card & Data Retrieval System</h2>
+            <p><strong>Business Context:</strong>  
+                Unified health record for 32 lakh citizens.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                Hashing + AVL Trees + Encryption.
+            </p>
+            <p><strong>Outcome:</strong>  
+                Auth speed: 0.3 sec. Duplicate records reduced by 26%.
+            </p>
+        </div>
+
+        <!-- ======================= CASE STUDY 10 ======================= -->
+        <div class="case-box">
+            <h2>10. Pandemic Preparedness: ICU Bed & Oxygen Planning</h2>
+            <p><strong>Business Context:</strong>  
+                Planning 1,800 ICU beds, 4 oxygen plants, temporary facilities.
+            </p>
+            <p><strong>Algorithmic Need:</strong>  
+                Linear Programming + Dynamic Programming.
+            </p>
+            <p><strong>Outcome:</strong>  
+                Surge-ready within 22 days. Oxygen shortage risk ↓ 87%.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER (same as your other pages) -->
+    <footer>
+        <p>&copy; 2025 DAA Portfolio – Health & Infrastructure</p>
+    </footer>
+
+</body>
+</html>
