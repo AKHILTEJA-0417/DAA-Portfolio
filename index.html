@@ -12,7 +12,7 @@
         /* -------- BODY -------- */
         body {
             margin: 0;
-            padding-top: 130px; /* ⭐ Adds space so navbar doesn’t overlap */
+            padding-top: 130px; /* Adds space so navbar doesn’t overlap */
             background: linear-gradient(145deg, #000000, #0a1a3c);
             color: white;
             font-family: 'Poppins', sans-serif;
@@ -21,7 +21,7 @@
         /* -------- NAVBAR -------- */
         .navbar {
             position: fixed;
-            top: 0;                     /* ⭐ Always stays at top */
+            top: 0;                     /* Always stays at top */
             left: 0;
             width: 100%;
             display: flex;
@@ -31,10 +31,10 @@
             padding: 12px 30px;
             border-bottom: 1px solid rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
-            z-index: 1000;              /* ⭐ Always on top */
+            z-index: 1000;              /* Always on top */
         }
 
-        /* ⭐ Bigger Logo */
+        /* Bigger Logo */
         .logo {
             height: 85px;
             width: auto;
@@ -52,12 +52,17 @@
             color: #60a5fa;
         }
 
+        /* Active link (Home) */
+        .nav-right .active {
+            color: #60a5fa;
+        }
+
         /* -------- HERO -------- */
         .hero-container {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 40px 8% 50px; /* ⭐ No overlapping with navbar */
+            padding: 40px 8% 50px;
             gap: 40px;
         }
 
@@ -152,10 +157,10 @@
         <img src="kle_tech.png" class="logo">
 
         <div class="nav-right">
-            <a href="index.html" style="color:#60a5fa;">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="aboutcourse.html">About Course</a>
             <a href="Reflection.html">Course Reflection</a>
-            <a href="Project.html">Course Project</a>
+            <a href="courseproject.html">Course Project</a>
             <a href="Us.html">About Us</a>
         </div>
     </nav>
@@ -171,12 +176,10 @@
             <div class="intuition-box">
                 <h2>How Intuitive Thinking Solves Real-World Problems</h2>
                 <p>
-                    Intuitive thinking helps us solve real-world problems by quickly identifying 
-                    patterns, simplifying complex situations, and making effective decisions 
-                    without overanalyzing. It enables us to break complex challenges into simple 
-                    steps, connect ideas instantly, and find innovative solutions. In engineering 
-                    and algorithm design, intuition guides faster, smarter, and more creative 
-                    problem-solving.
+                    Intuitive thinking helps us analyze complex problems quickly by recognizing 
+                    patterns, making logical connections, and simplifying challenges into clear 
+                    steps. In engineering and algorithm design, intuition guides faster, smarter, 
+                    and more efficient problem-solving strategies.
                 </p>
             </div>
         </div>
@@ -205,4 +208,3 @@
 
 </body>
 </html>
-
