@@ -3,311 +3,701 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Course Project – DAA Portfolio</title>
+    <title>Course Project - Prithvi Lok Health Infrastructure</title>
 
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <!-- Icons (optional, for button icon) -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
     <style>
-        body {
+        /* ---------- RESET ---------- */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding-top: 130px;
-            background: linear-gradient(145deg, #000000, #0a1a3c);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
+            padding: 0;
         }
 
-        /* NAVBAR */
+        /* ---------- BODY ---------- */
+        body {
+            margin: 0;
+            padding-top: 130px; /* space for fixed navbar */
+            background: radial-gradient(circle at top left, #020617 0, #020617 30%, #000000 100%);
+            color: #e5e7eb;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* ---------- NAVBAR (same style family as index.html) ---------- */
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.96);
             padding: 12px 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
         .logo {
-            height: 85px;
+            height: 70px;
+            width: auto;
         }
 
         .nav-right a {
-            margin-left: 22px;
+            margin-left: 18px;
             text-decoration: none;
             color: #cbd5e1;
             font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
             transition: 0.3s;
         }
 
-        .nav-right .active,
         .nav-right a:hover {
             color: #60a5fa;
         }
 
-        /* ===== LEFT SIDEBAR TOC ===== */
-        .sidebar {
-            position: fixed;
-            top: 130px;
-            left: 0;
-            width: 250px;
-            background: rgba(255,255,255,0.07);
-            border-right: 1px solid rgba(255,255,255,0.15);
-            height: 100%;
-            padding: 20px;
-            overflow-y: auto;
-            backdrop-filter: blur(6px);
+        .nav-right a.active {
+            color: #38bdf8;
+            border-bottom: 2px solid #38bdf8;
+            padding-bottom: 4px;
         }
 
-        .sidebar h3 {
-            margin-bottom: 15px;
-            color: #60a5fa;
-            font-size: 20px;
-            text-align: center;
+        /* ---------- PAGE WRAPPER ---------- */
+        .page-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 18px 60px;
         }
 
-        .sidebar a {
-            display: block;
-            padding: 8px;
-            margin-bottom: 6px;
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 15px;
-            border-radius: 6px;
-            transition: 0.3s;
+        /* ---------- HEADER / INTRO ---------- */
+        .project-header {
+            background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.8));
+            border-radius: 20px;
+            border: 1px solid rgba(148,163,184,0.5);
+            padding: 26px 22px;
+            box-shadow:
+                0 0 40px rgba(15,23,42,0.9),
+                0 0 30px rgba(56,189,248,0.3);
+            margin-bottom: 30px;
         }
 
-        .sidebar a:hover {
-            background: rgba(255,255,255,0.12);
-            color: #60a5fa;
-        }
-
-        /* MAIN CONTENT AREA */
-        .main-content {
-            margin-left: 270px;
-            flex: 1;
-            padding-bottom: 50px;
-        }
-
-        .page-title {
-            text-align: center;
-            font-size: 34px;
+        .project-title-main {
+            font-size: 22px;
             font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #e5e7eb;
+        }
+
+        .project-title-sub {
+            margin-top: 8px;
+            font-size: 16px;
+            color: #93c5fd;
+            font-weight: 500;
+        }
+
+        .project-meta-block {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .meta-pill {
+            background: rgba(15,23,42,0.9);
+            border-radius: 999px;
+            padding: 6px 12px;
+            border: 1px solid rgba(148,163,184,0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .meta-label {
+            text-transform: uppercase;
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        .meta-value {
+            font-weight: 500;
+            color: #e5e7eb;
+        }
+
+        .project-description {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* ---------- GRID OF CASE STUDIES ---------- */
+        .section-heading {
+            margin-top: 10px;
+            margin-bottom: 14px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #60a5fa;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+        }
+
+        .case-card {
+            background: radial-gradient(circle at top left, rgba(30,64,175,0.25), rgba(15,23,42,0.98));
+            border-radius: 18px;
+            border: 1px solid rgba(148,163,184,0.5);
+            padding: 18px 16px 16px;
+            box-shadow:
+                0 16px 30px rgba(15,23,42,0.9),
+                0 0 18px rgba(59,130,246,0.5);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 22px 40px rgba(15,23,42,0.98),
+                0 0 26px rgba(56,189,248,0.9);
+            border-color: #38bdf8;
+        }
+
+        .case-index {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 4px;
+        }
+
+        .case-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f9fafb;
             margin-bottom: 8px;
         }
 
-        .subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #94a3b8;
-            margin-bottom: 40px;
-        }
-
-        /* GRID LAYOUT */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            width: 90%;
-            margin: 0 auto;
-        }
-
-        /* CASE BOX STYLE */
-        .case-box {
-            background: rgba(255,255,255,0.06);
-            padding: 22px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.15);
-            transition: 0.3s;
-            scroll-margin-top: 150px;
-        }
-
-        .case-box:hover {
-            transform: translateY(-8px);
-            border-color: #60a5fa;
-        }
-
-        .case-box h2 {
-            font-size: 20px;
-            color: #60a5fa;
-            margin-bottom: 10px;
-        }
-
-        .case-box .icon {
-            font-size: 23px;
-            margin-right: 10px;
-        }
-
-        .case-box p {
-            color: #d1d5db;
-            font-size: 15px;
-            line-height: 1.6;
+        .case-field {
+            font-size: 13px;
             margin-bottom: 6px;
+            line-height: 1.5;
         }
 
-        /* LAST CASE CENTERED */
-        .last-case {
-            width: 45%;
-            margin: 40px auto;
+        .case-field strong {
+            color: #93c5fd;
+            font-weight: 600;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .sidebar {
-                width: 200px;
-            }
-            .main-content {
-                margin-left: 220px;
-            }
+        .case-field span {
+            color: #e5e7eb;
+        }
+
+        .view-code-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(56,189,248,0.8);
+            background: radial-gradient(circle at top left, #0f172a, #020617);
+            color: #e5e7eb;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            gap: 6px;
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .view-code-btn i {
+            font-size: 12px;
+        }
+
+        .view-code-btn:hover {
+            background: linear-gradient(to right, #38bdf8, #6366f1);
+            color: #020617;
+            box-shadow: 0 0 20px rgba(56,189,248,0.9);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 600px) {
-            body {
-                flex-direction: column;
+            .project-title-main {
+                font-size: 18px;
             }
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.15);
-            }
-            .main-content {
-                margin-left: 0;
-            }
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .last-case {
-                width: 85%;
+            .project-title-sub {
+                font-size: 14px;
             }
         }
     </style>
 </head>
-
 <body>
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <img src="kle_tech.png" class="logo">
+        <img src="kle_tech.png" class="logo" alt="KLE Tech Logo">
 
         <div class="nav-right">
             <a href="index.html">Home</a>
             <a href="aboutcourse.html">About Course</a>
-            <a href="Reflection.html">Course Reflection</a>
-            <a class="active" href="courseproject.html">Course Project</a>
-            <a href="Us.html">About Us</a>
+            <a href="coursereflection.html">Course Reflection</a>
+            <a href="courseproject.html" class="active">Course Project</a>
+            <a href="about.html">About Us</a>
         </div>
     </nav>
 
+    <!-- PAGE CONTENT -->
+    <div class="page-wrap">
 
-    <!-- ========== LEFT SIDEBAR TOC ========== -->
-    <div class="sidebar">
-        <h3>Case Studies</h3>
-
-        <a href="#c1">🏥 1. Hospital Network</a>
-        <a href="#c2">🚑 2. Ambulance Deployment</a>
-        <a href="#c3">🚚 3. Supply Chain</a>
-        <a href="#c4">🦟 4. Dengue Prediction</a>
-        <a href="#c5">💰 5. Budget Allocation</a>
-        <a href="#c6">📡 6. Telemedicine</a>
-        <a href="#c7">👨‍⚕️ 7. Workforce</a>
-        <a href="#c8">⏱️ 8. Patient Flow</a>
-        <a href="#c9">💳 9. Smart Health Card</a>
-        <a href="#c10">🛡️ 10. Pandemic Prep</a>
-    </div>
-
-
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-
-        <h1 class="page-title">DAA Course Project</h1>
-        <p class="subtitle">Health & Infrastructure – 10 Case Studies</p>
-
-
-        <!-- ========== 3×3 GRID ========== -->
-        <div class="grid-container">
-
-            <div class="case-box" id="c1">
-                <h2><span class="icon">🏥</span>1. Multi-Hospital Network Planning</h2>
-                <p><strong>Business Context:</strong> Plan 2 super-specialty, 6 general hospitals, 18 PHCs.</p>
-                <p><strong>Algorithmic Need:</strong> K-Medoids / Facility Location.</p>
-                <p><strong>Outcome:</strong> Saved ₹1,200 crore.</p>
+        <!-- HEADER / INTRO BLOCK -->
+        <section class="project-header">
+            <div class="project-title-main">DESIGN AND ANALYSIS OF ALGORITHMS</div>
+            <div class="project-title-sub">
+                Health & Infrastructure – Business Case Studies for the City of “Prithvi Lok”
             </div>
 
-            <div class="case-box" id="c2">
-                <h2><span class="icon">🚑</span>2. Ambulance Deployment Strategy</h2>
-                <p><strong>Business Context:</strong> 54 ambulances across traffic hotspots.</p>
-                <p><strong>Algorithmic Need:</strong> Dijkstra / A* + Greedy.</p>
-                <p><strong>Outcome:</strong> 16 → 7 minute response.</p>
+            <div class="project-meta-block">
+                <div class="meta-pill">
+                    <span class="meta-label">Region</span>
+                    <span class="meta-value">150 sq km (Prithvi Lok Urban Region)</span>
+                </div>
+                <div class="meta-pill">
+                    <span class="meta-label">Budget</span>
+                    <span class="meta-value">₹20,000 crore (Multi-year plan)</span>
+                </div>
+                <div class="meta-pill">
+                    <span class="meta-label">Theme</span>
+                    <span class="meta-value">Smart Health Infrastructure & City-wide Optimization</span>
+                </div>
+                <div class="meta-pill">
+                    <span class="meta-label">Focus</span>
+                    <span class="meta-value">Realistic use of advanced algorithms & data structures</span>
+                </div>
             </div>
 
-            <div class="case-box" id="c3">
-                <h2><span class="icon">🚚</span>3. Medical Supply Chain</h2>
-                <p><strong>Business Context:</strong> Deliver medicines to 26 hospitals.</p>
-                <p><strong>Algorithmic Need:</strong> VRP + TSP Approx.</p>
-                <p><strong>Outcome:</strong> 32% fuel reduction.</p>
-            </div>
+            <p class="project-description">
+                The fictional city <strong>Prithvi Lok</strong> is a 150 sq km tier-2 urban region with mixed
+                residential, industrial, and peri-urban zones. With a planned health-infrastructure budget of
+                <strong>₹20,000 crore</strong>, the city aims to reduce emergency response time, improve hospital
+                connectivity, digitize health records, and ensure equitable access to services. Below are
+                <strong>10 realistic business case studies</strong> where advanced algorithms and data structures
+                (Heap, Segment Tree, Fenwick Tree, Hash Tables, Trie, BST, Red-Black Tree, DFS/BFS, MST (Kruskal),
+                Bellman–Ford, Dijkstra, Floyd) are applied to solve real-world problems.
+            </p>
+        </section>
 
-            <div class="case-box" id="c4">
-                <h2><span class="icon">🦟</span>4. Dengue Hotspot Prediction</h2>
-                <p><strong>Business Context:</strong> Predict outbreaks using multi-factor datasets.</p>
-                <p><strong>Algorithmic Need:</strong> DBSCAN + Graph Spread.</p>
-                <p><strong>Outcome:</strong> 28% fewer cases.</p>
-            </div>
+        <!-- CASE STUDY CARDS -->
+        <h2 class="section-heading">Business Case Studies – Prithvi Lok</h2>
 
-            <div class="case-box" id="c5">
-                <h2><span class="icon">💰</span>5. Budget Allocation (₹20,000 Cr)</h2>
-                <p><strong>Business Context:</strong> Trauma centers, PHCs, digital infra.</p>
-                <p><strong>Algorithmic Need:</strong> Knapsack + multi-objective.</p>
-                <p><strong>Outcome:</strong> 21% more coverage.</p>
-            </div>
+        <section class="card-grid">
 
-            <div class="case-box" id="c6">
-                <h2><span class="icon">📡</span>6. Telemedicine Expansion</h2>
-                <p><strong>Business Context:</strong> Digital clinics for rural villages.</p>
-                <p><strong>Algorithmic Need:</strong> MST + Flow networks.</p>
-                <p><strong>Outcome:</strong> 4× increase in access.</p>
-            </div>
+            <!-- 1 -->
+            <article class="case-card">
+                <div class="case-index">CASE 01</div>
+                <h3 class="case-title">Emergency Ambulance Routing & Coverage</h3>
 
-            <div class="case-box" id="c7">
-                <h2><span class="icon">👨‍⚕️</span>7. Workforce Scheduling</h2>
-                <p><strong>Business Context:</strong> 730 doctors, 2800 nurses, 1100 techs.</p>
-                <p><strong>Algorithmic Need:</strong> Hungarian Algorithm.</p>
-                <p><strong>Outcome:</strong> Shortage reduced to 4%.</p>
-            </div>
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Reduce average ambulance response time across Prithvi Lok from 15 minutes to under 8 minutes,
+                    considering traffic congestion and multiple hospital choices.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Dijkstra’s Algorithm</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Min-Heap (priority queue), adjacency list representation of road graph</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Compute fastest time routes from ambulance hubs to all key localities and precompute
+                    “nearest hospital by travel time” for each ward.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Time: O(E log V) for each run; with precomputation from hub locations, routing becomes
+                    real-time for emergencies.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3 (Good Health), SDG 11 (Sustainable Cities) – Response time reduced by ~45%, saving
+                    critical-care patients and improving trust in public health services.</span>
+                </p>
 
-            <div class="case-box" id="c8">
-                <h2><span class="icon">⏱️</span>8. Patient Flow Optimization</h2>
-                <p><strong>Business Context:</strong> OPD 2000/day.</p>
-                <p><strong>Algorithmic Need:</strong> SJF + Queue Theory.</p>
-                <p><strong>Outcome:</strong> Wait time → 55 mins.</p>
-            </div>
+                <a href="case1.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
 
-            <div class="case-box" id="c9">
-                <h2><span class="icon">💳</span>9. Smart Health Card</h2>
-                <p><strong>Business Context:</strong> Health card for 32 lakh users.</p>
-                <p><strong>Algorithmic Need:</strong> AVL Trees + Hashing.</p>
-                <p><strong>Outcome:</strong> 0.3 sec verification.</p>
-            </div>
-        </div>
+            <!-- 2 -->
+            <article class="case-card">
+                <div class="case-index">CASE 02</div>
+                <h3 class="case-title">City-Wide Oxygen & Utility Network Planning</h3>
 
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Design a cost-effective pipeline and utility network connecting oxygen plants to major hospitals
+                    and COVID-ready centers within the 150 sq km area.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Minimum Spanning Tree (Kruskal’s)</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Disjoint Set (for Kruskal’s), edge list, Red-Black Tree (for maintaining sorted edges / cost buckets)</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Build a minimum cost connection network ensuring all critical facilities are connected to
+                    oxygen supply with redundancy where needed.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Time: O(E log E); reduces redundant pipeline length and construction cost.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3, SDG 9 (Industry, Innovation) – Infrastructure cost cut by ~20%, while ensuring
+                    uninterrupted supply to ICUs during peak demand.</span>
+                </p>
 
-        <!-- ========= CENTERED LAST CASE ========= -->
-        <div class="case-box last-case" id="c10">
-            <h2><span class="icon">🛡️</span>10. Pandemic Preparedness</h2>
-            <p><strong>Business Context:</strong> ICU beds + oxygen planning.</p>
-            <p><strong>Algorithmic Need:</strong> Linear Programming + Dynamic Programming.</p>
-            <p><strong>Outcome:</strong> Region surge-ready in 22 days.</p>
-        </div>
+                <a href="case2.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
 
+            <!-- 3 -->
+            <article class="case-card">
+                <div class="case-index">CASE 03</div>
+                <h3 class="case-title">Affordable Transit for Hospital Access</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Design a subsidy model for public transport routes that connect low-income neighborhoods
+                    to tertiary hospitals, where some routes have negative “cost” (subsidies).</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Bellman–Ford</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Edge list for bus corridors, Hash Table for storing fare rules and patient-category discounts</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Compute minimum travel cost including subsidies and ensure there are no harmful negative cycles
+                    in the pricing model.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Time: O(V · E). Run daily/weekly for pricing updates; acceptable for city-scale graph sizes.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 1 (No Poverty), SDG 3 – Travel cost to hospitals drops significantly for vulnerable groups,
+                    improving treatment adherence.</span>
+                </p>
+
+                <a href="case3.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+            <!-- 4 -->
+            <article class="case-card">
+                <div class="case-index">CASE 04</div>
+                <h3 class="case-title">Real-Time Hospital Bed & ICU Capacity Dashboard</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Central command center must answer queries such as “ICU beds free in Zone-3 between 6–9 PM”
+                    quickly for 26+ hospitals.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Segment Tree, Fenwick Tree (Binary Indexed Tree)</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Segment Tree over time slots and hospitals, Fenwick Tree for incremental updates</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Support fast range queries (sum / min capacity) and updates (admission or discharge) over time
+                    and geography.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Time: O(log N) per update and query, enabling near real-time dashboards even under heavy load.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3 – Better load balancing across hospitals, fewer rejections due to “No Bed” situation,
+                    optimal use of existing infrastructure.</span>
+                </p>
+
+                <a href="case4.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+            <!-- 5 -->
+            <article class="case-card">
+                <div class="case-index">CASE 05</div>
+                <h3 class="case-title">Unified Smart Health Card & Record Lookup</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Prithvi Lok wants a single digital health ID for every citizen to access records from any
+                    hospital instantly and reduce duplicate registrations.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Hash-based lookup schemes</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Hash Tables (for patient IDs → records), Red-Black Tree (for indexing by time / priority)</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Enable O(1) average-time search for patient profiles and maintain ordered views (by last visit,
+                    severity) using a balanced tree.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Hash Table: Average O(1) insert/search; Red-Black Tree: O(log N) ordered operations.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3, SDG 9 – Reduced duplicate records, faster registration, and more accurate patient history
+                    at point of care.</span>
+                </p>
+
+                <a href="case5.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+            <!-- 6 -->
+            <article class="case-card">
+                <div class="case-index">CASE 06</div>
+                <h3 class="case-title">Medicine & Diagnostic Search in City e-Health Portal</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Citizens need to quickly find availability of medicines, lab tests, and departments
+                    across multiple hospitals using keyword or prefix search.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Trie-based prefix search</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Trie (Prefix Tree), Hash Tables for mapping hospital IDs and pricing info</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Enable auto-complete search (“dia…”, “cardio…”) and instant mapping to facilities that offer
+                    those services.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Time: O(L) per query where L is length of search string, independent of number of entries.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3, SDG 10 (Reduced Inequalities) – Better information access for all citizens, minimizing
+                    “information gap” between rich and poor neighborhoods.</span>
+                </p>
+
+                <a href="case6.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+            <!-- 7 -->
+            <article class="case-card">
+                <div class="case-index">CASE 07</div>
+                <h3 class="case-title">Prioritization of Health Infrastructure Projects</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Select which hospitals, PHCs, and telemedicine centers to build first under the fixed
+                    ₹20,000 crore budget, considering benefit scores and urgency.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>BST-based priority ordering, Red-Black Tree for balanced scheduling</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Binary Search Tree / Red-Black Tree keyed by a composite score (coverage, cost, urgency)</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Maintain a dynamically changing priority list of projects as new data (population growth,
+                    disease hotspots) is added.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>O(log N) insertion, deletion, and re-prioritization, supporting continuous planning cycles.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3, SDG 11 – Ensures that the most impactful projects are funded and executed first,
+                    maximizing health coverage per rupee spent.</span>
+                </p>
+
+                <a href="case7.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+            <!-- 8 -->
+            <article class="case-card">
+                <div class="case-index">CASE 08</div>
+                <h3 class="case-title">Surgery & Diagnostic Scheduling in Major Hospitals</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Large hospitals in Prithvi Lok must schedule surgeries and diagnostics based on urgency,
+                    resource availability, and patient condition.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Heap-based priority scheduling</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Binary Heap (min-heap / max-heap), possibly Fenwick Tree for tracking daily slot usage</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Always process the highest priority patient next while keeping utilization of operation
+                    theatres and labs high.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Insert / extract: O(log N). Supports frequent updates due to emergencies and cancellations.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3 – Reduced waiting time for critical cases, more predictable schedules for elective cases.</span>
+                </p>
+
+                <a href="case8.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+            <!-- 9 -->
+            <article class="case-card">
+                <div class="case-index">CASE 09</div>
+                <h3 class="case-title">Disease Spread Analysis Across Wards</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>Understand how a contagious disease (like dengue or flu) spreads between wards, slums, and
+                    peri-urban villages of Prithvi Lok.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>DFS + BFS over contact and mobility graphs</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>Graph adjacency lists, Hash Tables for ward attributes and case counts</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Identify connected components, high-risk clusters, and shortest infection paths for targeted
+                    interventions like fogging or vaccination camps.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Time: O(V + E) per traversal; scalable for city-sized networks.</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3, SDG 11 – Early hotspot identification leads to targeted, cheaper, and more effective
+                    control strategies.</span>
+                </p>
+
+                <a href="case9.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+            <!-- 10 -->
+            <article class="case-card">
+                <div class="case-index">CASE 10</div>
+                <h3 class="case-title">All-Pairs Travel Time Matrix for Health Facilities</h3>
+
+                <p class="case-field">
+                    <strong>Problem / Business Case:</strong>
+                    <span>City planners need a matrix of travel times between all major hospitals, PHCs, and
+                    ambulance hubs for referral policies and capacity planning.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Algorithms:</strong>
+                    <span>Floyd (Floyd–Warshall) All-Pairs Shortest Paths</span>
+                </p>
+                <p class="case-field">
+                    <strong>Data Structures:</strong>
+                    <span>2D matrix of size N × N for facilities, Hash Table for mapping facility names to indices</span>
+                </p>
+                <p class="case-field">
+                    <strong>Purpose:</strong>
+                    <span>Precompute minimum travel time between every pair of facilities to design referral chains
+                    and diversion rules when some hospitals are overloaded.</span>
+                </p>
+                <p class="case-field">
+                    <strong>Efficiency:</strong>
+                    <span>Time: O(N³). Suitable because N (number of main facilities) is moderate (e.g., 30–50).</span>
+                </p>
+                <p class="case-field">
+                    <strong>SDGs and Outcome:</strong>
+                    <span>SDG 3, SDG 9 – Supports strategic planning of hub-and-spoke models, improving regional
+                    accessibility within the 150 sq km area.</span>
+                </p>
+
+                <a href="case10.html" class="view-code-btn">
+                    <i class="fa-solid fa-code"></i> View Code
+                </a>
+            </article>
+
+        </section>
     </div>
 
 </body>
