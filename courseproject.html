@@ -1,336 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Course Project – Business Case Studies</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <title>Course Project – Prithvi Lok Smart Health & Infrastructure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Poppins, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-    }
+    <style>
+        :root {
+            --bg-main: #020617;
+            --bg-card: rgba(15,23,42,0.92);
+            --bg-card-soft: rgba(15,23,42,0.82);
+            --accent: #38bdf8;
+            --accent-soft: rgba(56,189,248,0.2);
+            --accent-strong: #22c55e;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border-subtle: rgba(148,163,184,0.5);
+        }
 
-    .container {
-      max-width: 1250px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Page Header */
-    .page-title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 30px;
-      color: #38bdf8;
-      letter-spacing: 2px;
-    }
+        body {
+            margin: 0;
+            padding-top: 110px;
+            background: radial-gradient(circle at top, #1e293b 0, #020617 40%, #000000 100%);
+            font-family: "Poppins", sans-serif;
+            color: var(--text-main);
+        }
 
-    /* Card Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
+        /* NAVBAR (same style family as index) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15,23,42,0.95);
+            border-bottom: 1px solid rgba(148,163,184,0.4);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
 
-    @media(max-width: 850px){
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
+        .logo {
+            height: 70px;
+            width: auto;
+        }
 
-    /* Cards */
-    .card {
-      background: rgba(30,41,59,0.7);
-      border: 1px solid rgba(148,163,184,0.25);
-      border-radius: 18px;
-      padding: 24px;
-      backdrop-filter: blur(6px);
-      transition: 0.3s ease;
-    }
+        .nav-right a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.25s ease;
+        }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 25px rgba(56,189,248,0.25);
-    }
+        .nav-right a:hover {
+            color: var(--accent);
+        }
 
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #f8fafc;
-    }
+        .nav-right .active {
+            color: var(--accent);
+        }
 
-    .tag {
-      padding: 6px 12px;
-      background: #1e293b;
-      border-left: 3px solid #38bdf8;
-      border-radius: 6px;
-      font-size: 13px;
-      margin: 6px 0;
-    }
+        /* PAGE WRAPPER */
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 18px 40px;
+        }
 
-    .section-title {
-      margin-top: 12px;
-      font-weight: 600;
-      color: #38bdf8;
-      font-size: 14px;
-    }
+        /* HERO / INTRO */
+        .hero-box {
+            background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.8));
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+            padding: 22px 20px 20px;
+            box-shadow:
+                0 0 40px rgba(15,23,42,0.9),
+                0 0 40px rgba(56,189,248,0.25);
+            margin-bottom: 26px;
+        }
 
-    /* Button */
-    .btn {
-      margin-top: 14px;
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      background: #38bdf8;
-      color: #0f172a;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.25s ease;
-    }
+        .hero-heading {
+            font-size: 24px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
 
-    .btn:hover {
-      background: #7dd3fc;
-    }
-  </style>
+        .hero-subheading {
+            margin-top: 6px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        .hero-divider {
+            margin: 14px 0 14px;
+            height: 2px;
+            width: 120px;
+            border-radius: 999px;
+            background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
+        }
+
+        .constraints-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .pill {
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            border: 1px solid var(--border-subtle);
+            background: rgba(15,23,42,0.85);
+            color: #e5e7eb;
+        }
+
+        .hero-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            max-width: 900px;
+            line-height: 1.7;
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            margin: 26px 2px 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .section-subtext {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        /* CASE GRID */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 18px;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-subtle);
+            padding: 16px 14px 14px;
+            box-shadow:
+                0 14px 28px rgba(15,23,42,0.95),
+                0 0 20px rgba(56,189,248,0.18);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 20px 36px rgba(15,23,42,1),
+                0 0 26px rgba(56,189,248,0.4);
+            border-color: var(--accent);
+        }
+
+        .case-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.95);
+            border: 1px solid rgba(148,163,184,0.7);
+            color: #e5e7eb;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(56,189,248,0.9);
+        }
+
+        .case-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .case-city {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .meta-grid {
+            margin-top: 4px;
+            background: var(--bg-card-soft);
+            border-radius: 12px;
+            border: 1px solid rgba(51,65,85,0.9);
+            padding: 8px 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 11px;
+        }
+
+        .meta-row {
+            display: grid;
+            grid-template-columns: 90px minmax(0, 1fr);
+            column-gap: 8px;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 10px;
+        }
+
+        .meta-value {
+            color: #e5e7eb;
+        }
+
+        .meta-value strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .meta-value .green {
+            color: var(--accent-strong);
+        }
+
+        .code-btn {
+            margin-top: 8px;
+            align-self: flex-start;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            background: radial-gradient(circle at top left, var(--accent-soft), rgba(15,23,42,1));
+            font-size: 11px;
+            text-decoration: none;
+            color: #e5e7eb;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition:
+                background 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .code-btn span {
+            font-size: 12px;
+        }
+
+        .code-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 16px rgba(56,189,248,0.9);
+            background: radial-gradient(circle at top left, rgba(59,130,246,0.4), rgba(15,23,42,1));
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 30px;
+            padding: 16px 10px 0;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .footer strong {
+            color: var(--accent);
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding-top: 100px;
+            }
+
+            .navbar {
+                padding: 10px 16px;
+            }
+
+            .hero-heading {
+                font-size: 20px;
+            }
+
+            .hero-subheading {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="container">
-
-    <h1 class="page-title">Smart City – Business Case Studies (Prithvi Lok)</h1>
-
-    <div class="grid">
-
-      <!-- CASE 1 -->
-      <div class="card">
-        <h3>1. Smart Ambulance Routing System</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Dijkstra • Bellman–Ford</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Graph • Priority Queue (Heap)</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Find the fastest ambulance route by avoiding congested zones and roadblocks.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>Real-time route updates in O(E log V).</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 3 – Better emergency response & reduced mortality.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 2 -->
-      <div class="card">
-        <h3>2. City-Wide Electricity Load Balancing</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Segment Tree • Fenwick Tree</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Range Query Trees</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Predict and stabilize load consumption across power grids.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>Query/update in O(log n).</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 7 – Affordable clean energy management.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 3 -->
-      <div class="card">
-        <h3>3. Smart Healthcare Appointment Matcher</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Hash Tables • BST</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Hash Maps • Balanced BST</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Match patients with nearest available hospitals based on specialty.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>O(log n) auto-matching.</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 3 – Efficient healthcare access.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 4 -->
-      <div class="card">
-        <h3>4. Public Transport Timetable Optimizer</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Floyd • Dijkstra</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Adjacency Matrix • Min-Heap</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Optimize bus routes and minimize delay across the transport network.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>All-pairs shortest path in O(n³).</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 11 – Sustainable smart mobility.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 5 -->
-      <div class="card">
-        <h3>5. Waste Collection Vehicle Routing</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Minimum Spanning Tree • Kruskal</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Disjoint Set (Union-Find)</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Create optimal garbage pickup routes to reduce fuel usage.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>MST in O(E log E).</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 12 – Clean and efficient waste management.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 6 -->
-      <div class="card">
-        <h3>6. City Water Leakage Detection System</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">DFS + BFS</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Graph • Grid Map</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Detect pipeline leaks by exploring connected zones.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>O(V + E) traversal.</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 6 – Clean water conservation.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 7 -->
-      <div class="card">
-        <h3>7. Crime Prediction & Hotspot Mapping</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Hash Tables • Fenwick Tree</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">2D Range Trees • Hash Map</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Identify rising crime zones using frequency-based analysis.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>O(log n) heat-map updates.</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 16 – Safer communities.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 8 -->
-      <div class="card">
-        <h3>8. Smart City Navigation Assistant</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Trie (Prefix Search) • Dijkstra</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Prefix Tree • Graph</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Fast search for streets and real-time navigation suggestions.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>Trie lookup O(k), routing O(E log V).</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 9 – Smart infrastructure navigation.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 9 -->
-      <div class="card">
-        <h3>9. Flood Risk Prediction Model</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Red-Black Tree • Heap</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Balanced BST • Priority Queue</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Sort risk zones and prioritize emergency alerts.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>Balanced O(log n) updates.</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 13 – Climate action response.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
-      <!-- CASE 10 -->
-      <div class="card">
-        <h3>10. Hospital Medicine Inventory Manager</h3>
-
-        <div class="section-title">Algorithms Used</div>
-        <div class="tag">Hash Tables • Heap • BST</div>
-
-        <div class="section-title">Data Structures</div>
-        <div class="tag">Hash Map • Min-Heap • Tree</div>
-
-        <div class="section-title">Purpose</div>
-        <p>Track shortages and restocking priority automatically.</p>
-
-        <div class="section-title">Efficiency</div>
-        <p>Instant lookup, O(log n) priority updates.</p>
-
-        <div class="section-title">SDG Impact</div>
-        <p>SDG 3 – Strengthening healthcare logistics.</p>
-
-        <a href="#" class="btn">View Code</a>
-      </div>
-
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <img src="kle_tech.png" class="logo" alt="KLE Tech Logo">
+        <div class="nav-right">
+            <a href="index.html">Home</a>
+            <a href="aboutcourse.html">About Course</a>
+            <a href="coursereflection.html">Course Reflection</a>
+            <a href="courseproject.html" class="active">Course Project</a>
+            <a href="about.html">About Us</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <!-- HERO / INTRO -->
+        <section class="hero-box">
+            <h1 class="hero-heading">Course Project – Smart Health & Infrastructure</h1>
+            <p class="hero-subheading">City: PRITHVI LOK – Applying Advanced Algorithms to Real Urban Challenges</p>
+            <div class="hero-divider"></div>
+
+            <div class="constraints-grid">
+                <div class="pill">Region: <strong>150 sq km</strong></div>
+                <div class="pill">Budget: <strong>₹20,000 crore</strong></div>
+                <div class="pill">Theme: <strong>Health & Infrastructure Planning</strong></div>
+                <div class="pill">Focus: <strong>Graphs, Trees & Advanced DS</strong></div>
+            </div>
+
+            <p class="hero-text">
+                This course project models <strong>Prithvi Lok</strong>, a planned smart city spread across
+                150 sq km with a health-first infrastructure mission. Each business case below connects
+                a <strong>realistic urban problem</strong> with <strong>specific algorithms and data structures</strong>
+                (Heap, Segment Tree, Hash Tables, Trie, DFS/BFS, Fenwick Tree, BST, MST, Bellman–Ford,
+                Red-Black Tree, Dijkstra, Floyd) to achieve measurable impact under the
+                ₹20,000 crore budget. Every case is mapped to <strong>SDG themes</strong> like good health,
+                sustainable cities and reduced inequalities.
+            </p>
+        </section>
+
+        <!-- CASE STUDIES -->
+        <h2 class="section-title">Business Case Studies – Prithvi Lok</h2>
+        <p class="section-subtext">
+            Each card summarizes one problem in Prithvi Lok using the format:
+            <strong>Problem / Algorithms / Data Structures / Purpose / Efficiency / SDGs & Outcome</strong>.
+            The <em>View Code</em> button links to your C++ implementation on GitHub.
+        </p>
+
+        <section class="case-grid">
+
+            <!-- 1. Emergency Travel-Time Aware Routing (Dijkstra) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 01
+                </div>
+                <h3 class="case-title">Emergency Travel-Time Routing for City Hospitals</h3>
+                <p class="case-city">Prithvi Lok – trauma, cardiac, and maternity emergency coverage</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            Ambulances must reach 95% of citizens within 15 minutes despite peak-hour congestion.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Dijkstra’s Algorithm</strong> for fastest path on weighted road graph.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Graph adjacency lists + <strong>Heap</strong> (priority queue) for efficient relaxations.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Compute real-time least-time ambulance routes from each station to all hospitals.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            <span class="green">O((V + E) log V)</span>, supports frequent updates as traffic changes.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 3 (Good Health): median response time reduced by ~40%, improving survival rates.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/DIJKSTRA.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 2. Ward-Level Health Outreach Graph (BFS/DFS) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 02
+                </div>
+                <h3 class="case-title">Ward Connectivity Mapping for Health Camps</h3>
+                <p class="case-city">Prithvi Lok – outreach to slums, peri-urban belts &amp; hill clusters</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            Health department needs to know which wards are poorly connected to PHCs for mobile camps.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>BFS + DFS</strong> to explore ward-to-ward road graph and detect weakly served clusters.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Graph adjacency list; visitation arrays; simple queues &amp; stacks.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Identify connected components &amp; longest reach paths for planning weekly health camps.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            <span class="green">O(V + E)</span> for full city scan; scalable to future expansions.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 10 (Reduced Inequalities): coverage of remote wards increased from 72% → 96%.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/BFS.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 3. Subsidy & Fare Modeling with Negative Edges (Bellman–Ford) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 03
+                </div>
+                <h3 class="case-title">Affordable Health Shuttle Network with Subsidies</h3>
+                <p class="case-city">Prithvi Lok – integrating bus passes, e-rickshaws &amp; metro feeder routes</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            Low-income patients need the cheapest route to hospitals when some routes give subsidies.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Bellman–Ford</strong> to handle negative-cost edges representing travel subsidies.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Edge list representation; distance arrays updated relaxatively.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Compute minimum net travel cost from slum clusters to each hospital under subsidy rules.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            Runs in <span class="green">O(V · E)</span>; executed overnight for planning fare tables.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 1 &amp; 3: average out-of-pocket transport cost reduced by ~30% for target households.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Bellmanford.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 4. ICU Referral Matrix (Floyd) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 04
+                </div>
+                <h3 class="case-title">All-Pairs Travel Time Between ICUs and PHCs</h3>
+                <p class="case-city">Prithvi Lok – referral planning during seasonal outbreaks</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            During disease surges, PHCs must know the best ICU to refer to with minimal travel delay.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Floyd–Warshall</strong> for all-pairs shortest paths between key health nodes.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Distance matrix (NxN) for hospitals &amp; PHCs, updated by dynamic programming.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Pre-compute referral matrix for instant decisions during ICU bed shortages.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            <span class="green">O(N³)</span> for N key nodes; feasible since N is small (&lt; 60).
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 3: better referral choices reduce critical transfer delays by 20–25%.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Floyds.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 5. Low-Cost Fiber Layout to Hospitals (MST – Kruskal) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 05
+                </div>
+                <h3 class="case-title">Fiber Network for Hospital &amp; PHC Telemedicine</h3>
+                <p class="case-city">Prithvi Lok – connecting 2 super-specialty, 6 general &amp; 18 PHCs</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            Government must connect all health facilities with fiber at minimal trenching cost.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Minimum Spanning Tree (Kruskal’s)</strong> on weighted graph of fiber routes.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Edge list sorted by cost + Disjoint Set (Union–Find).
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Choose subset of fiber links that connects all facilities with minimum construction cost.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            <span class="green">O(E log E)</span>; much faster than trying all combinations.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 9 &amp; 3: tele-consult access for rural belts; ~18% saving in planned fiber budget.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Kruskals.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 6. Real-Time Bed Availability Queries (Fenwick / Segment) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 06
+                </div>
+                <h3 class="case-title">Live Bed &amp; Ventilator Availability Across Wards</h3>
+                <p class="case-city">Prithvi Lok – ICU, HDU and general bed monitoring dashboard</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            Control room must answer “beds free in zone 3–7?” in milliseconds as updates stream in.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Fenwick Tree</strong> (Binary Indexed Tree) – extendable to Segment Trees.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Fenwick Tree over bed counts per facility index.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Support fast range-sum queries and point updates for “beds available per corridor / zone”.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            <span class="green">O(log N)</span> for both update and query; works for thousands of beds.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 3: smoother load balancing between hospitals; fewer patients turned away at gates.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Fenwick.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 7. City Health ID Search (Hash Table) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 07
+                </div>
+                <h3 class="case-title">Prithvi Lok Smart Health Card Lookup</h3>
+                <p class="case-city">Fast retrieval for 32 lakh resident health IDs</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            OPD desks must verify citizen health IDs in under 0.5 seconds during registration.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Hashing</strong> with collision resolution (chaining / open addressing).
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Hash Table keyed by Health ID ⟶ minimal profile info &amp; pointers to full records.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Instant verification and fraud detection at registration counters across the city.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            Average lookup in <span class="green">O(1)</span>; supports millions of IDs.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 16: reduced identity fraud; faster queues improve patient satisfaction.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Hashing.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 8. Location-Aware Search (Trie) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 08
+                </div>
+                <h3 class="case-title">Auto-Complete Search for Clinics &amp; Streets</h3>
+                <p class="case-city">Citizen health app – “type 3 letters, see nearest facilities”</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            Patients struggle to spell long local names; app must suggest clinics as they type.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Trie (Prefix Tree)</strong> for prefix-based auto-complete suggestions.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Trie storing clinic names + tags (24x7, blood bank, maternity, etc.).
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Retrieve top matching facilities in real time as the user types 2–3 characters.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            Lookup in <span class="green">O(L)</span> where L is query length; robust for thousands of names.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 3 &amp; 11: easier discovery of nearby care, especially for new migrants.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Trie.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 9. Citizen-Centric Doctor Directory (BST) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 09
+                </div>
+                <h3 class="case-title">Specialist Doctor Directory for Referral Desk</h3>
+                <p class="case-city">Prithvi Lok – search by specialization, experience &amp; rating</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            Referral desks must quickly find suitable doctors when patients have specific needs.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            Balanced <strong>BST operations</strong> (insert, search, range query).
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            BST keyed by &lt;specialization, rating, years&gt;; can be extended to AVL / Red-Black Tree.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Quickly suggest top 3–5 doctors satisfying specialization and minimum rating filters.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            Average <span class="green">O(log N)</span> search; supports dynamic doctor onboarding.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 3: better match between patient condition and specialist expertise.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/bst.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+            <!-- 10. Priority Upgrades with Fairness (Red-Black Tree) -->
+            <article class="case-card">
+                <div class="case-badge">
+                    <span class="dot"></span> CASE 10
+                </div>
+                <h3 class="case-title">Fair Queue for Critical Ward Upgrades</h3>
+                <p class="case-city">Prithvi Lok – allocating ₹2,000 crore for PHC upgrades</p>
+
+                <div class="meta-grid">
+                    <div class="meta-row">
+                        <div class="meta-label">Problem</div>
+                        <div class="meta-value">
+                            City must prioritize PHCs for renovation based on risk score, load &amp; deprivation index.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Algorithms</div>
+                        <div class="meta-value">
+                            <strong>Red-Black Tree</strong> to maintain a balanced priority ordering of PHCs.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Data&nbsp;Structures</div>
+                        <div class="meta-value">
+                            Red-Black Tree keyed by composite priority score, supporting inserts &amp; deletions.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Purpose</div>
+                        <div class="meta-value">
+                            Always pick the next highest-priority PHC for upgrade under the limited budget.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">Efficiency</div>
+                        <div class="meta-value">
+                            All operations in <span class="green">O(log N)</span> while keeping the tree balanced.
+                        </div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-label">SDGs &amp; Outcome</div>
+                        <div class="meta-value">
+                            SDG 3 &amp; 11: ensures deprived localities are not starved of infrastructure upgrades.
+                        </div>
+                    </div>
+                </div>
+
+                <a class="code-btn" target="_blank"
+                   href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/red_black_tree.cpp">
+                    <span>View Code</span> ⟶
+                </a>
+            </article>
+
+        </section>
+
+        <div class="footer">
+            Course Project &mdash; <strong>Prithvi Lok Smart Health &amp; Infrastructure</strong><br>
+            Design and Analysis of Algorithms &bull; Learning Portfolio
+        </div>
     </div>
-  </div>
-
 </body>
 </html>
