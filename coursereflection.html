@@ -1,61 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Course Reflection – DAA</title>
+    <meta charset="utf-8">
+    <title>Course Reflection - DAA Portfolio</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin:0; padding-top:130px;
-    background:linear-gradient(145deg,#000000,#0a1a3c);
-    color:white; font-family:'Poppins',sans-serif;
-}
-.navbar {
-    position:fixed; top:0; width:100%;
-    display:flex; justify-content:space-between; align-items:center;
-    background:rgba(15,23,42,0.9);
-    padding:12px 30px;
-    border-bottom:1px solid rgba(255,255,255,0.12);
-}
-.logo { height:85px; }
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
-.nav-right a {
-    margin-left:22px; color:#cbd5e1; text-decoration:none; font-weight:600;
-}
-.nav-right a:hover, .active { color:#60a5fa; }
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-.container {
-    width:80%; margin:auto; background:rgba(255,255,255,0.06);
-    padding:20px; border:1px solid rgba(255,255,255,0.15);
-    border-radius:12px;
-}
-</style>
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-<nav class="navbar">
-    <img src="kle_tech.png" class="logo">
-    <div class="nav-right">
-        <a href="index.html">Home</a>
-        <a href="aboutcourse.html">About Course</a>
-        <a class="active" href="coursereflection.html">Course Reflection</a>
-        <a href="courseproject.html">Course Project</a>
-        <a href="about.html">About Us</a>
-    </div>
-</nav>
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg py-3 px-4">
+                <a href="index.html" class="navbar-brand">
+                    <img src="kle_tech.png" height="60">
+                </a>
 
-<div class="container">
-    <h1>Course Reflection</h1>
-    <p>
-        This course improved my understanding of efficiency, optimization, problem modelling and 
-        how algorithms power everyday technology.
-    </p>
-</div>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="aboutcourse.html" class="nav-item nav-link">About Course</a>
+                        <a href="coursereflection.html" class="nav-item nav-link active">Course Reflection</a>
+                        <a href="courseproject.html" class="nav-item nav-link">Course Project</a>
+                        <a href="about.html" class="nav-item nav-link">About Us</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Header Section -->
+    <div class="container-fluid page-header mb-5" style="background:#7AB730; padding:80px 0;">
+        <div class="container text-center">
+            <h3 class="display-4 text-white">Course Reflection</h3>
+        </div>
+    </div>
+
+    <!-- SECTION 1: LEARNINGS FROM COURSE -->
+    <div class="container mb-5">
+        <div class="bg-light p-4 rounded shadow-sm">
+            <h2 class="text-uppercase mb-4 text-success">Learnings from the Course</h2>
+
+            <h5><strong>Hierarchical Data Structures</strong></h5>
+            <p>Binary Search Trees, AVL trees, Heaps, Tries — each structure offers efficient ways to organize and search data.</p>
+
+            <h5><strong>Efficient Array Query Algorithms</strong></h5>
+            <p>Segment Trees and Fenwick Trees solve range queries such as sum, update, minimum, etc., in logarithmic time.</p>
+
+            <h5><strong>Comparison of Trees and Graphs</strong></h5>
+            <p>Trees organize hierarchical data while Graphs model networks like maps, internet routing systems, etc.</p>
+
+            <h5><strong>Network Optimization Algorithms</strong></h5>
+            <p>Kruskal’s, Prim’s, Dijkstra’s, and Bellman-Ford are used in logistics, navigation, and route planning.</p>
+        </div>
+    </div>
+
+    <!-- IMAGE GRID 1 (img1–img9) -->
+    <div class="container mb-5">
+        <h2 class="text-center mb-4">Visual Learnings</h2>
+
+        <div class="row">
+            <!-- 9 images -->
+            <script>
+                const images1 = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg","img7.jpg","img8.jpg","img9.jpg"];
+                document.write(
+                  images1.map((src,i)=>`
+                    <div class="col-lg-4 col-md-6 mb-4">
+                      <div class="shadow-sm p-2 rounded bg-white">
+                        <img src="${src}" class="img-fluid w-100 rounded" alt="">
+                        <div class="text-center mt-2"><strong>${(i+1).toString().padStart(2,'0')}</strong></div>
+                      </div>
+                    </div>`
+                  ).join("")
+                );
+            </script>
+        </div>
+    </div>
+
+    <!-- SECTION 2: ITERATION / RECURSION / BACKTRACKING -->
+    <div class="container mb-5">
+        <h2 class="text-center mb-4">Iteration, Recursion & Backtracking</h2>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <img src="iteration.webp" class="img-fluid rounded shadow-sm">
+                <h5 class="mt-3 text-center">Iteration</h5>
+                <p>Repeating a block of code until a condition is satisfied — used in loops, array traversal, etc.</p>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <img src="recursion.webp" class="img-fluid rounded shadow-sm">
+                <h5 class="mt-3 text-center">Recursion</h5>
+                <p>Function calling itself on smaller inputs — used in factorial, Fibonacci, tree traversals.</p>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <img src="backtracking.webp" class="img-fluid rounded shadow-sm">
+                <h5 class="mt-3 text-center">Backtracking</h5>
+                <p>Try–fail–retry method for constraint solving — N Queens, Sudoku, pathfinding.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRINCIPLES SECTION -->
+    <div class="container mb-5">
+        <div class="row bg-light p-4 rounded shadow-sm">
+            <div class="col-lg-4">
+                <img src="principles.jpg" class="img-fluid rounded">
+            </div>
+
+            <div class="col-lg-8">
+                <h3 class="text-success">Principles of Algorithm Design</h3>
+                <ul>
+                    <li>Decomposition</li>
+                    <li>Pattern Recognition</li>
+                    <li>Abstraction</li>
+                    <li>Lazy Propagation</li>
+                    <li>Sliding Window</li>
+                    <li>Pruning</li>
+                    <li>Memoization & Precomputation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIME-SPACE TRADEOFF SECTION -->
+    <div class="container mb-5">
+        <div class="row text-center">
+
+            <div class="col-lg-4 p-4 bg-success text-white rounded-left">
+                <h3>Space Efficiency</h3>
+                <p>Memory optimization in hashing, lookup tables, indexing systems.</p>
+            </div>
+
+            <div class="col-lg-4 p-4 bg-light">
+                <h3 class="text-success">Space–Time Trade-off</h3>
+                <p>Balancing time and memory to achieve optimal performance.</p>
+            </div>
+
+            <div class="col-lg-4 p-4 bg-success text-white rounded-right">
+                <h3>Time Efficiency</h3>
+                <p>Fast execution using DP, sorting, BFS/DFS, optimized structures.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONCEPT SUMMARY (FOUNDATIONS, TREES, SORTING, GRAPH ALGO) -->
+    <div class="container mb-5">
+        <h2 class="text-center mb-4">Concept Overview</h2>
+
+        <div class="row">
+            <script>
+                const conceptImages = ["14.jpg","15.jpg","14.jpg","15.jpg","16.jpg"];
+                const titles = [
+                  "FOUNDATIONS",
+                  "TREES & GRAPHS",
+                  "SORTING ALGORITHMS",
+                  "ALGORITHM DESIGN",
+                  "GRAPH ALGORITHMS"
+                ];
+                const contents = [
+                  "Time/Space Efficiency, Recursion, Hashing, Principles",
+                  "BST, AVL, Red-Black, Fenwick, Heap, DFS, BFS",
+                  "Bubble, Selection, Insertion, Merge, Quick, Heap Sort",
+                  "DP, Divide & Conquer, Greedy, Backtracking",
+                  "Dijkstra, Floyd, Warshall, Kruskal, Prim"
+                ];
+
+                document.write(
+                  titles.map((t,i)=>`
+                    <div class="col-lg-4 mb-4">
+                      <div class="shadow-sm bg-white rounded p-3">
+                        <img src="${conceptImages[i]}" class="img-fluid rounded mb-3">
+                        <h4>${t}</h4>
+                        <p>${contents[i]}</p>
+                      </div>
+                    </div>`
+                  ).join("")
+                );
+            </script>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer bg-dark text-center text-white py-4">
+        <h6 style="color:#7AB730;">Developed By</h6>
+        <h5 class="text-white">AKHIL TEJA K S</h5>
+        <p class="text-white-50 mb-0 mt-3">© DESIGN AND ANALYSIS OF ALGORITHMS. All rights reserved.</p>
+    </div>
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
-
