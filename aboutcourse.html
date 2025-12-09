@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Course – DAA</title>
 
+<link rel="stylesheet" href="navbar.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -14,31 +16,6 @@ body {
     background: linear-gradient(145deg,#000000,#0a1a3c);
     color: white;
     font-family: 'Poppins', sans-serif;
-}
-
-/* ---------- NAVBAR ---------- */
-.navbar {
-    position: fixed;
-    top: 0; width: 100%;
-    display: flex; justify-content: space-between;
-    align-items: center;
-    background: rgba(15, 23, 42, 0.9);
-    padding: 12px 30px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-}
-.logo { height: 85px; }
-
-.nav-right a {
-    margin-left: 22px;
-    text-decoration: none;
-    color: #cbd5e1;
-    font-weight: 600;
-}
-.nav-right a:hover,
-.nav-right .active {
-    color: #60a5fa;
 }
 
 /* ---------- TITLE ---------- */
@@ -107,17 +84,16 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <img src="kle_tech.png" class="logo">
-    <div class="nav-right">
-        <a href="index.html">Home</a>
-        <a href="aboutcourse.html" class="active">About Course</a>
-        <a href="coursereflection.html">Course Reflection</a>
-        <a href="courseproject.html">Course Project</a>
-        <a href="about.html">About Us</a>
-    </div>
-</nav>
+<!-- 🔥 DYNAMIC NAVBAR LOADER -->
+<div id="navbar-placeholder"></div>
+
+<script>
+    fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+</script>
 
 <!-- PAGE TITLE -->
 <h1 class="page-title">About the Course – Design and Analysis of Algorithms</h1>
@@ -136,9 +112,9 @@ body {
             <li>Dynamic programming</li>
             <li>Greedy algorithms</li>
             <li>Graph algorithms: Dijkstra, Bellman–Ford, BFS, DFS</li>
-            <li>MST (Minimum Spanning Tree — Prim’s & Kruskal’s)</li>
+            <li>MST (Prim’s & Kruskal’s)</li>
             <li>Sorting & searching algorithms</li>
-            <li>Advanced structures: AVL, Red–Black, Fenwick, Segment Tree</li>
+            <li>Advanced structures: AVL, RB Tree, Fenwick, Segment Tree</li>
         </ul>
     </div>
 
@@ -146,12 +122,12 @@ body {
     <div class="card-box">
         <h2><span class="icon">💡</span>Why This Course Matters</h2>
         <ul>
-            <li>Algorithms power real-world systems</li>
-            <li>Used in health infrastructure & hospital planning</li>
-            <li>Critical for ambulance routing & city navigation</li>
-            <li>Improves supply chain & resource allocation</li>
-            <li>Forms backbone of AI, ML & cybersecurity</li>
-            <li>Helps design scalable and efficient software systems</li>
+            <li>Algorithms power every modern system</li>
+            <li>Used in health infrastructure & resource planning</li>
+            <li>Key for ambulance routing & urban navigation</li>
+            <li>Critical in supply chain & industry optimization</li>
+            <li>Backbone for AI, ML & cybersecurity</li>
+            <li>Helps build efficient, scalable software</li>
         </ul>
     </div>
 
@@ -159,12 +135,12 @@ body {
     <div class="card-box">
         <h2><span class="icon">🎯</span>Learning Outcomes</h2>
         <ul>
-            <li>Analyze algorithms with time/space complexity</li>
-            <li>Select optimal strategies for different problems</li>
-            <li>Model real systems using graphs & trees</li>
-            <li>Use dynamic programming & greedy methods effectively</li>
-            <li>Understand algorithm trade-offs: speed vs memory</li>
-            <li>Apply algorithmic thinking to real-world domains</li>
+            <li>Analyze algorithm efficiency</li>
+            <li>Select optimal strategies for problems</li>
+            <li>Model systems using graphs & trees</li>
+            <li>Implement DP, Greedy & Divide–Conquer</li>
+            <li>Understand time–space trade-offs</li>
+            <li>Apply algorithmic thinking to real-world cases</li>
         </ul>
     </div>
 
@@ -172,12 +148,12 @@ body {
     <div class="card-box">
         <h2><span class="icon">🧠</span>Skills Gained</h2>
         <ul>
-            <li>Efficient computational thinking</li>
-            <li>Strong analytical & logical reasoning</li>
-            <li>Optimization and problem decomposition skills</li>
-            <li>Advanced understanding of data structures</li>
-            <li>Ability to design scalable, efficient solutions</li>
-            <li>Real-world system modeling expertise</li>
+            <li>Efficient problem-solving mindset</li>
+            <li>Logical & analytical reasoning</li>
+            <li>Optimization skills</li>
+            <li>Deep understanding of data structures</li>
+            <li>Designing scalable solutions</li>
+            <li>Real-world system modeling</li>
         </ul>
     </div>
 
