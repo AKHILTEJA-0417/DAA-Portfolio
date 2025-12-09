@@ -1,64 +1,93 @@
-/* Fix global horizontal shift */
+/* Prevent shifting */
 html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
 }
 
-/* Reserve navbar height before it loads */
 #navbar-placeholder {
-    height: 160px;   /* Larger because of vertical list */
+    height: 90px; /* reserve space */
     display: block;
 }
 
-/* NAVBAR CONTAINER */
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
-    background: rgba(15,23,42,0.92);
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(6px);
-    padding: 10px 20px;
+    padding: 12px 20px;
 
     display: flex;
-    flex-direction: column;   /* Stack items vertically */
     align-items: center;
+    justify-content: space-between;
 
-    z-index: 2000;
+    background: rgba(15,23,42,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
 }
 
-/* LOGO */
 .logo {
-    height: 70px;
-    margin-bottom: 10px;
+    height: 60px;
 }
 
-/* NAV LIST */
-.nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    width: 100%;
-    text-align: center;
+/* Hamburger menu icon */
+.hamburger {
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    display: none; /* hidden on desktop */
 }
 
-.nav-list li {
-    margin: 6px 0;
+/* Menu (desktop mode) */
+.nav-right {
+    display: flex;
+    gap: 25px;
 }
 
-.nav-list a {
+.nav-right a {
     color: #cbd5e1;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
-    transition: 0.3s;
 }
 
-.nav-list a:hover,
-.nav-list a.active {
+.nav-right a:hover,
+.nav-right a.active {
     color: #60a5fa;
+}
+
+/* ------------ MOBILE MODE ------------ */
+@media (max-width: 850px) {
+
+    .hamburger {
+        display: block; /* show icon */
+    }
+
+    .nav-right {
+        position: absolute;
+        top: 90px;
+        right: 0;
+
+        background: rgba(15,23,42,0.95);
+        width: 100%;
+        padding: 20px 0;
+
+        display: none; /* hidden until clicked */
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* When hamburger clicked */
+    .nav-right.show {
+        display: flex;
+    }
+
+    .logo {
+        height: 55px;
+    }
 }
