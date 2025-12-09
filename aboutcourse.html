@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Course – DAA</title>
 
+<!-- NAVBAR CSS -->
 <link rel="stylesheet" href="navbar.css">
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    padding-top:130px;
     background: linear-gradient(145deg,#000000,#0a1a3c);
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -24,7 +25,8 @@ body {
     font-size: 32px;
     font-weight: 700;
     color: #60a5fa;
-    margin-bottom: 20px;
+    margin-top: 150px; /* push below navbar */
+    margin-bottom: 25px;
 }
 
 /* ---------- 2×2 GRID ---------- */
@@ -45,6 +47,7 @@ body {
     backdrop-filter: blur(6px);
     transition: 0.3s;
 }
+
 .card-box:hover {
     transform: translateY(-8px);
     border-color: #60a5fa;
@@ -79,6 +82,24 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* FOOTER */
+footer {
+    margin-top: 60px;
+    padding: 25px;
+    text-align: center;
+    background: rgba(15,23,42,0.85);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+footer span {
+    display: block;
+    color: #60a5fa;
+    font-weight: 600;
+    margin-top: 5px;
+}
 </style>
 </head>
 
@@ -107,14 +128,14 @@ body {
         <ul>
             <li>Foundations of algorithmic design</li>
             <li>Time and space complexity analysis</li>
-            <li>Recurrence relations & asymptotic notation</li>
-            <li>Divide and conquer strategies</li>
+            <li>Recurrence & asymptotic notation</li>
+            <li>Divide and conquer</li>
             <li>Dynamic programming</li>
             <li>Greedy algorithms</li>
             <li>Graph algorithms: Dijkstra, Bellman–Ford, BFS, DFS</li>
             <li>MST (Prim’s & Kruskal’s)</li>
             <li>Sorting & searching algorithms</li>
-            <li>Advanced structures: AVL, RB Tree, Fenwick, Segment Tree</li>
+            <li>Advanced DS: AVL, RB Tree, Fenwick, Segment Tree</li>
         </ul>
     </div>
 
@@ -122,12 +143,12 @@ body {
     <div class="card-box">
         <h2><span class="icon">💡</span>Why This Course Matters</h2>
         <ul>
-            <li>Algorithms power every modern system</li>
-            <li>Used in health infrastructure & resource planning</li>
-            <li>Key for ambulance routing & urban navigation</li>
-            <li>Critical in supply chain & industry optimization</li>
-            <li>Backbone for AI, ML & cybersecurity</li>
-            <li>Helps build efficient, scalable software</li>
+            <li>Algorithms run every modern software system</li>
+            <li>Used in health infrastructure planning</li>
+            <li>Ambulance & navigation routing</li>
+            <li>Supply chain & resource optimization</li>
+            <li>Foundation for AI, ML, cybersecurity</li>
+            <li>Enables building scalable software</li>
         </ul>
     </div>
 
@@ -136,11 +157,11 @@ body {
         <h2><span class="icon">🎯</span>Learning Outcomes</h2>
         <ul>
             <li>Analyze algorithm efficiency</li>
-            <li>Select optimal strategies for problems</li>
-            <li>Model systems using graphs & trees</li>
-            <li>Implement DP, Greedy & Divide–Conquer</li>
+            <li>Choose optimal problem-solving strategies</li>
+            <li>Build tree & graph-based models</li>
+            <li>Apply DP, Greedy & Divide-Conquer</li>
             <li>Understand time–space trade-offs</li>
-            <li>Apply algorithmic thinking to real-world cases</li>
+            <li>Develop algorithmic thinking</li>
         </ul>
     </div>
 
@@ -148,21 +169,22 @@ body {
     <div class="card-box">
         <h2><span class="icon">🧠</span>Skills Gained</h2>
         <ul>
-            <li>Efficient problem-solving mindset</li>
+            <li>Efficient problem-solving</li>
             <li>Logical & analytical reasoning</li>
             <li>Optimization skills</li>
-            <li>Deep understanding of data structures</li>
-            <li>Designing scalable solutions</li>
-            <li>Real-world system modeling</li>
+            <li>Strong data structure knowledge</li>
+            <li>Scalable system design</li>
+            <li>Real-world modeling capability</li>
         </ul>
     </div>
 
 </div>
-  <!-- FOOTER -->
-    <footer>
-        Designed & Developed by <span>AKHIL TEJA K S</span>
-        © All Rights Reserved – 2025
-    </footer
+
+<!-- FOOTER -->
+<footer>
+    Designed & Developed by <span>AKHIL TEJA K S</span>
+    © All Rights Reserved – 2025
+</footer>
+
 </body>
 </html>
-
