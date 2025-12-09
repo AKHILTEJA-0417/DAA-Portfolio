@@ -1,135 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Course Reflection – DAA Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Course Reflection – DAA Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- NAVBAR CSS -->
-<link rel="stylesheet" href="navbar.css">
+    <!-- Shared Navbar Styles -->
+    <link rel="stylesheet" href="navbar.css">
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<!-- Bootstrap (only for grid/layout—not navbar) -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-    body {
-        margin: 0;
-        padding-top: 130px; /* so navbar does NOT overlap content */
-        background: linear-gradient(145deg, #000000, #0a1a3c);
-        font-family: "Poppins", sans-serif;
-        color: #e5e7eb;
-    }
+    <style>
+        body {
+            background: linear-gradient(145deg, #000000, #0a1a3c);
+            font-family: "Poppins", sans-serif;
+            color: #e5e7eb;
+            margin: 0;
+        }
 
-    /* REMOVE all local navbar styles to stop conflict with navbar.css */
-    .navbar, .navbar-nav, .nav-link {
-        all: unset !important;
-    }
+        /* 🚫 DO NOT STYLE .navbar HERE – it’s handled in navbar.css */
 
-    /* NEON HEADER */
-    .header-section {
-        padding: 90px 0;
-        text-align: center;
-        background: radial-gradient(circle at top, #1e293b, #000000);
-    }
+        /* NEON HEADER */
+        .header-section {
+            margin-top: 120px; /* push below fixed navbar */
+            padding: 90px 0 70px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e293b, #000000);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .header-title {
-        font-size: 42px;
-        font-weight: 700;
-        color: white;
-        text-shadow: 0 0 12px #38bdf8;
-        animation: fadeInUp 1.5s ease;
-    }
+        .header-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 12px #38bdf8;
+            animation: fadeInUp 1.5s ease;
+        }
 
-    .header-divider {
-        width: 120px;
-        height: 4px;
-        margin: 18px auto 0;
-        border-radius: 999px;
-        background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
-        animation: glowPulse 2.2s infinite alternate;
-    }
+        .header-divider {
+            width: 120px;
+            height: 4px;
+            margin: 18px auto 0;
+            border-radius: 999px;
+            background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
+            animation: glowPulse 2.2s infinite alternate;
+        }
 
-    @keyframes fadeInUp {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 
-    @keyframes glowPulse {
-        0% { box-shadow: 0 0 10px #38bdf8; }
-        100% { box-shadow: 0 0 25px #f97316; }
-    }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 10px #38bdf8; }
+            100% { box-shadow: 0 0 25px #f97316; }
+        }
 
-    /* NEON SECTIONS */
-    .section-box {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 14px;
-        padding: 25px;
-        margin-bottom: 35px;
-        box-shadow: 0 0 25px rgba(56,189,248,0.12);
-    }
+        /* NEON SECTIONS */
+        .section-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 0 25px rgba(56,189,248,0.12);
+        }
 
-    .section-title {
-        font-size: 26px;
-        color: #60a5fa;
-        font-weight: 600;
-        margin-bottom: 15px;
-    }
+        .section-title {
+            font-size: 26px;
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
 
-    h5 {
-        color: #a5b4fc;
-        margin-top: 12px;
-        font-weight: 600;
-    }
+        h5 {
+            color: #a5b4fc;
+            font-weight: 600;
+            margin-top: 12px;
+        }
 
-    p {
-        color: #d1d5db;
-    }
+        p {
+            color: #d1d5db;
+        }
 
-    /* IMAGE GRID */
-    .img-box {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.12);
-        padding: 8px;
-        border-radius: 12px;
-    }
+        /* IMAGE GRID */
+        .img-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 8px;
+            border-radius: 12px;
+        }
 
-    .img-number {
-        text-align: center;
-        margin-top: 6px;
-        font-size: 16px;
-        color: #38bdf8;
-        font-weight: 700;
-    }
+        .img-number {
+            text-align: center;
+            margin-top: 6px;
+            font-size: 16px;
+            color: #38bdf8;
+            font-weight: 700;
+        }
 
-    /* FOOTER */
-    footer {
-        background: #0f172a;
-        padding: 25px 0;
-        margin-top: 40px;
-        border-top: 1px solid rgba(255,255,255,0.12);
-        text-align: center;
-        color: #9ca3af;
-    }
+        /* FOOTER (element) */
+        footer {
+            background: #0f172a;
+            padding: 25px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            text-align: center;
+            color: #e5e7eb;
+            font-size: 14px;
+        }
 
-    footer span {
-        display: block;
-        color: #60a5fa;
-        margin-top: 6px;
-        font-weight: 600;
-    }
-</style>
+        footer span {
+            display: block;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- DYNAMIC NAVBAR -->
+<!-- 🔥 SHARED NAVBAR LOADER -->
 <div id="navbar-placeholder"></div>
 
 <script>
@@ -155,13 +156,13 @@
         <p>Binary Search Trees, AVL trees, Heaps, and Tries improve efficient data storage and searching.</p>
 
         <h5>Efficient Array Query Algorithms</h5>
-        <p>Segment Trees and Fenwick Trees provide fast range query operations.</p>
+        <p>Segment Trees and Fenwick Trees solve range queries with logarithmic performance.</p>
 
         <h5>Comparison of Trees and Graphs</h5>
-        <p>Trees represent hierarchical data, while Graphs model networks and complex connectivity.</p>
+        <p>Trees structure hierarchical data, while Graphs model networks and complex connectivity.</p>
 
         <h5>Network Optimization Algorithms</h5>
-        <p>Algorithms like Kruskal, Prim, Dijkstra, and Bellman-Ford optimize real-world problems.</p>
+        <p>Kruskal’s, Prim’s, Dijkstra’s, Bellman-Ford — key for route optimization and logistics.</p>
     </div>
 </div>
 
@@ -176,8 +177,8 @@
                 imgs.map((src,i)=>`
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="img-box">
-                        <img src="${src}" class="img-fluid rounded">
-                        <div class="img-number">${String(i+1).padStart(2,'0')}</div>
+                        <img src="${src}" class="img-fluid rounded" />
+                        <div class="img-number">${(i+1).toString().padStart(2,'0')}</div>
                     </div>
                 </div>`).join("")
             );
@@ -194,19 +195,19 @@
             <div class="col-lg-4 mb-4">
                 <img src="iteration.webp" class="img-fluid rounded shadow-sm">
                 <h5>Iteration</h5>
-                <p>Repeating steps until a condition is met — loops, traversal, pattern generation.</p>
+                <p>Repeating steps until a condition is met — mainly loops and traversal methods.</p>
             </div>
 
             <div class="col-lg-4 mb-4">
                 <img src="recursion.webp" class="img-fluid rounded shadow-sm">
                 <h5>Recursion</h5>
-                <p>Functions calling themselves — used in divide & conquer and tree operations.</p>
+                <p>Functions calling themselves — used in tree traversals, factorial, divide and conquer.</p>
             </div>
 
             <div class="col-lg-4 mb-4">
                 <img src="backtracking.webp" class="img-fluid rounded shadow-sm">
                 <h5>Backtracking</h5>
-                <p>Trying all possibilities by reversing previous steps — N-Queens, Sudoku, paths.</p>
+                <p>Exploring all possibilities by reverting steps — used in N-Queens, Sudoku, and pathfinding.</p>
             </div>
         </div>
     </div>
@@ -229,15 +230,21 @@
     </div>
 </div>
 
-<!-- SPACE / TIME / TRADE-OFF SECTION -->
+<!-- SPACE / TRADE-OFF / TIME SECTION -->
 <div class="container mb-5">
-
     <div class="row">
 
+        <!-- SPACE EFFICIENCY BOX -->
         <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #38bdf8;">
+            <div class="section-box" style="border-left: 4px solid #38bdf8;">
                 <h3 class="section-title">Space Efficiency</h3>
-                <p>Optimizing memory usage while maintaining correctness.</p>
+                <p>
+                    Space efficiency is the ability of an algorithm to use the least amount of memory while still
+                    producing correct results. It becomes essential when working with memory-limited environments
+                    or very large datasets.
+                </p>
+
+                <h5>Used In:</h5>
                 <ul>
                     <li>Hash Tables</li>
                     <li>Lookup Tables</li>
@@ -246,21 +253,38 @@
             </div>
         </div>
 
+        <!-- SPACE – TIME TRADE-OFF BOX -->
         <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #a855f7;">
+            <div class="section-box" style="border-left: 4px solid #a855f7;">
                 <h3 class="section-title text-center">Space & Time Trade-off</h3>
-                <p>Balancing memory usage and execution speed for optimal performance.</p>
+
+                <p>
+                    The space–time trade-off explains how improving memory usage may increase runtime and how improving
+                    speed may require additional memory. Understanding this balance is crucial when designing highly
+                    optimized algorithms.
+                </p>
+
+                <p class="text-center" style="color:#a5b4fc; font-weight:600; margin-top:12px;">
+                    More Space → Faster Execution  
+                    <br>Less Space → Slower Execution
+                </p>
             </div>
         </div>
 
+        <!-- TIME EFFICIENCY BOX -->
         <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #f97316;">
+            <div class="section-box" style="border-left: 4px solid #f97316;">
                 <h3 class="section-title">Time Efficiency</h3>
-                <p>Ensuring algorithms finish quickly—even on large inputs.</p>
+                <p>
+                    Time efficiency measures how fast an algorithm runs relative to input size. Highly efficient
+                    algorithms reduce execution delays, especially in real-time systems and large datasets.
+                </p>
+
+                <h5>Used In:</h5>
                 <ul>
-                    <li>Dynamic Programming</li>
-                    <li>Sorting Algorithms</li>
-                    <li>BFS / DFS</li>
+                    <li>Memoization in Dynamic Programming</li>
+                    <li>Sorting with Extra Memory</li>
+                    <li>Breadth-First Search (BFS)</li>
                 </ul>
             </div>
         </div>
@@ -274,35 +298,57 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #38bdf8;">
+        <!-- 1. FOUNDATIONS -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="section-box" style="border-left: 4px solid #38bdf8;">
                 <h3 class="section-title">1. FOUNDATIONS</h3>
                 <ul>
+                    <li>Time Efficiency</li>
+                    <li>Space Efficiency</li>
                     <li>Orders of Growth</li>
-                    <li>Iterative & Recursive Thinking</li>
+                    <li>Iteration, Recursion, Backtracking</li>
+                    <ul>
+                        <li>The Towers of Hanoi</li>
+                        <li>N Queens Problem</li>
+                    </ul>
                     <li>Hashing</li>
-                    <li>Problem-Solving Principles</li>
+                    <li>Principles</li>
                 </ul>
             </div>
         </div>
 
-        <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #a855f7;">
+        <!-- 2. TREES AND GRAPHS -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="section-box" style="border-left: 4px solid #a855f7;">
                 <h3 class="section-title">2. TREES & GRAPHS</h3>
                 <ul>
-                    <li>Binary Trees</li>
+                    <li>Binary Tree</li>
+                    <li>Strictly Binary Tree</li>
+                    <li>Almost Complete Binary Tree</li>
+                    <li>Complete Binary Tree</li>
+                    <li>Binary Search Tree (BST)</li>
                     <li>AVL Trees</li>
-                    <li>Fenwick Tree</li>
-                    <li>DFS & BFS</li>
+                    <li>2–3 Trees</li>
+                    <li>Red-Black Trees</li>
+                    <li>Fenwick Trees</li>
+                    <li>Depth First Search</li>
+                    <li>Breadth First Search</li>
+                    <li>Heap</li>
+                    <li>Range Queries / Array Queries</li>
+                    <li>Skip Lists</li>
                     <li>Trie</li>
                 </ul>
             </div>
         </div>
 
-        <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #f97316;">
-                <h3 class="section-title">3. SORTING</h3>
+        <!-- 3. SORTING ALGORITHMS -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="section-box" style="border-left: 4px solid #f97316;">
+                <h3 class="section-title">3. SORTING ALGORITHMS</h3>
                 <ul>
+                    <li>Bubble Sort</li>
+                    <li>Selection Sort</li>
+                    <li>Insertion Sort</li>
                     <li>Merge Sort</li>
                     <li>Quick Sort</li>
                     <li>Heap Sort</li>
@@ -310,26 +356,35 @@
             </div>
         </div>
 
-        <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #22c55e;">
-                <h3 class="section-title">4. DESIGN TECHNIQUES</h3>
+        <!-- 4. ALGORITHM DESIGN TECHNIQUES -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="section-box" style="border-left: 4px solid #22c55e;">
+                <h3 class="section-title">4. Algorithm Design Techniques</h3>
                 <ul>
-                    <li>Divide & Conquer</li>
+                    <li>Brute Force</li>
+                    <li>Decrease and Conquer</li>
+                    <li>Divide and Conquer</li>
+                    <li>Transform and Conquer</li>
                     <li>Dynamic Programming</li>
-                    <li>Greedy Algorithms</li>
+                    <li>Greedy Technique</li>
+                    <li>Space and Time Trade-off</li>
+                    <li>Randomized Algorithms</li>
                     <li>Backtracking</li>
                 </ul>
             </div>
         </div>
 
-        <div class="col-lg-4 mb-4">
-            <div class="section-box" style="border-left:4px solid #ec4899;">
-                <h3 class="section-title">5. GRAPH ALGORITHMS</h3>
+        <!-- 5. GRAPH ALGORITHMS -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="section-box" style="border-left: 4px solid #ec4899;">
+                <h3 class="section-title">5. Graph Algorithms</h3>
                 <ul>
-                    <li>Dijkstra</li>
-                    <li>Bellman-Ford</li>
-                    <li>Kruskal</li>
-                    <li>Prim</li>
+                    <li>Dijkstra’s Algorithm</li>
+                    <li>Floyd’s Algorithm</li>
+                    <li>Warshall’s Algorithm</li>
+                    <li>Kruskal’s Algorithm</li>
+                    <li>Prim’s Algorithm</li>
+                    <li>Bellman-Ford Algorithm</li>
                 </ul>
             </div>
         </div>
@@ -339,7 +394,7 @@
 
 <!-- FOOTER -->
 <footer>
-    Designed & Developed by <span>AKHIL TEJA K S</span>
+    Designed &amp; Developed by <span>AKHIL TEJA K S</span>
     © All Rights Reserved – 2025
 </footer>
 
