@@ -1,344 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <title>Course Project - Prithvi Lok Smart City</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Course Project – DAA Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Poppins Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-        }
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0a0f1f;
+        font-family: "Poppins", sans-serif;
+        color: #e2e8f0;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1250px;
-            margin: auto;
-            padding: 40px 0;
-        }
+    /* NAVBAR */
+    .navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 18px 40px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
 
-        h1.title {
-            text-align: center;
-            font-size: 36px;
-            color: #38bdf8;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+    .navbar img {
+        height: 70px;
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 22px;
-            margin-top: 30px;
-        }
+    .navbar a {
+        margin-left: 22px;
+        text-decoration: none;
+        color: #cbd5e1;
+        font-weight: 600;
+        transition: 0.3s;
+    }
 
-        .card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(148, 163, 184, 0.3);
-            border-radius: 16px;
-            padding: 20px;
-            transition: 0.25s;
-            backdrop-filter: blur(6px);
-        }
+    .navbar a:hover {
+        color: #60a5fa;
+    }
 
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: #38bdf8;
-            box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
-        }
+    .active {
+        color: #60a5fa !important;
+    }
 
-        .card h2 {
-            font-size: 20px;
-            color: #38bdf8;
-            margin-bottom: 10px;
-        }
+    /* PROJECT CHART */
+    .chart-section {
+        text-align: center;
+        padding: 40px 20px;
+    }
 
-        .card p {
-            font-size: 14px;
-            margin: 6px 0;
-            color: #cbd5e1;
-        }
+    .chart-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #60a5fa;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 22px;
+        animation: fadeInDown 1.2s ease;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 8px 16px;
-            margin-top: 14px;
-            background: #38bdf8;
-            color: #0f172a;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.2s;
-        }
+    @keyframes fadeInDown {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
 
-        .btn:hover {
-            background: #0ea5e9;
-        }
+    .chart-images {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px 40px;
+    }
 
-        /* TABLE */
-        table {
-            width: 100%;
-            margin-top: 45px;
-            border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
-        }
+    .chart-images img {
+        width: 48%;
+        border-radius: 12px;
+        border: 2px solid rgba(96,165,250,0.5);
+        box-shadow: 0 0 25px rgba(96,165,250,0.4);
+        transition: 0.3s;
+        background: #0f172a;
+    }
 
-        table th {
-            background: #1e293b;
-            padding: 14px;
-            color: #38bdf8;
-            text-transform: uppercase;
-        }
+    .chart-images img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 35px rgba(96,165,250,0.7);
+    }
 
-        table td {
-            padding: 12px;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-            color: #e2e8f0;
-        }
+    /* MAIN CONTAINER */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
 
-        table tr:last-child td {
-            border-bottom: none;
-        }
-    </style>
+    /* CARD GRID */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.06);
+        padding: 22px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.18);
+        backdrop-filter: blur(8px);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: #60a5fa;
+        box-shadow: 0 0 25px rgba(96,165,250,0.3);
+    }
+
+    .card h3 {
+        color: #60a5fa;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #cbd5e1;
+    }
+
+    .btn {
+        margin-top: 12px;
+        display: inline-block;
+        background: #60a5fa;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #000;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #3b82f6;
+    }
+
+    /* SUMMARY TABLE */
+    .summary-table {
+        width: 100%;
+        margin-top: 50px;
+        border-collapse: collapse;
+        background: rgba(255,255,255,0.06);
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .summary-table th, .summary-table td {
+        padding: 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        font-size: 14px;
+    }
+
+    .summary-table th {
+        background: rgba(96,165,250,0.2);
+        color: #60a5fa;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+        .grid { grid-template-columns: 1fr; }
+        .chart-images { flex-direction: column; }
+        .chart-images img { width: 100%; }
+    }
+</style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1 class="title">Prithvi Lok – Smart City Business Case Studies</h1>
-
-        <!-- ---------- BUSINESS CASE GRID ---------- -->
-        <div class="grid">
-
-            <!-- Case 1 -->
-            <div class="card">
-                <h2>1. Primary Health Center Coverage</h2>
-                <p><strong>Algorithm:</strong> BFS</p>
-                <p><strong>Data Structure:</strong> Graph</p>
-                <p><strong>Purpose:</strong> Identify service coverage & underserved zones.</p>
-                <p><strong>Efficiency:</strong> O(V+E)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 10</p>
-                <a href="BFS.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 2 -->
-            <div class="card">
-                <h2>2. Smart Ambulance Dispatch</h2>
-                <p><strong>Algorithm:</strong> Dijkstra</p>
-                <p><strong>Data Structure:</strong> Graph, Min Heap</p>
-                <p><strong>Purpose:</strong> Shortest emergency route calculation.</p>
-                <p><strong>Efficiency:</strong> O(E log V)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 11</p>
-                <a href="DIJKSTRA.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 3 -->
-            <div class="card">
-                <h2>3. Hospital Referral Matrix</h2>
-                <p><strong>Algorithm:</strong> Floyd–Warshall</p>
-                <p><strong>Data Structure:</strong> Matrix</p>
-                <p><strong>Purpose:</strong> Precomputed all-pair shortest referral times.</p>
-                <p><strong>Efficiency:</strong> O(n³)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 9</p>
-                <a href="Floyds.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 4 -->
-            <div class="card">
-                <h2>4. High-Risk Patient Outreach</h2>
-                <p><strong>Algorithm:</strong> DFS</p>
-                <p><strong>Data Structure:</strong> Graph</p>
-                <p><strong>Purpose:</strong> Trace clusters of chronic-risk patients.</p>
-                <p><strong>Efficiency:</strong> O(V+E)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 10, SDG 11</p>
-                <a href="BFS.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 5 -->
-            <div class="card">
-                <h2>5. Telemedicine Fiber Network</h2>
-                <p><strong>Algorithm:</strong> Kruskal (MST)</p>
-                <p><strong>Data Structure:</strong> DSU, Graph</p>
-                <p><strong>Purpose:</strong> Build cost-optimized communication backbone.</p>
-                <p><strong>Efficiency:</strong> O(E log V)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 9, SDG 17</p>
-                <a href="Kruskals.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 6 -->
-            <div class="card">
-                <h2>6. Real-Time Bed Availability</h2>
-                <p><strong>Algorithm:</strong> Fenwick Tree</p>
-                <p><strong>Data Structure:</strong> Binary Indexed Tree</p>
-                <p><strong>Purpose:</strong> Fast hospital bed count updates.</p>
-                <p><strong>Efficiency:</strong> O(log n)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 12, SDG 13</p>
-                <a href="Fenwick.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 7 -->
-            <div class="card">
-                <h2>7. Smart Health ID System</h2>
-                <p><strong>Algorithm:</strong> Hashing</p>
-                <p><strong>Data Structure:</strong> Hash Table</p>
-                <p><strong>Purpose:</strong> Ultra-fast patient lookup.</p>
-                <p><strong>Efficiency:</strong> O(1)</p>
-                <p><strong>SDGs:</strong> SDG 16, SDG 9</p>
-                <a href="Hashing.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 8 -->
-            <div class="card">
-                <h2>8. Drug Auto-Complete System</h2>
-                <p><strong>Algorithm:</strong> Trie Search</p>
-                <p><strong>Data Structure:</strong> Trie</p>
-                <p><strong>Purpose:</strong> Instant drug-name suggestions.</p>
-                <p><strong>Efficiency:</strong> O(L)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 8</p>
-                <a href="Trie.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 9 -->
-            <div class="card">
-                <h2>9. Pharmacy Stock Management</h2>
-                <p><strong>Algorithm:</strong> BST</p>
-                <p><strong>Data Structure:</strong> Binary Search Tree</p>
-                <p><strong>Purpose:</strong> Track inventory & expiration cycles.</p>
-                <p><strong>Efficiency:</strong> O(log n)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 12</p>
-                <a href="bst.cpp" class="btn">View Code</a>
-            </div>
-
-            <!-- Case 10 -->
-            <div class="card">
-                <h2>10. Appointment Load Balancer</h2>
-                <p><strong>Algorithm:</strong> Red-Black Tree</p>
-                <p><strong>Data Structure:</strong> RB Tree</p>
-                <p><strong>Purpose:</strong> Maintain fair scheduling queues.</p>
-                <p><strong>Efficiency:</strong> O(log n)</p>
-                <p><strong>SDGs:</strong> SDG 3, SDG 8, SDG 11</p>
-                <a href="red_black_tree.cpp" class="btn">View Code</a>
-            </div>
-
-        </div>
-
-        <!-- ---------- SUMMARY TABLE ---------- -->
-        <table>
-            <tr>
-                <th>Service</th>
-                <th>Algorithms</th>
-                <th>Data Structures</th>
-                <th>Purpose</th>
-                <th>Efficiency</th>
-                <th>SDGs</th>
-            </tr>
-
-            <tr>
-                <td>Primary Healthcare</td>
-                <td>BFS</td>
-                <td>Graph</td>
-                <td>Coverage detection</td>
-                <td>O(V+E)</td>
-                <td>3, 10</td>
-            </tr>
-
-            <tr>
-                <td>Ambulance Dispatch</td>
-                <td>Dijkstra</td>
-                <td>Graph + Heap</td>
-                <td>Fast emergency routing</td>
-                <td>O(E log V)</td>
-                <td>3, 11</td>
-            </tr>
-
-            <tr>
-                <td>Referral Matrix</td>
-                <td>Floyd–Warshall</td>
-                <td>Matrix</td>
-                <td>All-pair travel times</td>
-                <td>O(n³)</td>
-                <td>3, 9</td>
-            </tr>
-
-            <tr>
-                <td>Risk Outreach</td>
-                <td>DFS</td>
-                <td>Graph</td>
-                <td>Cluster mapping</td>
-                <td>O(V+E)</td>
-                <td>3, 10, 11</td>
-            </tr>
-
-            <tr>
-                <td>Telemedicine Backbone</td>
-                <td>Kruskal (MST)</td>
-                <td>DSU</td>
-                <td>Cost-efficient networking</td>
-                <td>O(E log V)</td>
-                <td>3, 9, 17</td>
-            </tr>
-
-            <tr>
-                <td>Bed Analytics</td>
-                <td>Fenwick Tree</td>
-                <td>BIT</td>
-                <td>Fast updates</td>
-                <td>O(log n)</td>
-                <td>3, 12, 13</td>
-            </tr>
-
-            <tr>
-                <td>Health ID</td>
-                <td>Hashing</td>
-                <td>Hash Table</td>
-                <td>Instant lookup</td>
-                <td>O(1)</td>
-                <td>16, 9</td>
-            </tr>
-
-            <tr>
-                <td>Drug Search</td>
-                <td>Trie</td>
-                <td>Prefix Tree</td>
-                <td>Auto-complete</td>
-                <td>O(L)</td>
-                <td>3, 8</td>
-            </tr>
-
-            <tr>
-                <td>Inventory</td>
-                <td>BST</td>
-                <td>Binary Tree</td>
-                <td>Stock tracking</td>
-                <td>O(log n)</td>
-                <td>3, 12</td>
-            </tr>
-
-            <tr>
-                <td>Scheduling</td>
-                <td>RB Tree</td>
-                <td>Balanced Tree</td>
-                <td>Fair load balancing</td>
-                <td>O(log n)</td>
-                <td>3, 8, 11</td>
-            </tr>
-
-        </table>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <img src="kle_tech.png">
+    <div>
+        <a href="index.html">Home</a>
+        <a href="aboutcourse.html">About Course</a>
+        <a href="coursereflection.html">Course Reflection</a>
+        <a href="courseproject.html" class="active">Course Project</a>
+        <a href="about.html">About Us</a>
     </div>
+</nav>
 
+<!-- PROJECT CHART TOP -->
+<section class="chart-section">
+    <h1 class="chart-title">PROJECT CHART</h1>
+    <div class="chart-images">
+        <img src="1img.jpg">
+        <img src="p1.jpg">
+    </div>
+</section>
+
+<!-- BUSINESS CASE STUDIES -->
+<div class="container">
+<h2 style="color:#60a5fa; margin-top:30px;">Business Case Studies</h2>
+
+<div class="grid">
+
+<!-- CASE 1 -->
+<div class="card">
+    <h3>1. Primary Health Center Coverage Optimization</h3>
+    <p><b>Algorithms:</b> Dijkstra, BFS</p>
+    <p><b>Data Structures:</b> Graph</p>
+    <p><b>SDGs:</b> SDG 3, SDG 10</p>
+    <a class="btn" href="DIJKSTRA.cpp">View Code</a>
+</div>
+
+<!-- CASE 2 -->
+<div class="card">
+    <h3>2. Ambulance Dispatch & Golden-Hour Routing</h3>
+    <p><b>Algorithms:</b> Dijkstra</p>
+    <p><b>Data Structures:</b> Min Heap</p>
+    <p><b>SDGs:</b> SDG 3, SDG 11</p>
+    <a class="btn" href="DIJKSTRA.cpp">View Code</a>
+</div>
+
+<!-- CASE 3 -->
+<div class="card">
+    <h3>3. Hospital Referral Time Matrix</h3>
+    <p><b>Algorithms:</b> Floyd–Warshall</p>
+    <p><b>Data Structures:</b> Matrix</p>
+    <p><b>SDGs:</b> SDG 3, SDG 9</p>
+    <a class="btn" href="Floyds.cpp">View Code</a>
+</div>
+
+<!-- CASE 4 -->
+<div class="card">
+    <h3>4. High-Risk Outreach Mapping</h3>
+    <p><b>Algorithms:</b> Bellman–Ford</p>
+    <p><b>Data Structures:</b> Graph</p>
+    <p><b>SDGs:</b> SDG 3, SDG 10, SDG 11</p>
+    <a class="btn" href="Bellmanford.cpp">View Code</a>
+</div>
+
+<!-- CASE 5 -->
+<div class="card">
+    <h3>5. Telemedicine Fiber Backbone (MST)</h3>
+    <p><b>Algorithms:</b> Kruskal’s MST</p>
+    <p><b>Data Structures:</b> DSU</p>
+    <p><b>SDGs:</b> SDG 3, SDG 9, SDG 17</p>
+    <a class="btn" href="Kruskals.cpp">View Code</a>
+</div>
+
+<!-- CASE 6 -->
+<div class="card">
+    <h3>6. Bed Availability Analytics</h3>
+    <p><b>Algorithms:</b> Fenwick Tree</p>
+    <p><b>Data Structures:</b> BIT</p>
+    <p><b>SDGs:</b> SDG 3, SDG 12, SDG 13</p>
+    <a class="btn" href="Fenwick.cpp">View Code</a>
+</div>
+
+<!-- CASE 7 -->
+<div class="card">
+    <h3>7. Smart Health Card Lookup</h3>
+    <p><b>Algorithms:</b> Hashing</p>
+    <p><b>Data Structures:</b> Hash Table</p>
+    <p><b>SDGs:</b> SDG 16, SDG 9</p>
+    <a class="btn" href="Hashing.cpp">View Code</a>
+</div>
+
+<!-- CASE 8 -->
+<div class="card">
+    <h3>8. Drug & Diagnosis Auto-Complete</h3>
+    <p><b>Algorithms:</b> Trie</p>
+    <p><b>Data Structures:</b> Trie</p>
+    <p><b>SDGs:</b> SDG 3, SDG 8</p>
+    <a class="btn" href="Trie.cpp">View Code</a>
+</div>
+
+<!-- CASE 9 -->
+<div class="card">
+    <h3>9. Pharmacy Inventory System</h3>
+    <p><b>Algorithms:</b> BST</p>
+    <p><b>Data Structures:</b> BST</p>
+    <p><b>SDGs:</b> SDG 3, SDG 12</p>
+    <a class="btn" href="bst.cpp">View Code</a>
+</div>
+
+<!-- CASE 10 -->
+<div class="card">
+    <h3>10. Appointment Scheduling System</h3>
+    <p><b>Algorithms:</b> Red-Black Tree</p>
+    <p><b>Data Structures:</b> RB Tree</p>
+    <p><b>SDGs:</b> SDG 3, SDG 8, SDG 11</p>
+    <a class="btn" href="red_black_tree.cpp">View Code</a>
+</div>
+
+</div>
+
+<!-- SUMMARY TABLE -->
+<h2 style="color:#60a5fa; margin-top:40px;">Summary Table</h2>
+
+<table class="summary-table">
+<tr>
+    <th>Service</th>
+    <th>Algorithms</th>
+    <th>Data Structures</th>
+    <th>Purpose</th>
+    <th>SDGs</th>
+</tr>
+
+<tr><td>Health Coverage</td><td>Dijkstra, BFS</td><td>Graph</td><td>Coverage optimization</td><td>SDG 3, 10</td></tr>
+<tr><td>Ambulance Routing</td><td>Dijkstra</td><td>Min Heap</td><td>Golden-hour routing</td><td>SDG 3, 11</td></tr>
+<tr><td>Referral Matrix</td><td>Floyd</td><td>Matrix</td><td>Hospital navigation</td><td>SDG 3, 9</td></tr>
+<tr><td>Outreach Mapping</td><td>Bellman–Ford</td><td>Graph</td><td>Risk area detection</td><td>SDG 3, 10, 11</td></tr>
+<tr><td>Telemedicine Network</td><td>Kruskal MST</td><td>DSU</td><td>Network layout</td><td>SDG 3, 9, 17</td></tr>
+<tr><td>Bed Analytics</td><td>Fenwick Tree</td><td>BIT</td><td>Real-time tracking</td><td>SDG 3, 12, 13</td></tr>
+<tr><td>Health Card Lookup</td><td>Hashing</td><td>Hash Table</td><td>Instant verification</td><td>SDG 16, 9</td></tr>
+<tr><td>Medical Auto-Complete</td><td>Trie</td><td>Trie</td><td>Fast suggestions</td><td>SDG 3, 8</td></tr>
+<tr><td>Pharma Inventory</td><td>BST</td><td>BST</td><td>Stock control</td><td>SDG 3, 12</td></tr>
+<tr><td>Scheduling System</td><td>RB Tree</td><td>RB Tree</td><td>Time slot management</td><td>SDG 3, 8, 11</td></tr>
+
+</table>
+
+</div>
 </body>
-
 </html>
