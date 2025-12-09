@@ -17,7 +17,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* NAVBAR */
+        /* ---------------- NAVBAR ---------------- */
         .navbar {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -29,7 +29,7 @@
             z-index: 1000;
         }
 
-        .logo { height: 85px; width: auto; }
+        .logo { height: 85px; }
 
         .nav-right a {
             margin-left: 22px;
@@ -38,15 +38,18 @@
             font-weight: 600;
             transition: 0.3s;
         }
-        .nav-right a:hover, .nav-right .active { color: #60a5fa; }
 
-        /* HERO */
+        .nav-right a:hover,
+        .nav-right .active { color: #60a5fa; }
+
+        /* ---------------- HERO SECTION ---------------- */
         .hero-container {
             display: flex;
             justify-content: space-between;
             padding: 40px 8% 50px;
             gap: 40px;
         }
+
         .hero-left { flex: 1.2; }
 
         .big-heading { font-size: 42px; font-weight: 700; margin-bottom: 8px; }
@@ -62,37 +65,52 @@
 
         dotlottie-wc { width: 430px !important; height: 430px !important; }
 
-        /* INSTRUCTOR SECTION */
+        /* ---------------- INSTRUCTOR SECTION ---------------- */
         .instructor-section {
             padding: 60px 10%;
-            margin-top: -20px;
         }
+
         .instructor-title {
             font-size: 28px;
             font-weight: 700;
             color: #38bdf8;
             margin-bottom: 25px;
         }
-        .instructor-box {
+
+        .instructor-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 25px;
             background: rgba(255,255,255,0.07);
             border: 1px solid rgba(255,255,255,0.15);
             border-radius: 14px;
-            text-align: left;
-        }
-        .instructor-name {
-            font-size: 22px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-        .instructor-role {
-            font-size: 16px;
-            color: #94a3b8;
-            margin-top: 5px;
+            transition: 0.35s ease;
+            transform-style: preserve-3d;
         }
 
-        /* TEAM SECTION */
+        .instructor-card:hover {
+            transform: translateY(-10px) perspective(800px) rotateX(5deg) rotateY(-5deg);
+            box-shadow: 0 0 25px rgba(96,165,250,0.25);
+        }
+
+        .instructor-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .instructor-photo img {
+            height: 160px;
+            width: 160px;
+            object-fit: cover;
+            border-radius: 8px; /* square */
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* ---------------- TEAM SECTION ---------------- */
         .team-section { padding: 60px 10%; }
+
         .team-title { font-size: 28px; font-weight: 700; color:#60a5fa; margin-bottom:25px; }
 
         .team-grid {
@@ -109,28 +127,24 @@
             text-align:center;
             transition:0.3s;
         }
-        .card:hover { 
-            transform: translateY(-10px); 
+
+        .card:hover {
+            transform: translateY(-10px);
             border-color:#60a5fa;
-            box-shadow: 0 0 20px rgba(96,165,250,0.35);
         }
 
-        /* FOOTER */
+        /* ---------------- FOOTER ---------------- */
         .footer {
-            text-align:center;
-            padding: 35px 0;
-            background: rgba(15,23,42,0.7);
+            margin-top: 50px;
+            padding: 25px;
+            text-align: center;
+            background: rgba(15,23,42,0.9);
             border-top: 1px solid rgba(255,255,255,0.15);
-            margin-top: 60px;
         }
-        .footer h3 {
-            color: #60a5fa;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
+
         .footer p {
             color: #94a3b8;
-            font-size: 14px;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -149,7 +163,7 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <div class="hero-container">
         <div class="hero-left">
             <h1 class="big-heading">DESIGN AND ANALYSIS OF ALGORITHMS</h1>
@@ -173,9 +187,14 @@
     <section class="instructor-section">
         <h2 class="instructor-title">Course Instructor</h2>
 
-        <div class="instructor-box">
-            <p class="instructor-name">PRAKASH HEGDE</p>
-            <p class="instructor-role">Assistant Professor – Department of Computer Science & Engineering</p>
+        <div class="instructor-card">
+            <div class="instructor-left">
+                <p class="instructor-name">Prof. PRAKASH HEGDE</p>
+            </div>
+
+            <div class="instructor-photo">
+                <img src="ph.jpg" alt="Instructor Photo">
+            </div>
         </div>
     </section>
 
@@ -193,8 +212,8 @@
 
     <!-- FOOTER -->
     <div class="footer">
-        <h3>Designed & Developed by AKHIL TEJA K S</h3>
-        <p>© All Rights Reserved | Design and Analysis of Algorithms</p>
+        <h4>Designed & Developed by <span style="color:#60a5fa;">AKHIL TEJA K S</span></h4>
+        <p>© All Rights Reserved – Design and Analysis of Algorithms</p>
     </div>
 
 </body>
