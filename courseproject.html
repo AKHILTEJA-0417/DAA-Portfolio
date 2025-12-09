@@ -1,816 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
+    <title>Course Project - Prithvi Lok Smart City</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Course Project – Prithvi Lok Health Infrastructure</title>
 
     <!-- Poppins Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome (for icons on buttons if needed later) -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        :root {
-            --bg-main: #020617;
-            --bg-card: rgba(15,23,42,0.9);
-            --bg-soft: rgba(15,23,42,0.7);
-            --border-soft: rgba(148,163,184,0.5);
-            --accent: #60a5fa;
-            --accent-soft: rgba(96,165,250,0.2);
-            --accent-2: #22c55e;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
-            padding-top: 110px;
             font-family: "Poppins", sans-serif;
-            color: var(--text-main);
-            background: radial-gradient(circle at top left, #020617 0, #000000 40%, #020617 100%);
+            background: #0f172a;
+            color: #e2e8f0;
         }
 
-        /* NAVBAR (same style family as your index) */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(15,23,42,0.9);
-            padding: 12px 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+        .container {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 40px 0;
         }
 
-        .logo {
-            height: 70px;
-            width: auto;
-        }
-
-        .nav-right a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #cbd5e1;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .nav-right a:hover {
-            color: var(--accent);
-        }
-
-        .nav-right a.active {
-            color: var(--accent);
-        }
-
-        /* PAGE WRAPPER */
-        .page-wrapper {
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            padding: 20px 16px 40px;
-        }
-
-        /* HERO / INTRO */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 28px;
-            align-items: flex-start;
-            margin-bottom: 32px;
-        }
-
-        .hero-left {
-            flex: 1 1 320px;
-        }
-
-        .hero-heading {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 0.09em;
+        h1.title {
+            text-align: center;
+            font-size: 36px;
+            color: #38bdf8;
+            margin-bottom: 20px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .hero-sub {
-            margin-top: 6px;
-            font-size: 16px;
-            color: var(--text-muted);
-        }
-
-        .hero-divider {
-            margin: 14px 0 10px;
-            height: 2px;
-            width: 90px;
-            border-radius: 999px;
-            background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
-        }
-
-        .hero-text {
-            font-size: 14px;
-            line-height: 1.7;
-            color: var(--text-muted);
-        }
-
-        .constraints-box {
-            margin-top: 14px;
-            padding: 14px 16px;
-            border-radius: 14px;
-            background: radial-gradient(circle at top left, rgba(56,189,248,0.18), rgba(15,23,42,0.96));
-            border: 1px solid var(--border-soft);
-            font-size: 14px;
-        }
-
-        .constraints-title {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .constraints-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 4px 16px;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 22px;
+            margin-top: 30px;
         }
 
-        .constraints-grid span {
-            font-size: 13px;
-            color: var(--text-main);
+        .card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            transition: 0.25s;
+            backdrop-filter: blur(6px);
         }
 
-        .hero-right {
-            flex: 1 1 280px;
-            display: flex;
-            justify-content: center;
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #38bdf8;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
         }
 
-        .hero-right-inner {
-            width: 100%;
-            max-width: 340px;
-            padding: 18px 16px;
-            border-radius: 20px;
-            background: radial-gradient(circle at top, rgba(15,23,42,0.9), #020617);
-            border: 1px solid var(--border-soft);
-            box-shadow:
-                0 0 30px rgba(56,189,248,0.35),
-                0 0 8px rgba(15,23,42,0.8);
-        }
-
-        .hero-right-title {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent);
-            margin-bottom: 6px;
-        }
-
-        .hero-right-text {
-            font-size: 12px;
-            color: var(--text-muted);
+        .card h2 {
+            font-size: 20px;
+            color: #38bdf8;
             margin-bottom: 10px;
         }
 
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: rgba(15,23,42,0.9);
-            border: 1px solid var(--border-soft);
-            font-size: 11px;
-            color: var(--text-main);
-            margin: 3px 4px 0 0;
+        .card p {
+            font-size: 14px;
+            margin: 6px 0;
+            color: #cbd5e1;
         }
 
-        .hero-pill-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: #22c55e;
-            box-shadow: 0 0 8px rgba(34,197,94,0.9);
-        }
-
-        /* SECTION TITLES */
-        .section-heading {
-            margin: 26px 0 14px;
-            font-size: 18px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-main);
-        }
-
-        .section-sub {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        /* CASE STUDY CARDS GRID */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 18px;
-        }
-
-        .case-card {
-            background: var(--bg-card);
-            border-radius: 18px;
-            border: 1px solid var(--border-soft);
-            padding: 16px 16px 14px;
-            box-shadow: 0 16px 30px rgba(15,23,42,0.85);
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .case-badge {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--accent);
-        }
-
-        .case-title {
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .case-meta {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .case-meta span {
+        .btn {
             display: inline-block;
-            margin-right: 10px;
-        }
-
-        .case-list {
-            list-style: none;
-            margin-top: 6px;
-            font-size: 12px;
-            color: var(--text-main);
-        }
-
-        .case-list li {
-            margin-bottom: 4px;
-        }
-
-        .case-list li span.label {
-            color: var(--text-muted);
-        }
-
-        .case-footer {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .pill-sdg {
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 999px;
-            background: rgba(34,197,94,0.1);
-            border: 1px solid rgba(34,197,94,0.7);
-            color: #bbf7d0;
-        }
-
-        .btn-code {
-            padding: 6px 11px;
-            font-size: 11px;
-            text-decoration: none;
-            border-radius: 999px;
-            border: 1px solid rgba(96,165,250,0.7);
-            background: radial-gradient(circle at top left, rgba(37,99,235,0.7), rgba(15,23,42,0.95));
-            color: #e5e7eb;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .btn-code:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0 12px rgba(96,165,250,0.9);
-            border-color: #93c5fd;
-        }
-
-        /* SUMMARY TABLE */
-        .summary-wrapper {
-            margin-top: 30px;
-            background: var(--bg-soft);
-            border-radius: 18px;
-            border: 1px solid var(--border-soft);
-            padding: 16px;
-            box-shadow: 0 18px 30px rgba(15,23,42,0.9);
-        }
-
-        .summary-scroll {
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        table {
-            border-collapse: collapse;
-            min-width: 800px;
-            width: 100%;
-            font-size: 12px;
-        }
-
-        th, td {
-            border-bottom: 1px solid rgba(148,163,184,0.4);
-            padding: 8px 10px;
-            text-align: left;
-        }
-
-        th {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--accent);
-            background: rgba(15,23,42,0.9);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover td {
-            background: rgba(15,23,42,0.8);
-        }
-
-        .summary-service {
+            padding: 8px 16px;
+            margin-top: 14px;
+            background: #38bdf8;
+            color: #0f172a;
+            border-radius: 6px;
             font-weight: 600;
-            color: var(--text-main);
+            text-decoration: none;
+            transition: 0.2s;
         }
 
-        .summary-sdg {
-            font-size: 11px;
-            color: #bbf7d0;
+        .btn:hover {
+            background: #0ea5e9;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 120px;
-            }
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            .nav-right {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .page-wrapper {
-                padding: 10px 12px 30px;
-            }
+        /* TABLE */
+        table {
+            width: 100%;
+            margin-top: 45px;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        table th {
+            background: #1e293b;
+            padding: 14px;
+            color: #38bdf8;
+            text-transform: uppercase;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            color: #e2e8f0;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <img src="kle_tech.png" class="logo" alt="KLE Tech Logo">
+    <div class="container">
+        <h1 class="title">Prithvi Lok – Smart City Business Case Studies</h1>
 
-        <div class="nav-right">
-            <a href="index.html">Home</a>
-            <a href="aboutcourse.html">About Course</a>
-            <a href="coursereflection.html">Course Reflection</a>
-            <a href="courseproject.html" class="active">Course Project</a>
-            <a href="about.html">About Us</a>
-        </div>
-    </nav>
+        <!-- ---------- BUSINESS CASE GRID ---------- -->
+        <div class="grid">
 
-    <div class="page-wrapper">
-        <!-- HERO / INTRO -->
-        <section class="hero">
-            <div class="hero-left">
-                <h1 class="hero-heading">COURSE PROJECT – HEALTH & INFRASTRUCTURE</h1>
-                <p class="hero-sub">City of Prithvi Lok – Algorithm-Driven Health System Design</p>
-                <div class="hero-divider"></div>
-                <p class="hero-text">
-                    This course project applies advanced Design and Analysis of Algorithms (DAA)
-                    to a fictional tier-2 smart city called <strong>Prithvi Lok</strong>.
-                    Under strict constraints of region and budget, each business case models
-                    a realistic health-infrastructure challenge and maps it to specific
-                    algorithms and data structures.
-                </p>
-
-                <div class="constraints-box">
-                    <div class="constraints-title">Project Constraints</div>
-                    <div class="constraints-grid">
-                        <span><strong>Region:</strong> 150 sq km (urban + peri-urban)</span>
-                        <span><strong>Budget:</strong> ₹20,000 crore (8-year horizon)</span>
-                        <span><strong>Domain:</strong> Health & Civic Infrastructure</span>
-                        <span><strong>Goal:</strong> SDG-aligned, algorithm-first planning</span>
-                    </div>
-                </div>
+            <!-- Case 1 -->
+            <div class="card">
+                <h2>1. Primary Health Center Coverage</h2>
+                <p><strong>Algorithm:</strong> BFS</p>
+                <p><strong>Data Structure:</strong> Graph</p>
+                <p><strong>Purpose:</strong> Identify service coverage & underserved zones.</p>
+                <p><strong>Efficiency:</strong> O(V+E)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 10</p>
+                <a href="BFS.cpp" class="btn">View Code</a>
             </div>
 
-            <div class="hero-right">
-                <div class="hero-right-inner">
-                    <div class="hero-right-title">Algorithms Used (Core Set)</div>
-                    <p class="hero-right-text">
-                        Only a focused set of algorithms and data structures are used
-                        across all business cases to keep the design consistent and
-                        analyzable.
-                    </p>
-                    <div>
-                        <span class="hero-pill"><span class="hero-pill-dot"></span> BFS / DFS</span>
-                        <span class="hero-pill">Dijkstra</span>
-                        <span class="hero-pill">Floyd–Warshall</span>
-                        <span class="hero-pill">Bellman–Ford</span>
-                        <span class="hero-pill">MST (Kruskal)</span>
-                        <span class="hero-pill">Fenwick Tree</span>
-                        <span class="hero-pill">BST</span>
-                        <span class="hero-pill">Red-Black Tree</span>
-                        <span class="hero-pill">Hash Tables</span>
-                        <span class="hero-pill">Trie</span>
-                    </div>
-                </div>
+            <!-- Case 2 -->
+            <div class="card">
+                <h2>2. Smart Ambulance Dispatch</h2>
+                <p><strong>Algorithm:</strong> Dijkstra</p>
+                <p><strong>Data Structure:</strong> Graph, Min Heap</p>
+                <p><strong>Purpose:</strong> Shortest emergency route calculation.</p>
+                <p><strong>Efficiency:</strong> O(E log V)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 11</p>
+                <a href="DIJKSTRA.cpp" class="btn">View Code</a>
             </div>
-        </section>
 
-        <!-- CASE STUDY CARDS -->
-        <h2 class="section-heading">Business Case Studies (Prithvi Lok)</h2>
-        <p class="section-sub">
-            Each card represents one realistic health-infrastructure problem in Prithvi Lok,
-            the algorithms used, and a direct link to the corresponding C++ implementation
-            in your GitHub repository.
-        </p>
-
-        <section class="cards-grid">
-
-            <!-- 1: Primary Care Coverage (BFS.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 01 · Coverage</div>
-                <div class="case-title">Primary Health Center Coverage in Prithvi Lok</div>
-                <p class="case-meta">
-                    <span>Service: PHC Network Planning</span>
-                    <span>City: Prithvi Lok</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Ensure every ward is within 3 hops of a primary health center.</li>
-                    <li><span class="label">Algorithms:</span> <strong>BFS (Breadth-First Search)</strong></li>
-                    <li><span class="label">Data Structures:</span> Adjacency list, <strong>Queue</strong></li>
-                    <li><span class="label">Outcome:</span> 98% population coverage with minimal new PHCs.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 – Good Health & Well-Being</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/BFS.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 2: Ambulance Dispatch (DIJKSTRA.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 02 · Emergency</div>
-                <div class="case-title">Ambulance Dispatch for Golden-Hour Response</div>
-                <p class="case-meta">
-                    <span>Service: Emergency Transport</span>
-                    <span>Fleet: 48 Units</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Reduce average ambulance response time below 8 minutes.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Dijkstra’s Algorithm</strong></li>
-                    <li><span class="label">Data Structures:</span> Adjacency list, <strong>Min-Heap</strong></li>
-                    <li><span class="label">Outcome:</span> Response time improved from 15 → 7.2 minutes.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 – Emergency Care</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/DIJKSTRA.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 3: All-Pairs Hospital Travel Time (Floyds.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 03 · Network</div>
-                <div class="case-title">Hospital-to-Hospital Referral Time Matrix</div>
-                <p class="case-meta">
-                    <span>Service: Tertiary Referral</span>
-                    <span>Nodes: 24 Facilities</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Identify best referral chains between any two hospitals.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Floyd–Warshall</strong></li>
-                    <li><span class="label">Data Structures:</span> Distance matrix (2D array)</li>
-                    <li><span class="label">Outcome:</span> Referral delays reduced by 23% by re-routing flows.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 – Efficient Referrals</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Floyds.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 4: Peripheral Health Outreach (Bellmanford.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 04 · Outreach</div>
-                <div class="case-title">High-Risk Area Outreach Planning</div>
-                <p class="case-meta">
-                    <span>Service: Rural & Slum Outreach</span>
-                    <span>Risk-Weighted Roads</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Reach high-risk pockets considering risk/traffic penalties.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Bellman–Ford</strong></li>
-                    <li><span class="label">Data Structures:</span> Edge list, distance array</li>
-                    <li><span class="label">Outcome:</span> 31% more high-risk households visited in each campaign.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 & SDG 10 – Reduced Inequalities</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Bellmanford.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 5: Telemedicine Backbone (Kruskals.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 05 · Connectivity</div>
-                <div class="case-title">Telemedicine Fiber Backbone for PHCs</div>
-                <p class="case-meta">
-                    <span>Service: Digital Health Network</span>
-                    <span>Budget: ₹480 Cr (subset)</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Connect 30 health nodes with minimum cabling cost.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Minimum Spanning Tree – Kruskal’s</strong></li>
-                    <li><span class="label">Data Structures:</span> Edge list, <strong>Disjoint Set (DSU)</strong></li>
-                    <li><span class="label">Outcome:</span> ~22% cost saving vs naive network layout.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 & SDG 9 – Infrastructure</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Kruskals.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 6: Live Bed Analytics (Fenwick.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 06 · Analytics</div>
-                <div class="case-title">Real-Time Bed Occupancy & Capacity Alerts</div>
-                <p class="case-meta">
-                    <span>Service: Hospital Operations</span>
-                    <span>26 Facilities</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Answer “beds free in any zone?” in sub-second time.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Fenwick Tree (Binary Indexed Tree)</strong></li>
-                    <li><span class="label">Data Structures:</span> Fenwick tree over bed counts</li>
-                    <li><span class="label">Outcome:</span> Instant occupancy dashboards for command center.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 – System Readiness</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Fenwick.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 7: Health Card Lookup (Hashing.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 07 · Identity</div>
-                <div class="case-title">Unified Smart Health Card Lookup</div>
-                <p class="case-meta">
-                    <span>Service: Patient Identity</span>
-                    <span>Population: 32 Lakh</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Fetch patient record in &lt; 1 second at any desk.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Hashing with Open Addressing / Chaining</strong></li>
-                    <li><span class="label">Data Structures:</span> <strong>Hash Table</strong></li>
-                    <li><span class="label">Outcome:</span> Lookup time ≈ O(1), duplicates reduced significantly.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 16 – Strong Institutions</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Hashing.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 8: Drug & Diagnosis Search (Trie.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 08 · Search</div>
-                <div class="case-title">Auto-Complete for Drugs & Diagnoses</div>
-                <p class="case-meta">
-                    <span>Service: e-Prescription System</span>
-                    <span>Dictionary: 40k+ Terms</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Fast prefix-based search while doctors type.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Trie (Prefix Tree) Traversal</strong></li>
-                    <li><span class="label">Data Structures:</span> <strong>Trie</strong> with frequency counters</li>
-                    <li><span class="label">Outcome:</span> Typing time reduced, fewer prescription errors.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 – Safe Prescriptions</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/Trie.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 9: Pharmacy Inventory (bst.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 09 · Inventory</div>
-                <div class="case-title">Pharmacy Stock & Expiry Management</div>
-                <p class="case-meta">
-                    <span>Service: City-Wide Pharmacies</span>
-                    <span>Items: 18k SKUs</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Query “next expiring batch” and reorder thresholds quickly.</li>
-                    <li><span class="label">Algorithms:</span> <strong>BST Operations (Insert, Delete, Search, Inorder)</strong></li>
-                    <li><span class="label">Data Structures:</span> <strong>Binary Search Tree</strong></li>
-                    <li><span class="label">Outcome:</span> Out-of-stock and wastage incidents reduced.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 – Essential Medicines</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/bst.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-            <!-- 10: Appointment Scheduling (red_black_tree.cpp) -->
-            <article class="case-card">
-                <div class="case-badge">Case 10 · Scheduling</div>
-                <div class="case-title">Balanced Appointment Scheduling Platform</div>
-                <p class="case-meta">
-                    <span>Service: Unified Appointment System</span>
-                    <span>Peak Load: 10k/day</span>
-                </p>
-                <ul class="case-list">
-                    <li><span class="label">Problem:</span> Maintain balanced search for free slots at high scale.</li>
-                    <li><span class="label">Algorithms:</span> <strong>Red-Black Tree insert/delete</strong></li>
-                    <li><span class="label">Data Structures:</span> <strong>Red-Black Tree</strong></li>
-                    <li><span class="label">Outcome:</span> Stable O(log n) slot operations even at peak traffic.</li>
-                </ul>
-                <div class="case-footer">
-                    <span class="pill-sdg">SDG 3 – Access to Care</span>
-                    <a class="btn-code"
-                       href="https://github.com/AKHILTEJA-0417/DAA-Portfolio/blob/main/red_black_tree.cpp"
-                       target="_blank" rel="noopener noreferrer">
-                        View Code
-                    </a>
-                </div>
-            </article>
-
-        </section>
-
-        <!-- SUMMARY TABLE -->
-        <h2 class="section-heading">Summary – Service vs Algorithms vs SDGs</h2>
-        <p class="section-sub">
-            Condensed view of how each service in Prithvi Lok maps to algorithms, data structures,
-            efficiency and Sustainable Development Goals (SDGs).
-        </p>
-
-        <div class="summary-wrapper">
-            <div class="summary-scroll">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Algorithms</th>
-                            <th>Data Structures</th>
-                            <th>Purpose</th>
-                            <th>Efficiency</th>
-                            <th>SDGs & Outcome</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="summary-service">Primary Health Coverage</td>
-                            <td>BFS</td>
-                            <td>Graph (Adjacency List), Queue</td>
-                            <td>Find wards beyond k-hop distance from PHCs.</td>
-                            <td>O(V + E)</td>
-                            <td class="summary-sdg">SDG 3: Coverage ≥ 98% population.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Ambulance Dispatch</td>
-                            <td>Dijkstra</td>
-                            <td>Graph, Min-Heap</td>
-                            <td>Shortest-time emergency routing under traffic weights.</td>
-                            <td>O(E log V)</td>
-                            <td class="summary-sdg">SDG 3: Response from 15 → 7.2 min.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Referral Time Matrix</td>
-                            <td>Floyd–Warshall</td>
-                            <td>Distance Matrix</td>
-                            <td>All-pairs hospital travel-time optimization.</td>
-                            <td>O(V³)</td>
-                            <td class="summary-sdg">SDG 3: Better referral chains.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">High-Risk Outreach</td>
-                            <td>Bellman–Ford</td>
-                            <td>Edge List, Distance Array</td>
-                            <td>Shortest paths under risk/penalty weights.</td>
-                            <td>O(V·E)</td>
-                            <td class="summary-sdg">SDG 3 & 10: More high-risk homes reached.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Telemedicine Backbone</td>
-                            <td>MST (Kruskal)</td>
-                            <td>Edge List, DSU</td>
-                            <td>Minimum-cost health fiber layout.</td>
-                            <td>O(E log E)</td>
-                            <td class="summary-sdg">SDG 3 & 9: 22% cabling cost saved.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Bed Occupancy Analytics</td>
-                            <td>Fenwick Tree</td>
-                            <td>Fenwick / BIT Array</td>
-                            <td>Instant range sum queries on beds.</td>
-                            <td>O(log n) per update/query</td>
-                            <td class="summary-sdg">SDG 3: Faster surge-readiness.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Smart Health Card Lookup</td>
-                            <td>Hashing</td>
-                            <td>Hash Table</td>
-                            <td>O(1) average patient record lookup.</td>
-                            <td>≈O(1)</td>
-                            <td class="summary-sdg">SDG 16: Fewer duplicates, faster service.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Drug & Diagnosis Search</td>
-                            <td>Trie Traversal</td>
-                            <td>Trie (Prefix Tree)</td>
-                            <td>Prefix-based auto-complete for terms.</td>
-                            <td>O(L) per query (L = length)</td>
-                            <td class="summary-sdg">SDG 3: Reduced prescription errors.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Pharmacy Inventory</td>
-                            <td>BST Operations</td>
-                            <td>Binary Search Tree</td>
-                            <td>Find next-to-expire & reorder points.</td>
-                            <td>O(h) ≈ O(log n)</td>
-                            <td class="summary-sdg">SDG 3: Lower stockouts & wastage.</td>
-                        </tr>
-                        <tr>
-                            <td class="summary-service">Appointment Scheduling</td>
-                            <td>Red-Black Tree</td>
-                            <td>Balanced BST (RB Tree)</td>
-                            <td>Balanced insert/delete/search for time slots.</td>
-                            <td>O(log n)</td>
-                            <td class="summary-sdg">SDG 3: Stable performance at peak load.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Case 3 -->
+            <div class="card">
+                <h2>3. Hospital Referral Matrix</h2>
+                <p><strong>Algorithm:</strong> Floyd–Warshall</p>
+                <p><strong>Data Structure:</strong> Matrix</p>
+                <p><strong>Purpose:</strong> Precomputed all-pair shortest referral times.</p>
+                <p><strong>Efficiency:</strong> O(n³)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 9</p>
+                <a href="Floyds.cpp" class="btn">View Code</a>
             </div>
+
+            <!-- Case 4 -->
+            <div class="card">
+                <h2>4. High-Risk Patient Outreach</h2>
+                <p><strong>Algorithm:</strong> DFS</p>
+                <p><strong>Data Structure:</strong> Graph</p>
+                <p><strong>Purpose:</strong> Trace clusters of chronic-risk patients.</p>
+                <p><strong>Efficiency:</strong> O(V+E)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 10, SDG 11</p>
+                <a href="BFS.cpp" class="btn">View Code</a>
+            </div>
+
+            <!-- Case 5 -->
+            <div class="card">
+                <h2>5. Telemedicine Fiber Network</h2>
+                <p><strong>Algorithm:</strong> Kruskal (MST)</p>
+                <p><strong>Data Structure:</strong> DSU, Graph</p>
+                <p><strong>Purpose:</strong> Build cost-optimized communication backbone.</p>
+                <p><strong>Efficiency:</strong> O(E log V)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 9, SDG 17</p>
+                <a href="Kruskals.cpp" class="btn">View Code</a>
+            </div>
+
+            <!-- Case 6 -->
+            <div class="card">
+                <h2>6. Real-Time Bed Availability</h2>
+                <p><strong>Algorithm:</strong> Fenwick Tree</p>
+                <p><strong>Data Structure:</strong> Binary Indexed Tree</p>
+                <p><strong>Purpose:</strong> Fast hospital bed count updates.</p>
+                <p><strong>Efficiency:</strong> O(log n)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 12, SDG 13</p>
+                <a href="Fenwick.cpp" class="btn">View Code</a>
+            </div>
+
+            <!-- Case 7 -->
+            <div class="card">
+                <h2>7. Smart Health ID System</h2>
+                <p><strong>Algorithm:</strong> Hashing</p>
+                <p><strong>Data Structure:</strong> Hash Table</p>
+                <p><strong>Purpose:</strong> Ultra-fast patient lookup.</p>
+                <p><strong>Efficiency:</strong> O(1)</p>
+                <p><strong>SDGs:</strong> SDG 16, SDG 9</p>
+                <a href="Hashing.cpp" class="btn">View Code</a>
+            </div>
+
+            <!-- Case 8 -->
+            <div class="card">
+                <h2>8. Drug Auto-Complete System</h2>
+                <p><strong>Algorithm:</strong> Trie Search</p>
+                <p><strong>Data Structure:</strong> Trie</p>
+                <p><strong>Purpose:</strong> Instant drug-name suggestions.</p>
+                <p><strong>Efficiency:</strong> O(L)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 8</p>
+                <a href="Trie.cpp" class="btn">View Code</a>
+            </div>
+
+            <!-- Case 9 -->
+            <div class="card">
+                <h2>9. Pharmacy Stock Management</h2>
+                <p><strong>Algorithm:</strong> BST</p>
+                <p><strong>Data Structure:</strong> Binary Search Tree</p>
+                <p><strong>Purpose:</strong> Track inventory & expiration cycles.</p>
+                <p><strong>Efficiency:</strong> O(log n)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 12</p>
+                <a href="bst.cpp" class="btn">View Code</a>
+            </div>
+
+            <!-- Case 10 -->
+            <div class="card">
+                <h2>10. Appointment Load Balancer</h2>
+                <p><strong>Algorithm:</strong> Red-Black Tree</p>
+                <p><strong>Data Structure:</strong> RB Tree</p>
+                <p><strong>Purpose:</strong> Maintain fair scheduling queues.</p>
+                <p><strong>Efficiency:</strong> O(log n)</p>
+                <p><strong>SDGs:</strong> SDG 3, SDG 8, SDG 11</p>
+                <a href="red_black_tree.cpp" class="btn">View Code</a>
+            </div>
+
         </div>
 
+        <!-- ---------- SUMMARY TABLE ---------- -->
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Algorithms</th>
+                <th>Data Structures</th>
+                <th>Purpose</th>
+                <th>Efficiency</th>
+                <th>SDGs</th>
+            </tr>
+
+            <tr>
+                <td>Primary Healthcare</td>
+                <td>BFS</td>
+                <td>Graph</td>
+                <td>Coverage detection</td>
+                <td>O(V+E)</td>
+                <td>3, 10</td>
+            </tr>
+
+            <tr>
+                <td>Ambulance Dispatch</td>
+                <td>Dijkstra</td>
+                <td>Graph + Heap</td>
+                <td>Fast emergency routing</td>
+                <td>O(E log V)</td>
+                <td>3, 11</td>
+            </tr>
+
+            <tr>
+                <td>Referral Matrix</td>
+                <td>Floyd–Warshall</td>
+                <td>Matrix</td>
+                <td>All-pair travel times</td>
+                <td>O(n³)</td>
+                <td>3, 9</td>
+            </tr>
+
+            <tr>
+                <td>Risk Outreach</td>
+                <td>DFS</td>
+                <td>Graph</td>
+                <td>Cluster mapping</td>
+                <td>O(V+E)</td>
+                <td>3, 10, 11</td>
+            </tr>
+
+            <tr>
+                <td>Telemedicine Backbone</td>
+                <td>Kruskal (MST)</td>
+                <td>DSU</td>
+                <td>Cost-efficient networking</td>
+                <td>O(E log V)</td>
+                <td>3, 9, 17</td>
+            </tr>
+
+            <tr>
+                <td>Bed Analytics</td>
+                <td>Fenwick Tree</td>
+                <td>BIT</td>
+                <td>Fast updates</td>
+                <td>O(log n)</td>
+                <td>3, 12, 13</td>
+            </tr>
+
+            <tr>
+                <td>Health ID</td>
+                <td>Hashing</td>
+                <td>Hash Table</td>
+                <td>Instant lookup</td>
+                <td>O(1)</td>
+                <td>16, 9</td>
+            </tr>
+
+            <tr>
+                <td>Drug Search</td>
+                <td>Trie</td>
+                <td>Prefix Tree</td>
+                <td>Auto-complete</td>
+                <td>O(L)</td>
+                <td>3, 8</td>
+            </tr>
+
+            <tr>
+                <td>Inventory</td>
+                <td>BST</td>
+                <td>Binary Tree</td>
+                <td>Stock tracking</td>
+                <td>O(log n)</td>
+                <td>3, 12</td>
+            </tr>
+
+            <tr>
+                <td>Scheduling</td>
+                <td>RB Tree</td>
+                <td>Balanced Tree</td>
+                <td>Fair load balancing</td>
+                <td>O(log n)</td>
+                <td>3, 8, 11</td>
+            </tr>
+
+        </table>
     </div>
+
 </body>
+
 </html>
