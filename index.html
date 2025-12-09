@@ -17,7 +17,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* ---------------- NAVBAR ---------------- */
         .navbar {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -29,7 +28,7 @@
             z-index: 1000;
         }
 
-        .logo { height: 85px; }
+        .logo { height: 85px; width: auto; }
 
         .nav-right a {
             margin-left: 22px;
@@ -38,18 +37,14 @@
             font-weight: 600;
             transition: 0.3s;
         }
+        .nav-right a:hover, .nav-right .active { color: #60a5fa; }
 
-        .nav-right a:hover,
-        .nav-right .active { color: #60a5fa; }
-
-        /* ---------------- HERO SECTION ---------------- */
         .hero-container {
             display: flex;
             justify-content: space-between;
             padding: 40px 8% 50px;
             gap: 40px;
         }
-
         .hero-left { flex: 1.2; }
 
         .big-heading { font-size: 42px; font-weight: 700; margin-bottom: 8px; }
@@ -68,49 +63,51 @@
         /* ---------------- INSTRUCTOR SECTION ---------------- */
         .instructor-section {
             padding: 60px 10%;
+            text-align: center;
         }
 
         .instructor-title {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 700;
             color: #38bdf8;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .instructor-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px;
+            width: 330px;
+            margin: 0 auto;
+            padding: 25px 20px;
             background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 14px;
-            transition: 0.35s ease;
-            transform-style: preserve-3d;
+            border: 1px solid rgba(255,255,255,0.18);
+            transition: 0.4s ease;
+            transform: scale(0.96);
+            box-shadow: 0 0 22px rgba(96,165,250,0.18);
         }
 
         .instructor-card:hover {
-            transform: translateY(-10px) perspective(800px) rotateX(5deg) rotateY(-5deg);
-            box-shadow: 0 0 25px rgba(96,165,250,0.25);
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(96,165,250,0.45);
+        }
+
+        .instructor-img {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.25);
+            margin-bottom: 12px;
         }
 
         .instructor-name {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
             color: white;
-        }
-
-        .instructor-photo img {
-            height: 160px;
-            width: 160px;
-            object-fit: cover;
-            border-radius: 8px; /* square */
-            border: 2px solid rgba(255,255,255,0.2);
+            margin-top: 10px;
         }
 
         /* ---------------- TEAM SECTION ---------------- */
         .team-section { padding: 60px 10%; }
-
         .team-title { font-size: 28px; font-weight: 700; color:#60a5fa; margin-bottom:25px; }
 
         .team-grid {
@@ -126,32 +123,36 @@
             border: 1px solid rgba(255,255,255,0.15);
             text-align:center;
             transition:0.3s;
+            box-shadow: 0 0 18px rgba(96,165,250,0.18);
         }
-
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.04);
             border-color:#60a5fa;
+            box-shadow: 0 0 25px rgba(96,165,250,0.35);
         }
 
-        /* ---------------- FOOTER ---------------- */
-        .footer {
-            margin-top: 50px;
+        /* -------- FOOTER -------- */
+        footer {
+            margin-top: 60px;
             padding: 25px;
             text-align: center;
-            background: rgba(15,23,42,0.9);
-            border-top: 1px solid rgba(255,255,255,0.15);
+            background: rgba(15,23,42,0.85);
+            border-top: 1px solid rgba(255,255,255,0.12);
+            color: #9ca3af;
+            font-size: 14px;
         }
 
-        .footer p {
-            color: #94a3b8;
-            margin-top: 8px;
+        footer span {
+            display: block;
+            color: #60a5fa;
+            font-weight: 600;
+            margin-top: 5px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <img src="kle_tech.png" class="logo">
         <div class="nav-right">
@@ -163,7 +164,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <div class="hero-container">
         <div class="hero-left">
             <h1 class="big-heading">DESIGN AND ANALYSIS OF ALGORITHMS</h1>
@@ -188,13 +188,8 @@
         <h2 class="instructor-title">Course Instructor</h2>
 
         <div class="instructor-card">
-            <div class="instructor-left">
-                <p class="instructor-name">Prof. PRAKASH HEGDE</p>
-            </div>
-
-            <div class="instructor-photo">
-                <img src="ph.jpg" alt="Instructor Photo">
-            </div>
+            <img src="ph.jpg" class="instructor-img" alt="Instructor Photo">
+            <p class="instructor-name">Prof. PRAKASH HEGDE</p>
         </div>
     </section>
 
@@ -211,10 +206,10 @@
     </div>
 
     <!-- FOOTER -->
-    <div class="footer">
-        <h4>Designed & Developed by <span style="color:#60a5fa;">AKHIL TEJA K S</span></h4>
-        <p>© All Rights Reserved – Design and Analysis of Algorithms</p>
-    </div>
+    <footer>
+        Designed & Developed by <span>AKHIL TEJA K S</span>
+        © All Rights Reserved – 2024
+    </footer>
 
 </body>
 </html>
