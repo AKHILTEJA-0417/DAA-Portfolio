@@ -17,6 +17,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* NAVBAR */
         .navbar {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -39,6 +40,7 @@
         }
         .nav-right a:hover, .nav-right .active { color: #60a5fa; }
 
+        /* HERO */
         .hero-container {
             display: flex;
             justify-content: space-between;
@@ -60,6 +62,36 @@
 
         dotlottie-wc { width: 430px !important; height: 430px !important; }
 
+        /* INSTRUCTOR SECTION */
+        .instructor-section {
+            padding: 60px 10%;
+            margin-top: -20px;
+        }
+        .instructor-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 25px;
+        }
+        .instructor-box {
+            padding: 25px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            text-align: left;
+        }
+        .instructor-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .instructor-role {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* TEAM SECTION */
         .team-section { padding: 60px 10%; }
         .team-title { font-size: 28px; font-weight: 700; color:#60a5fa; margin-bottom:25px; }
 
@@ -77,12 +109,35 @@
             text-align:center;
             transition:0.3s;
         }
-        .card:hover { transform: translateY(-10px); border-color:#60a5fa; }
+        .card:hover { 
+            transform: translateY(-10px); 
+            border-color:#60a5fa;
+            box-shadow: 0 0 20px rgba(96,165,250,0.35);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align:center;
+            padding: 35px 0;
+            background: rgba(15,23,42,0.7);
+            border-top: 1px solid rgba(255,255,255,0.15);
+            margin-top: 60px;
+        }
+        .footer h3 {
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .footer p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
         <img src="kle_tech.png" class="logo">
         <div class="nav-right">
@@ -94,6 +149,7 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <div class="hero-container">
         <div class="hero-left">
             <h1 class="big-heading">DESIGN AND ANALYSIS OF ALGORITHMS</h1>
@@ -113,6 +169,17 @@
         </div>
     </div>
 
+    <!-- INSTRUCTOR SECTION -->
+    <section class="instructor-section">
+        <h2 class="instructor-title">Course Instructor</h2>
+
+        <div class="instructor-box">
+            <p class="instructor-name">PRAKASH HEGDE</p>
+            <p class="instructor-role">Assistant Professor – Department of Computer Science & Engineering</p>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
     <div class="team-section">
         <h2 class="team-title">Meet the Team</h2>
 
@@ -122,6 +189,12 @@
             <div class="card">GAURAV AGARWAL<br>ROLL NO - 406</div>
             <div class="card">AKASH HUGAR<br>ROLL NO - 409</div>
         </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <h3>Designed & Developed by AKHIL TEJA K S</h3>
+        <p>© All Rights Reserved | Design and Analysis of Algorithms</p>
     </div>
 
 </body>
