@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DAA Learning Portfolio</title>
 
+    <link rel="stylesheet" href="navbar.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
@@ -16,37 +18,6 @@
             color: white;
             font-family: 'Poppins', sans-serif;
         }
-
-        /* ---------------- NAVBAR FIX ---------------- */
-        .navbar {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            display: flex; 
-            align-items: center; 
-            justify-content: flex-start; /* shift everything LEFT */
-            gap: 40px; /* spacing between logo & links */
-            background: rgba(15,23,42,0.9);
-            padding: 12px 20px; /* reduced padding so items shift left */
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-        }
-
-        .logo { height: 80px; width: auto; }
-
-        .nav-right {
-            display: flex;
-            gap: 22px;
-        }
-
-        .nav-right a {
-            text-decoration: none;
-            color: #cbd5e1;
-            font-weight: 600;
-            transition: 0.3s;
-            font-size: 16px;
-        }
-        .nav-right a:hover, .nav-right .active { color: #60a5fa; }
 
         /* ---------------- HERO ---------------- */
         .hero-container {
@@ -163,18 +134,16 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <img src="kle_tech.png" class="logo">
+    <!-- 🔥 INSERTED DYNAMIC NAVBAR -->
+    <div id="navbar-placeholder"></div>
 
-        <div class="nav-right">
-            <a href="index.html" class="active">Home</a>
-            <a href="aboutcourse.html">About Course</a>
-            <a href="coursereflection.html">Course Reflection</a>
-            <a href="courseproject.html">Course Project</a>
-            <a href="about.html">About Us</a>
-        </div>
-    </nav>
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+            });
+    </script>
 
     <!-- HERO SECTION -->
     <div class="hero-container">
