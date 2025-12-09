@@ -1,20 +1,19 @@
-/* Prevent shifting */
 html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
+/* Reserve navbar height */
 #navbar-placeholder {
-    height: 90px; /* reserve space */
+    height: 90px;
     display: block;
 }
 
 /* NAVBAR */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     padding: 12px 20px;
 
@@ -33,61 +32,43 @@ html, body {
     height: 60px;
 }
 
-/* Hamburger menu icon */
+/* Hamburger menu - ALWAYS visible */
 .hamburger {
-    font-size: 28px;
+    font-size: 32px;
     cursor: pointer;
     color: white;
-    display: none; /* hidden on desktop */
+    margin-right: 10px;
 }
 
-/* Menu (desktop mode) */
+/* Navigation links */
 .nav-right {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 100%;
+    display: none;          /* hidden by default */
+    flex-direction: column;
+    gap: 20px;
+
+    background: rgba(15,23,42,0.95);
+    padding: 25px 0;
+    text-align: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.nav-right.show {
     display: flex;
-    gap: 25px;
 }
 
 .nav-right a {
     color: #cbd5e1;
     text-decoration: none;
-    font-size: 16px;
     font-weight: 600;
+    font-size: 18px;
 }
 
 .nav-right a:hover,
 .nav-right a.active {
     color: #60a5fa;
-}
-
-/* ------------ MOBILE MODE ------------ */
-@media (max-width: 850px) {
-
-    .hamburger {
-        display: block; /* show icon */
-    }
-
-    .nav-right {
-        position: absolute;
-        top: 90px;
-        right: 0;
-
-        background: rgba(15,23,42,0.95);
-        width: 100%;
-        padding: 20px 0;
-
-        display: none; /* hidden until clicked */
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-        border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
-
-    /* When hamburger clicked */
-    .nav-right.show {
-        display: flex;
-    }
-
-    .logo {
-        height: 55px;
-    }
 }
