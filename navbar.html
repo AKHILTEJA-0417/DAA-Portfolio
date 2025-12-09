@@ -1,11 +1,23 @@
 <nav class="navbar">
     <img src="kle_tech.png" class="logo">
 
-    <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="aboutcourse.html">About Course</a></li>
-        <li><a href="coursereflection.html">Course Reflection</a></li>
-        <li><a href="courseproject.html">Course Project</a></li>
-        <li><a href="about.html">About Me</a></li>
-    </ul>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">
+        &#9776;
+    </div>
+
+    <!-- Menu Items -->
+    <div class="nav-right" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="aboutcourse.html">About Course</a>
+        <a href="coursereflection.html">Course Reflection</a>
+        <a href="courseproject.html">Course Project</a>
+        <a href="about.html">About Me</a>
+    </div>
 </nav>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("show");
+    }
+</script>
