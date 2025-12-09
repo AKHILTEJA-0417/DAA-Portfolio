@@ -1,141 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me – DAA Portfolio</title>
+    <meta charset="UTF-8">
+    <title>About Me - DAA Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin:0;
-    padding-top:130px; /* Prevent navbar overlap */
-    background:linear-gradient(145deg,#000000,#0a1a3c);
-    color:white;
-    font-family:'Poppins',sans-serif;
-}
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
-/* ---------- NAVBAR ---------- */
-.navbar {
-    position:fixed;
-    top:0; left:0;
-    width:100%;
-    display:flex; justify-content:space-between;
-    align-items:center;
-    background:rgba(15,23,42,0.9);
-    padding:12px 30px;
-    border-bottom:1px solid rgba(255,255,255,0.12);
-    backdrop-filter:blur(8px);
-    z-index:1000;
-}
-.logo { height:85px; }
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e293b 0, #020617 40%, #000000 100%);
+            font-family: 'Poppins', sans-serif;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+        }
 
-.nav-right a {
-    margin-left:22px;
-    text-decoration:none;
-    color:#cbd5e1;
-    font-weight:600;
-}
-.nav-right a:hover,
-.nav-right .active {
-    color:#60a5fa;
-}
+        .about-wrapper {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 30px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 18px;
+            border: 1px solid rgba(148,163,184,0.4);
+            box-shadow: 0 0 45px rgba(56,189,248,0.4);
+            backdrop-filter: blur(6px);
+        }
 
-/* ---------- CONTENT BOX ---------- */
-.box {
-    width:80%;
-    margin:auto;
-    margin-top:25px;
-    background:rgba(255,255,255,0.06);
-    padding:30px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.15);
-    backdrop-filter:blur(6px);
-}
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.box h1 {
-    font-size:32px;
-    color:#60a5fa;
-    margin-bottom:15px;
-}
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #38bdf8;
+            box-shadow: 0 0 20px rgba(56,189,248,0.9);
+        }
 
-.box p {
-    font-size:16px;
-    color:#d1d5db;
-    line-height:1.7;
-    margin-bottom:15px;
-}
+        h1, h2 {
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-/* ---------- MY PROFILE CARD ---------- */
-.profile-card {
-    width:50%;
-    margin:auto;
-    margin-top:30px;
-    background:rgba(255,255,255,0.07);
-    border:1px solid rgba(255,255,255,0.15);
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-    transition:0.3s;
-}
+        h3 {
+            color: #a5b4fc;
+            margin-top: 20px;
+        }
 
-.profile-card:hover {
-    transform:translateY(-8px);
-    border-color:#60a5fa;
-}
+        p, li {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
 
-.profile-card .icon {
-    font-size:40px;
-    margin-bottom:10px;
-}
-</style>
+        ul {
+            margin-left: 20px;
+        }
+
+        .section-box {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30,41,59,0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(148,163,184,0.3);
+        }
+
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <img src="kle_tech.png" class="logo">
-    <div class="nav-right">
-        <a href="index.html">Home</a>
-        <a href="aboutcourse.html">About Course</a>
-        <a href="coursereflection.html">Course Reflection</a>
-        <a href="courseproject.html">Course Project</a>
-        <a class="active" href="about.html">About Us</a>
+    <div class="about-wrapper">
+
+        <!-- PROFILE IMAGE + NAME -->
+        <div class="profile-section">
+            <img src="akhil.jpg" class="profile-pic" alt="Akhil Teja KS">
+            <h1>AKHIL TEJA K S</h1>
+            <h3>USN: 01FE24BCS284 • Roll No: 421</h3>
+        </div>
+
+        <!-- ABOUT ME -->
+        <div class="section-box">
+            <h2>About Me</h2>
+            <p>
+                Hello! I’m <strong>Akhil Teja K S</strong>, a Computer Science Engineering student with a strong
+                passion for problem-solving and algorithmic thinking. I enjoy breaking down complex challenges,
+                designing efficient solutions, and exploring how algorithms power real-world systems.
+            </p>
+            <p>
+                My academic focus revolves around learning and applying techniques from the 
+                <strong>Design and Analysis of Algorithms (DAA)</strong>, and building projects that reflect both
+                analytical reasoning and structured software development.
+            </p>
+        </div>
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="section-box">
+            <h2>Technical Skills</h2>
+
+            <h3>Programming Languages</h3>
+            <ul>
+                <li>C</li>
+                <li>C++ (Primary Language)</li>
+                <li>Python (Basics)</li>
+            </ul>
+
+            <h3>Core Concepts</h3>
+            <ul>
+                <li>Object-Oriented Programming (OOP)</li>
+                <li>Data Structures & Algorithms (DSA)</li>
+                <li>Recursion & Backtracking</li>
+                <li>Time & Space Complexity Analysis</li>
+                <li>Graph Algorithms (BFS, DFS, Dijkstra, MST)</li>
+                <li>Trees (BST, AVL, Red-Black Trees)</li>
+            </ul>
+
+            <h3>Development Skills</h3>
+            <ul>
+                <li>Frontend Web Development (HTML, CSS, JavaScript)</li>
+                <li>Version Control (Git & GitHub)</li>
+                <li>Debugging and clean coding practices</li>
+            </ul>
+        </div>
+
+        <!-- INTERESTS -->
+        <div class="section-box">
+            <h2>Interests in DAA</h2>
+            <p>
+                I am deeply interested in how algorithms improve efficiency, optimize processes, and solve 
+                large-scale real-world problems. My interests include:
+            </p>
+            <ul>
+                <li>Graph optimization & shortest path algorithms</li>
+                <li>Range-query structures like Segment Trees & Fenwick Trees</li>
+                <li>Divide-and-Conquer & Greedy approaches</li>
+                <li>Efficient indexing structures and balanced trees</li>
+                <li>Understanding algorithmic complexity in real systems</li>
+            </ul>
+        </div>
+
+        <!-- STRENGTHS -->
+        <div class="section-box">
+            <h2>Strengths</h2>
+            <ul>
+                <li>Strong analytical and logical thinking</li>
+                <li>Fast learner with a disciplined approach</li>
+                <li>Team collaboration & communication</li>
+                <li>Clear structured problem-solving skills</li>
+                <li>Attention to detail and clean code habits</li>
+            </ul>
+        </div>
+
+        <!-- GOALS -->
+        <div class="section-box">
+            <h2>Current Goals</h2>
+            <ul>
+                <li>Master advanced DSA topics and competitive programming patterns</li>
+                <li>Develop real-world applications using algorithmic techniques</li>
+                <li>Contribute to open-source CS and algorithmic projects</li>
+                <li>Strengthen mathematical reasoning for problem optimization</li>
+            </ul>
+        </div>
+
     </div>
-</nav>
-
-<!-- MAIN CONTENT -->
-<div class="box">
-    <h1>About Me</h1>
-
-    <p>
-        I am <strong>Akhil Teja K S</strong>, a Computer Science Engineering student with 
-        a strong interest in algorithms, optimization, real-world problem solving, and 
-        applying computational techniques to improve system efficiency.
-    </p>
-
-    <p>
-        This DAA portfolio represents my work and understanding of algorithmic techniques, 
-        including graph algorithms, greedy strategies, dynamic programming, and 
-        advanced data structures. I applied these concepts to the domain of 
-        health and infrastructure, exploring how algorithms can optimize 
-        medical systems, emergency services, budget allocation, and city-wide planning.
-    </p>
-
-    <p>
-        Through this project, I developed analytical thinking, problem modeling skills, 
-        and the ability to design solutions that are both efficient and practical.
-    </p>
-
-    <div class="profile-card">
-        <div class="icon">🧑‍💻</div>
-        <strong>Akhil Teja K S</strong><br><br>
-        Roll Number: <strong>421</strong><br>
-        USN: <strong>01FE24BCS284</strong>
-    </div>
-</div>
 
 </body>
 </html>
