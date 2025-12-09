@@ -11,34 +11,44 @@
     <style>
         body {
             margin: 0;
-            padding-top: 130px;
+            padding-top: 120px;
             background: linear-gradient(145deg, #000000, #0a1a3c);
             color: white;
             font-family: 'Poppins', sans-serif;
         }
 
+        /* ---------------- NAVBAR FIX ---------------- */
         .navbar {
             position: fixed;
             top: 0; left: 0; width: 100%;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-start; /* shift everything LEFT */
+            gap: 40px; /* spacing between logo & links */
             background: rgba(15,23,42,0.9);
-            padding: 12px 30px;
+            padding: 12px 20px; /* reduced padding so items shift left */
             border-bottom: 1px solid rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
             z-index: 1000;
         }
 
-        .logo { height: 85px; width: auto; }
+        .logo { height: 80px; width: auto; }
+
+        .nav-right {
+            display: flex;
+            gap: 22px;
+        }
 
         .nav-right a {
-            margin-left: 22px;
             text-decoration: none;
             color: #cbd5e1;
             font-weight: 600;
             transition: 0.3s;
+            font-size: 16px;
         }
         .nav-right a:hover, .nav-right .active { color: #60a5fa; }
 
+        /* ---------------- HERO ---------------- */
         .hero-container {
             display: flex;
             justify-content: space-between;
@@ -153,8 +163,10 @@
 
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
         <img src="kle_tech.png" class="logo">
+
         <div class="nav-right">
             <a href="index.html" class="active">Home</a>
             <a href="aboutcourse.html">About Course</a>
@@ -164,6 +176,7 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <div class="hero-container">
         <div class="hero-left">
             <h1 class="big-heading">DESIGN AND ANALYSIS OF ALGORITHMS</h1>
