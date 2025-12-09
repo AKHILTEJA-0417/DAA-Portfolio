@@ -5,54 +5,22 @@
 <title>Course Project – DAA Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="navbar.css">
-<!-- Google Fonts -->
+<!-- NAVBAR CSS -->
+<link rel="stylesheet" href="navbar.css">
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome Icons -->
+<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
     body {
         margin: 0;
-        padding: 0;
+        padding-top: 130px; /* Prevent navbar overlap */
         background: #0a0f1f;
         font-family: "Poppins", sans-serif;
         color: #e2e8f0;
-    }
-
-    /* NAVBAR */
-    .navbar {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 18px 40px;
-        background: rgba(15, 23, 42, 0.9);
-        backdrop-filter: blur(8px);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-
-    .navbar img {
-        height: 70px;
-    }
-
-    .navbar a {
-        margin-left: 22px;
-        text-decoration: none;
-        color: #cbd5e1;
-        font-weight: 600;
-        transition: 0.3s;
-    }
-
-    .navbar a:hover {
-        color: #60a5fa;
-    }
-
-    .active {
-        color: #60a5fa !important;
     }
 
     /* PROJECT CHART */
@@ -68,12 +36,6 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-bottom: 22px;
-        animation: fadeInDown 1.2s ease;
-    }
-
-    @keyframes fadeInDown {
-        0% { opacity: 0; transform: translateY(-20px); }
-        100% { opacity: 1; transform: translateY(0); }
     }
 
     .chart-images {
@@ -89,7 +51,6 @@
         border: 2px solid rgba(96,165,250,0.5);
         box-shadow: 0 0 25px rgba(96,165,250,0.4);
         transition: 0.3s;
-        background: #0f172a;
     }
 
     .chart-images img:hover {
@@ -117,7 +78,6 @@
         padding: 22px;
         border-radius: 14px;
         border: 1px solid rgba(255,255,255,0.18);
-        backdrop-filter: blur(8px);
         transition: 0.3s;
     }
 
@@ -131,12 +91,6 @@
         color: #60a5fa;
         font-size: 20px;
         margin-bottom: 10px;
-    }
-
-    .card p {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #cbd5e1;
     }
 
     .btn {
@@ -183,13 +137,31 @@
         .chart-images { flex-direction: column; }
         .chart-images img { width: 100%; }
     }
+
+    /* FOOTER */
+    footer {
+        margin-top: 60px;
+        padding: 25px;
+        text-align: center;
+        background: rgba(15,23,42,0.85);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        color: #9ca3af;
+        font-size: 14px;
+    }
+
+    footer span {
+        display: block;
+        color: #60a5fa;
+        font-weight: 600;
+        margin-top: 5px;
+    }
 </style>
 </head>
 
 <body>
 
+<!-- 🔥 DYNAMIC NAVBAR -->
 <div id="navbar-placeholder"></div>
-
 <script>
     fetch("navbar.html")
         .then(res => res.text())
@@ -200,41 +172,19 @@
 
 <!-- PROJECT CHART SECTION -->
 <div class="container mt-4 mb-5">
-    <h2 class="text-center text-uppercase mb-4" style="color:#38bdf8; letter-spacing:2px;">
-        Project Chart
-    </h2>
+    <h2 class="text-center text-uppercase mb-4" style="color:#38bdf8; letter-spacing:2px;">Project Chart</h2>
 
     <div class="d-flex flex-column justify-content-center align-items-center">
-
-        <!-- IMAGE 1 -->
         <div class="mb-4">
-            <img src="1img.jpg" 
-                 alt="Project Chart 1" 
-                 style="
-                    width: 100%;
-                    max-width: 500px;
-                    transform: rotate(-90deg);
-                    border-radius: 10px;
-                    box-shadow: 0 0 20px rgba(56,189,248,0.4);
-                 ">
+            <img src="1img.jpg" alt="Project Chart 1"
+                 style="width: 100%; max-width: 500px; transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 0 20px rgba(56,189,248,0.4);">
         </div>
-
-        <!-- IMAGE 2 -->
         <div>
-            <img src="p1.jpg" 
-                 alt="Project Chart 2" 
-                 style="
-                    width: 100%;
-                    max-width: 500px;
-                    transform: rotate(-90deg);
-                    border-radius: 10px;
-                    box-shadow: 0 0 20px rgba(56,189,248,0.4);
-                 ">
+            <img src="p1.jpg" alt="Project Chart 2"
+                 style="width: 100%; max-width: 500px; transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 0 20px rgba(56,189,248,0.4);">
         </div>
-
     </div>
 </div>
-
 
 <!-- BUSINESS CASE STUDIES -->
 <div class="container">
@@ -242,95 +192,26 @@
 
 <div class="grid">
 
-<!-- CASE 1 -->
-<div class="card">
-    <h3>1. Primary Health Center Coverage Optimization</h3>
-    <p><b>Algorithms:</b> Dijkstra, BFS</p>
-    <p><b>Data Structures:</b> Graph</p>
-    <p><b>SDGs:</b> SDG 3, SDG 10</p>
-    <a class="btn" href="DIJKSTRA.cpp">View Code</a>
-</div>
+<!-- CASES 1–10 (unchanged content) -->
+<div class="card"><h3>1. Primary Health Center Coverage Optimization</h3><p><b>Algorithms:</b> Dijkstra, BFS</p><p><b>Data Structures:</b> Graph</p><p><b>SDGs:</b> SDG 3, SDG 10</p><a class="btn" href="DIJKSTRA.cpp">View Code</a></div>
 
-<!-- CASE 2 -->
-<div class="card">
-    <h3>2. Ambulance Dispatch & Golden-Hour Routing</h3>
-    <p><b>Algorithms:</b> Dijkstra</p>
-    <p><b>Data Structures:</b> Min Heap</p>
-    <p><b>SDGs:</b> SDG 3, SDG 11</p>
-    <a class="btn" href="DIJKSTRA.cpp">View Code</a>
-</div>
+<div class="card"><h3>2. Ambulance Dispatch & Golden-Hour Routing</h3><p><b>Algorithms:</b> Dijkstra</p><p><b>Data Structures:</b> Min Heap</p><p><b>SDGs:</b> SDG 3, SDG 11</p><a class="btn" href="DIJKSTRA.cpp">View Code</a></div>
 
-<!-- CASE 3 -->
-<div class="card">
-    <h3>3. Hospital Referral Time Matrix</h3>
-    <p><b>Algorithms:</b> Floyd–Warshall</p>
-    <p><b>Data Structures:</b> Matrix</p>
-    <p><b>SDGs:</b> SDG 3, SDG 9</p>
-    <a class="btn" href="Floyds.cpp">View Code</a>
-</div>
+<div class="card"><h3>3. Hospital Referral Time Matrix</h3><p><b>Algorithms:</b> Floyd–Warshall</p><p><b>Data Structures:</b> Matrix</p><p><b>SDGs:</b> SDG 3, SDG 9</p><a class="btn" href="Floyds.cpp">View Code</a></div>
 
-<!-- CASE 4 -->
-<div class="card">
-    <h3>4. High-Risk Outreach Mapping</h3>
-    <p><b>Algorithms:</b> Bellman–Ford</p>
-    <p><b>Data Structures:</b> Graph</p>
-    <p><b>SDGs:</b> SDG 3, SDG 10, SDG 11</p>
-    <a class="btn" href="Bellmanford.cpp">View Code</a>
-</div>
+<div class="card"><h3>4. High-Risk Outreach Mapping</h3><p><b>Algorithms:</b> Bellman–Ford</p><p><b>Data Structures:</b> Graph</p><p><b>SDGs:</b> SDG 3, SDG 10, SDG 11</p><a class="btn" href="Bellmanford.cpp">View Code</a></div>
 
-<!-- CASE 5 -->
-<div class="card">
-    <h3>5. Telemedicine Fiber Backbone (MST)</h3>
-    <p><b>Algorithms:</b> Kruskal’s MST</p>
-    <p><b>Data Structures:</b> DSU</p>
-    <p><b>SDGs:</b> SDG 3, SDG 9, SDG 17</p>
-    <a class="btn" href="Kruskals.cpp">View Code</a>
-</div>
+<div class="card"><h3>5. Telemedicine Fiber Backbone (MST)</h3><p><b>Algorithms:</b> Kruskal’s MST</p><p><b>Data Structures:</b> DSU</p><p><b>SDGs:</b> SDG 3, SDG 9, SDG 17</p><a class="btn" href="Kruskals.cpp">View Code</a></div>
 
-<!-- CASE 6 -->
-<div class="card">
-    <h3>6. Bed Availability Analytics</h3>
-    <p><b>Algorithms:</b> Fenwick Tree</p>
-    <p><b>Data Structures:</b> BIT</p>
-    <p><b>SDGs:</b> SDG 3, SDG 12, SDG 13</p>
-    <a class="btn" href="Fenwick.cpp">View Code</a>
-</div>
+<div class="card"><h3>6. Bed Availability Analytics</h3><p><b>Algorithms:</b> Fenwick Tree</p><p><b>Data Structures:</b> BIT</p><p><b>SDGs:</b> SDG 3, SDG 12, SDG 13</p><a class="btn" href="Fenwick.cpp">View Code</a></div>
 
-<!-- CASE 7 -->
-<div class="card">
-    <h3>7. Smart Health Card Lookup</h3>
-    <p><b>Algorithms:</b> Hashing</p>
-    <p><b>Data Structures:</b> Hash Table</p>
-    <p><b>SDGs:</b> SDG 16, SDG 9</p>
-    <a class="btn" href="Hashing.cpp">View Code</a>
-</div>
+<div class="card"><h3>7. Smart Health Card Lookup</h3><p><b>Algorithms:</b> Hashing</p><p><b>Data Structures:</b> Hash Table</p><p><b>SDGs:</b> SDG 16, SDG 9</p><a class="btn" href="Hashing.cpp">View Code</a></div>
 
-<!-- CASE 8 -->
-<div class="card">
-    <h3>8. Drug & Diagnosis Auto-Complete</h3>
-    <p><b>Algorithms:</b> Trie</p>
-    <p><b>Data Structures:</b> Trie</p>
-    <p><b>SDGs:</b> SDG 3, SDG 8</p>
-    <a class="btn" href="Trie.cpp">View Code</a>
-</div>
+<div class="card"><h3>8. Drug & Diagnosis Auto-Complete</h3><p><b>Algorithms:</b> Trie</p><p><b>Data Structures:</b> Trie</p><p><b>SDGs:</b> SDG 3, SDG 8</p><a class="btn" href="Trie.cpp">View Code</a></div>
 
-<!-- CASE 9 -->
-<div class="card">
-    <h3>9. Pharmacy Inventory System</h3>
-    <p><b>Algorithms:</b> BST</p>
-    <p><b>Data Structures:</b> BST</p>
-    <p><b>SDGs:</b> SDG 3, SDG 12</p>
-    <a class="btn" href="bst.cpp">View Code</a>
-</div>
+<div class="card"><h3>9. Pharmacy Inventory System</h3><p><b>Algorithms:</b> BST</p><p><b>Data Structures:</b> BST</p><p><b>SDGs:</b> SDG 3, SDG 12</p><a class="btn" href="bst.cpp">View Code</a></div>
 
-<!-- CASE 10 -->
-<div class="card">
-    <h3>10. Appointment Scheduling System</h3>
-    <p><b>Algorithms:</b> Red-Black Tree</p>
-    <p><b>Data Structures:</b> RB Tree</p>
-    <p><b>SDGs:</b> SDG 3, SDG 8, SDG 11</p>
-    <a class="btn" href="red_black_tree.cpp">View Code</a>
-</div>
+<div class="card"><h3>10. Appointment Scheduling System</h3><p><b>Algorithms:</b> Red-Black Tree</p><p><b>Data Structures:</b> RB Tree</p><p><b>SDGs:</b> SDG 3, SDG 8, SDG 11</p><a class="btn" href="red_black_tree.cpp">View Code</a></div>
 
 </div>
 
@@ -338,32 +219,26 @@
 <h2 style="color:#60a5fa; margin-top:40px;">Summary Table</h2>
 
 <table class="summary-table">
-<tr>
-    <th>Service</th>
-    <th>Algorithms</th>
-    <th>Data Structures</th>
-    <th>Purpose</th>
-    <th>SDGs</th>
-</tr>
-
+<tr><th>Service</th><th>Algorithms</th><th>Data Structures</th><th>Purpose</th><th>SDGs</th></tr>
 <tr><td>Health Coverage</td><td>Dijkstra, BFS</td><td>Graph</td><td>Coverage optimization</td><td>SDG 3, 10</td></tr>
 <tr><td>Ambulance Routing</td><td>Dijkstra</td><td>Min Heap</td><td>Golden-hour routing</td><td>SDG 3, 11</td></tr>
 <tr><td>Referral Matrix</td><td>Floyd</td><td>Matrix</td><td>Hospital navigation</td><td>SDG 3, 9</td></tr>
 <tr><td>Outreach Mapping</td><td>Bellman–Ford</td><td>Graph</td><td>Risk area detection</td><td>SDG 3, 10, 11</td></tr>
-<tr><td>Telemedicine Network</td><td>Kruskal MST</td><td>DSU</td><td>Network layout</td><td>SDG 3, 9, 17</td></tr>
-<tr><td>Bed Analytics</td><td>Fenwick Tree</td><td>BIT</td><td>Real-time tracking</td><td>SDG 3, 12, 13</td></tr>
-<tr><td>Health Card Lookup</td><td>Hashing</td><td>Hash Table</td><td>Instant verification</td><td>SDG 16, 9</td></tr>
-<tr><td>Medical Auto-Complete</td><td>Trie</td><td>Trie</td><td>Fast suggestions</td><td>SDG 3, 8</td></tr>
+<tr><td>Telemedicine Network</td><td>Kruskal</td><td>DSU</td><td>Network layout</td><td>SDG 3, 9, 17</td></tr>
+<tr><td>Bed Analytics</td><td>Fenwick</td><td>BIT</td><td>Real-time tracking</td><td>SDG 3, 12, 13</td></tr>
+<tr><td>Health Lookup</td><td>Hashing</td><td>Hash Table</td><td>Instant verification</td><td>SDG 16, 9</td></tr>
+<tr><td>Auto-Complete</td><td>Trie</td><td>Trie</td><td>Fast suggestions</td><td>SDG 3, 8</td></tr>
 <tr><td>Pharma Inventory</td><td>BST</td><td>BST</td><td>Stock control</td><td>SDG 3, 12</td></tr>
-<tr><td>Scheduling System</td><td>RB Tree</td><td>RB Tree</td><td>Time slot management</td><td>SDG 3, 8, 11</td></tr>
-
+<tr><td>Scheduling</td><td>RB Tree</td><td>RB Tree</td><td>Time slot management</td><td>SDG 3, 8, 11</td></tr>
 </table>
 
 </div>
-      <!-- FOOTER -->
-    <footer>
-        Designed & Developed by <span>AKHIL TEJA K S</span>
-        © All Rights Reserved – 2025
-    </footer
+
+<!-- FOOTER -->
+<footer>
+    Designed & Developed by <span>AKHIL TEJA K S</span>
+    © All Rights Reserved – 2025
+</footer>
+
 </body>
 </html>
