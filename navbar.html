@@ -1,23 +1,23 @@
 <nav class="navbar">
     <img src="kle_tech.png" class="logo">
 
-    <!-- Hamburger Icon (always visible) -->
+    <!-- Hamburger Icon -->
     <div class="hamburger" onclick="toggleMenu()">
         ☰
     </div>
-
-    <!-- Menu Items -->
-    <div class="nav-right" id="navMenu">
-        <a href="index.html">Home</a>
-        <a href="aboutcourse.html">About Course</a>
-        <a href="coursereflection.html">Course Reflection</a>
-        <a href="courseproject.html">Course Project</a>
-        <a href="about.html">About Me</a>
-    </div>
 </nav>
+
+<!-- DROPDOWN MENU -->
+<div class="dropdown-menu" id="dropdownMenu">
+    <a href="index.html">Home</a>
+    <a href="aboutcourse.html">About Course</a>
+    <a href="coursereflection.html">Course Reflection</a>
+    <a href="courseproject.html">Course Project</a>
+    <a href="about.html">About Me</a>
+</div>
 
 <script>
 function toggleMenu() {
-    document.getElementById("navMenu").classList.toggle("show");
+    document.getElementById("dropdownMenu").classList.toggle("show");
 }
 </script>
