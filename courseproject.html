@@ -5,6 +5,7 @@
 <title>Course Project – DAA Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="navbar.css">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -187,17 +188,15 @@
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <img src="kle_tech.png">
-    <div>
-        <a href="index.html">Home</a>
-        <a href="aboutcourse.html">About Course</a>
-        <a href="coursereflection.html">Course Reflection</a>
-        <a href="courseproject.html" class="active">Course Project</a>
-        <a href="about.html">About Us</a>
-    </div>
-</nav>
+<div id="navbar-placeholder"></div>
+
+<script>
+    fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+</script>
 
 <!-- PROJECT CHART SECTION -->
 <div class="container mt-4 mb-5">
