@@ -5,289 +5,240 @@
 <title>Course Project – DAA Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- NAVBAR CSS -->
 <link rel="stylesheet" href="navbar.css">
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-body{
-    margin:0;
-    padding-top:130px;
-    background:#0a0f1f;
-    font-family:"Poppins",sans-serif;
-    color:#e2e8f0;
-}
+    body {
+        margin: 0;
+        padding-top: 130px; /* Prevent navbar overlap */
+        background: #0a0f1f;
+        font-family: "Poppins", sans-serif;
+        color: #e2e8f0;
+    }
 
-/* CONTAINER */
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
+    /* PROJECT CHART */
+    .chart-section {
+        text-align: center;
+        padding: 40px 20px;
+    }
 
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-    margin-top:30px;
-}
-@media(max-width:900px){
-    .grid{grid-template-columns:1fr;}
-}
+    .chart-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #60a5fa;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 22px;
+    }
 
-/* CARD */
-.card{
-    background:rgba(255,255,255,0.06);
-    padding:22px;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,0.18);
-}
+    .chart-images {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px 40px;
+    }
 
-/* BUTTON */
-.btn{
-    margin-top:12px;
-    background:#60a5fa;
-    color:#000;
-    padding:8px 16px;
-    border-radius:8px;
-    font-weight:600;
-    border:none;
-    cursor:pointer;
-}
+    .chart-images img {
+        width: 48%;
+        border-radius: 12px;
+        border: 2px solid rgba(96,165,250,0.5);
+        box-shadow: 0 0 25px rgba(96,165,250,0.4);
+        transition: 0.3s;
+    }
 
-/* TERMINAL */
-.terminal{
-    background:#020617;
-    margin-top:14px;
-    border-radius:10px;
-    overflow:hidden;
-    max-height:0;
-    transition:max-height 0.6s ease;
-}
-.terminal.active{max-height:400px;}
+    .chart-images img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 35px rgba(96,165,250,0.7);
+    }
 
-.terminal-header{
-    display:flex;
-    gap:8px;
-    padding:8px;
-}
-.dot{width:12px;height:12px;border-radius:50%;}
-.red{background:#ef4444;}
-.yellow{background:#facc15;}
-.green{background:#22c55e;}
+    /* MAIN CONTAINER */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
 
-.terminal-code{
-    padding:14px;
-    font-family:monospace;
-    font-size:14px;
-    white-space:pre-wrap;
-}
+    /* CARD GRID */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-top: 30px;
+    }
 
-/* FOOTER */
-footer{
-    margin-top:60px;
-    padding:25px;
-    text-align:center;
-    background:rgba(15,23,42,0.85);
-}
-footer span{color:#60a5fa;font-weight:600;}
+    .card {
+        background: rgba(255,255,255,0.06);
+        padding: 22px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.18);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: #60a5fa;
+        box-shadow: 0 0 25px rgba(96,165,250,0.3);
+    }
+
+    .card h3 {
+        color: #60a5fa;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        margin-top: 12px;
+        display: inline-block;
+        background: #60a5fa;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #000;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #3b82f6;
+    }
+
+    /* SUMMARY TABLE */
+    .summary-table {
+        width: 100%;
+        margin-top: 50px;
+        border-collapse: collapse;
+        background: rgba(255,255,255,0.06);
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .summary-table th, .summary-table td {
+        padding: 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        font-size: 14px;
+    }
+
+    .summary-table th {
+        background: rgba(96,165,250,0.2);
+        color: #60a5fa;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+        .grid { grid-template-columns: 1fr; }
+        .chart-images { flex-direction: column; }
+        .chart-images img { width: 100%; }
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: 60px;
+        padding: 25px;
+        text-align: center;
+        background: rgba(15,23,42,0.85);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        color: #9ca3af;
+        font-size: 14px;
+    }
+
+    footer span {
+        display: block;
+        color: #60a5fa;
+        font-weight: 600;
+        margin-top: 5px;
+    }
 </style>
 </head>
 
 <body>
+<div id="navbar-placeholder"></div>
 
-<!-- NAVBAR -->
+<!-- 🔥 DYNAMIC NAVBAR -->
 <div id="navbar-placeholder"></div>
 <script>
-fetch("navbar.html")
-.then(r=>r.text())
-.then(d=>document.getElementById("navbar-placeholder").innerHTML=d);
+    fetch("navbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+        });
 </script>
 
-<!-- PROJECT CHART -->
-<div class="container">
-<h2 style="color:#38bdf8;text-align:center;">Project Chart</h2>
+<!-- PROJECT CHART SECTION -->
+<div class="container mt-4 mb-5">
+    <h2 class="text-center text-uppercase mb-4" style="color:#38bdf8; letter-spacing:2px;">Project Chart</h2>
 
-<div style="display:flex;flex-direction:column;align-items:center;">
-<img src="1img.jpg" style="max-width:500px;transform:rotate(-90deg);margin-bottom:20px;">
-<img src="p1.jpg" style="max-width:500px;transform:rotate(-90deg);">
-</div>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="mb-4">
+            <img src="1img.jpg" alt="Project Chart 1"
+                 style="width: 100%; max-width: 500px; transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 0 20px rgba(56,189,248,0.4);">
+        </div>
+        <div>
+            <img src="p1.jpg" alt="Project Chart 2"
+                 style="width: 100%; max-width: 500px; transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 0 20px rgba(56,189,248,0.4);">
+        </div>
+    </div>
 </div>
 
-<!-- BUSINESS CASES -->
+<!-- BUSINESS CASE STUDIES -->
 <div class="container">
-<h2 style="color:#60a5fa;margin-top:40px;">Business Case Studies</h2>
+<h2 style="color:#60a5fa; margin-top:30px;">Business Case Studies</h2>
 
 <div class="grid">
 
-<!-- CASE TEMPLATE -->
-<script>
-function toggle(id){
- document.querySelectorAll('.terminal').forEach(t=>{
-   if(t.id!==id)t.classList.remove('active');
- });
- document.getElementById(id).classList.toggle('active');
-}
-</script>
+<!-- CASES 1–10 (unchanged content) -->
+<div class="card"><h3>1. Primary Health Center Coverage Optimization</h3><p><b>Algorithms:</b> Dijkstra, BFS</p><p><b>Data Structures:</b> Graph</p><p><b>SDGs:</b> SDG 3, SDG 10</p><a class="btn" href="DIJKSTRA.cpp">View Code</a></div>
 
-<!-- 1 -->
-<div class="card">
-<h3>1. Primary Health Center Coverage Optimization</h3>
-<p><b>Algorithm:</b> Dijkstra</p>
-<p><b>SDGs:</b> SDG 3, SDG 10</p>
-<button class="btn" onclick="toggle('t1')">View Code</button>
-<div class="terminal" id="t1">
-<div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-void dijkstra(int src){
- for(int i=0;i<V;i++) dist[i]=INF;
- dist[src]=0;
- priority_queue pq;
- while(!pq.empty()){
-  int u=pq.top(); pq.pop();
-  for(auto v:adj[u])
-   if(dist[v]>dist[u]+w)
-    dist[v]=dist[u]+w;
- }
-}
-</div></div></div>
+<div class="card"><h3>2. Ambulance Dispatch & Golden-Hour Routing</h3><p><b>Algorithms:</b> Dijkstra</p><p><b>Data Structures:</b> Min Heap</p><p><b>SDGs:</b> SDG 3, SDG 11</p><a class="btn" href="DIJKSTRA.cpp">View Code</a></div>
 
-<!-- 2 -->
-<div class="card">
-<h3>2. Ambulance Dispatch Routing</h3>
-<p><b>Algorithm:</b> Dijkstra</p>
-<p><b>SDGs:</b> SDG 3, SDG 11</p>
-<button class="btn" onclick="toggle('t2')">View Code</button>
-<div class="terminal" id="t2"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-priority_queue pq;
-pq.push({0,src});
-while(!pq.empty()){
- auto [d,u]=pq.top(); pq.pop();
- for(auto e:adj[u])
-  if(dist[e]>d+w)
-   dist[e]=d+w;
-}
-</div></div></div>
+<div class="card"><h3>3. Hospital Referral Time Matrix</h3><p><b>Algorithms:</b> Floyd–Warshall</p><p><b>Data Structures:</b> Matrix</p><p><b>SDGs:</b> SDG 3, SDG 9</p><a class="btn" href="Floyds.cpp">View Code</a></div>
 
-<!-- 3 -->
-<div class="card">
-<h3>3. Hospital Referral Matrix</h3>
-<p><b>Algorithm:</b> Floyd-Warshall</p>
-<p><b>SDGs:</b> SDG 3, SDG 9</p>
-<button class="btn" onclick="toggle('t3')">View Code</button>
-<div class="terminal" id="t3"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-for(k=0;k<n;k++)
- for(i=0;i<n;i++)
-  for(j=0;j<n;j++)
-   dist[i][j]=min(dist[i][j],dist[i][k]+dist[k][j]);
-</div></div></div>
+<div class="card"><h3>4. High-Risk Outreach Mapping</h3><p><b>Algorithms:</b> Bellman–Ford</p><p><b>Data Structures:</b> Graph</p><p><b>SDGs:</b> SDG 3, SDG 10, SDG 11</p><a class="btn" href="Bellmanford.cpp">View Code</a></div>
 
-<!-- 4 -->
-<div class="card">
-<h3>4. High Risk Outreach</h3>
-<p><b>Algorithm:</b> Bellman-Ford</p>
-<p><b>SDGs:</b> SDG 3,10,11</p>
-<button class="btn" onclick="toggle('t4')">View Code</button>
-<div class="terminal" id="t4"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-for(i=1;i<V;i++)
- for(edge)
-  relax(edge);
-</div></div></div>
+<div class="card"><h3>5. Telemedicine Fiber Backbone (MST)</h3><p><b>Algorithms:</b> Kruskal’s MST</p><p><b>Data Structures:</b> DSU</p><p><b>SDGs:</b> SDG 3, SDG 9, SDG 17</p><a class="btn" href="Kruskals.cpp">View Code</a></div>
 
-<!-- 5 -->
-<div class="card">
-<h3>5. Telemedicine Network</h3>
-<p><b>Algorithm:</b> Kruskal</p>
-<p><b>SDGs:</b> SDG 3,9,17</p>
-<button class="btn" onclick="toggle('t5')">View Code</button>
-<div class="terminal" id="t5"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-sort(edges);
-for(edge)
- if(find(u)!=find(v))
-  union(u,v);
-</div></div></div>
+<div class="card"><h3>6. Bed Availability Analytics</h3><p><b>Algorithms:</b> Fenwick Tree</p><p><b>Data Structures:</b> BIT</p><p><b>SDGs:</b> SDG 3, SDG 12, SDG 13</p><a class="btn" href="Fenwick.cpp">View Code</a></div>
 
-<!-- 6 -->
-<div class="card">
-<h3>6. Bed Analytics</h3>
-<p><b>Algorithm:</b> Fenwick Tree</p>
-<p><b>SDGs:</b> SDG 3,12,13</p>
-<button class="btn" onclick="toggle('t6')">View Code</button>
-<div class="terminal" id="t6"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-while(i<=n){
- BIT[i]+=val;
- i+=i&(-i);
-}
-</div></div></div>
+<div class="card"><h3>7. Smart Health Card Lookup</h3><p><b>Algorithms:</b> Hashing</p><p><b>Data Structures:</b> Hash Table</p><p><b>SDGs:</b> SDG 16, SDG 9</p><a class="btn" href="Hashing.cpp">View Code</a></div>
 
-<!-- 7 -->
-<div class="card">
-<h3>7. Smart Health Card</h3>
-<p><b>Algorithm:</b> Hashing</p>
-<p><b>SDGs:</b> SDG 16,9</p>
-<button class="btn" onclick="toggle('t7')">View Code</button>
-<div class="terminal" id="t7"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-index = key % size;
-table[index]=key;
-</div></div></div>
+<div class="card"><h3>8. Drug & Diagnosis Auto-Complete</h3><p><b>Algorithms:</b> Trie</p><p><b>Data Structures:</b> Trie</p><p><b>SDGs:</b> SDG 3, SDG 8</p><a class="btn" href="Trie.cpp">View Code</a></div>
 
-<!-- 8 -->
-<div class="card">
-<h3>8. Drug Auto Complete</h3>
-<p><b>Algorithm:</b> Trie</p>
-<p><b>SDGs:</b> SDG 3,8</p>
-<button class="btn" onclick="toggle('t8')">View Code</button>
-<div class="terminal" id="t8"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-struct TrieNode{
- TrieNode* child[26];
- bool end;
-};
-</div></div></div>
+<div class="card"><h3>9. Pharmacy Inventory System</h3><p><b>Algorithms:</b> BST</p><p><b>Data Structures:</b> BST</p><p><b>SDGs:</b> SDG 3, SDG 12</p><a class="btn" href="bst.cpp">View Code</a></div>
 
-<!-- 9 -->
-<div class="card">
-<h3>9. Pharmacy Inventory</h3>
-<p><b>Algorithm:</b> BST</p>
-<p><b>SDGs:</b> SDG 3,12</p>
-<button class="btn" onclick="toggle('t9')">View Code</button>
-<div class="terminal" id="t9"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-if(key<root->data)
- root->left=insert(root->left);
-</div></div></div>
-
-<!-- 10 -->
-<div class="card">
-<h3>10. Appointment Scheduling</h3>
-<p><b>Algorithm:</b> Red Black Tree</p>
-<p><b>SDGs:</b> SDG 3,8,11</p>
-<button class="btn" onclick="toggle('t10')">View Code</button>
-<div class="terminal" id="t10"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-<div class="terminal-code">
-rotateLeft(x);
-rotateRight(x);
-fixColors();
-</div></div></div>
+<div class="card"><h3>10. Appointment Scheduling System</h3><p><b>Algorithms:</b> Red-Black Tree</p><p><b>Data Structures:</b> RB Tree</p><p><b>SDGs:</b> SDG 3, SDG 8, SDG 11</p><a class="btn" href="red_black_tree.cpp">View Code</a></div>
 
 </div>
+
+<!-- SUMMARY TABLE -->
+<h2 style="color:#60a5fa; margin-top:40px;">Summary Table</h2>
+
+<table class="summary-table">
+<tr><th>Service</th><th>Algorithms</th><th>Data Structures</th><th>Purpose</th><th>SDGs</th></tr>
+<tr><td>Health Coverage</td><td>Dijkstra, BFS</td><td>Graph</td><td>Coverage optimization</td><td>SDG 3, 10</td></tr>
+<tr><td>Ambulance Routing</td><td>Dijkstra</td><td>Min Heap</td><td>Golden-hour routing</td><td>SDG 3, 11</td></tr>
+<tr><td>Referral Matrix</td><td>Floyd</td><td>Matrix</td><td>Hospital navigation</td><td>SDG 3, 9</td></tr>
+<tr><td>Outreach Mapping</td><td>Bellman–Ford</td><td>Graph</td><td>Risk area detection</td><td>SDG 3, 10, 11</td></tr>
+<tr><td>Telemedicine Network</td><td>Kruskal</td><td>DSU</td><td>Network layout</td><td>SDG 3, 9, 17</td></tr>
+<tr><td>Bed Analytics</td><td>Fenwick</td><td>BIT</td><td>Real-time tracking</td><td>SDG 3, 12, 13</td></tr>
+<tr><td>Health Lookup</td><td>Hashing</td><td>Hash Table</td><td>Instant verification</td><td>SDG 16, 9</td></tr>
+<tr><td>Auto-Complete</td><td>Trie</td><td>Trie</td><td>Fast suggestions</td><td>SDG 3, 8</td></tr>
+<tr><td>Pharma Inventory</td><td>BST</td><td>BST</td><td>Stock control</td><td>SDG 3, 12</td></tr>
+<tr><td>Scheduling</td><td>RB Tree</td><td>RB Tree</td><td>Time slot management</td><td>SDG 3, 8, 11</td></tr>
+</table>
+
 </div>
 
-<!-- SUMMARY TABLE (UNCHANGED) -->
-<div class="container">
-<h2 style="color:#60a5fa;">Summary Table</h2>
-<!-- KEEP YOUR EXISTING TABLE HERE EXACTLY -->
-</div>
-
+<!-- FOOTER -->
 <footer>
-Designed & Developed by <span>AKHIL TEJA K S</span><br>
-© All Rights Reserved – 2025
+    Designed & Developed by <span>AKHIL TEJA K S</span>
+    © All Rights Reserved – 2025
 </footer>
 
 </body>
