@@ -5,240 +5,328 @@
 <title>Course Project – DAA Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- NAVBAR CSS -->
 <link rel="stylesheet" href="navbar.css">
-
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- CHART JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-    body {
-        margin: 0;
-        padding-top: 130px; /* Prevent navbar overlap */
-        background: #0a0f1f;
-        font-family: "Poppins", sans-serif;
-        color: #e2e8f0;
-    }
+body{
+    margin:0;
+    padding-top:130px;
+    background:#0a0f1f;
+    font-family:"Poppins",sans-serif;
+    color:#e2e8f0;
+}
 
-    /* PROJECT CHART */
-    .chart-section {
-        text-align: center;
-        padding: 40px 20px;
-    }
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
 
-    .chart-title {
-        font-size: 32px;
-        font-weight: 700;
-        color: #60a5fa;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 22px;
-    }
+h2{
+    color:#60a5fa;
+    margin-bottom:20px;
+}
 
-    .chart-images {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding: 10px 40px;
-    }
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+@media(max-width:900px){
+    .grid{grid-template-columns:1fr;}
+}
 
-    .chart-images img {
-        width: 48%;
-        border-radius: 12px;
-        border: 2px solid rgba(96,165,250,0.5);
-        box-shadow: 0 0 25px rgba(96,165,250,0.4);
-        transition: 0.3s;
-    }
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.06);
+    padding:22px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.18);
+}
 
-    .chart-images img:hover {
-        transform: scale(1.02);
-        box-shadow: 0 0 35px rgba(96,165,250,0.7);
-    }
+/* TERMINAL */
+.terminal-block{
+    background:#020617;
+    border-radius:10px;
+    margin-top:14px;
+    overflow:hidden;
+    font-family:monospace;
+}
+.terminal-header{
+    display:flex;
+    gap:8px;
+    padding:8px;
+}
+.dot{width:12px;height:12px;border-radius:50%}
+.red{background:#ef4444}
+.yellow{background:#facc15}
+.green{background:#22c55e}
+.terminal-code{
+    padding:14px;
+    font-size:14px;
+    color:#e5e7eb;
+    white-space:pre-wrap;
+}
+.keyword{color:#38bdf8}
+.function{color:#a78bfa}
+.number{color:#facc15}
 
-    /* MAIN CONTAINER */
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: auto;
-    }
+/* IMAGE SECTION */
+.image-box{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin:60px 0;
+}
+.image-box img{
+    max-width:450px;
+    width:100%;
+    border-radius:12px;
+    box-shadow:0 0 25px rgba(96,165,250,0.4);
+}
 
-    /* CARD GRID */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-        margin-top: 30px;
-    }
+/* AREA SECTION */
+.area-title{
+    text-align:center;
+    font-size:30px;
+    font-weight:700;
+    color:#38bdf8;
+    margin-bottom:30px;
+}
 
-    .card {
-        background: rgba(255,255,255,0.06);
-        padding: 22px;
-        border-radius: 14px;
-        border: 1px solid rgba(255,255,255,0.18);
-        transition: 0.3s;
-    }
+.area-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+@media(max-width:900px){
+    .area-grid{grid-template-columns:1fr;}
+}
 
-    .card:hover {
-        transform: translateY(-8px);
-        border-color: #60a5fa;
-        box-shadow: 0 0 25px rgba(96,165,250,0.3);
-    }
+.area-card{
+    background:rgba(255,255,255,0.06);
+    padding:25px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.15);
+}
+.area-card h3{color:#60a5fa}
 
-    .card h3 {
-        color: #60a5fa;
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
+.area-card table{
+    width:100%;
+    border-collapse:collapse;
+}
+.area-card td{
+    padding:8px;
+    border-bottom:1px solid rgba(255,255,255,0.15);
+}
 
-    .btn {
-        margin-top: 12px;
-        display: inline-block;
-        background: #60a5fa;
-        padding: 8px 16px;
-        border-radius: 8px;
-        text-decoration: none;
-        color: #000;
-        font-weight: 600;
-        transition: 0.3s;
-    }
+.motto{
+    text-align:center;
+    font-style:italic;
+    font-weight:600;
+    color:#a5b4fc;
+    margin:20px 0;
+}
 
-    .btn:hover {
-        background: #3b82f6;
-    }
+/* CHARTS */
+.chart-box{
+    background:rgba(255,255,255,0.06);
+    padding:25px;
+    border-radius:14px;
+    margin-top:40px;
+}
 
-    /* SUMMARY TABLE */
-    .summary-table {
-        width: 100%;
-        margin-top: 50px;
-        border-collapse: collapse;
-        background: rgba(255,255,255,0.06);
-        border-radius: 12px;
-        overflow: hidden;
-    }
-
-    .summary-table th, .summary-table td {
-        padding: 14px;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-        font-size: 14px;
-    }
-
-    .summary-table th {
-        background: rgba(96,165,250,0.2);
-        color: #60a5fa;
-        text-transform: uppercase;
-        font-size: 13px;
-    }
-
-    @media (max-width: 800px) {
-        .grid { grid-template-columns: 1fr; }
-        .chart-images { flex-direction: column; }
-        .chart-images img { width: 100%; }
-    }
-
-    /* FOOTER */
-    footer {
-        margin-top: 60px;
-        padding: 25px;
-        text-align: center;
-        background: rgba(15,23,42,0.85);
-        border-top: 1px solid rgba(255,255,255,0.12);
-        color: #9ca3af;
-        font-size: 14px;
-    }
-
-    footer span {
-        display: block;
-        color: #60a5fa;
-        font-weight: 600;
-        margin-top: 5px;
-    }
+/* FOOTER */
+footer{
+    margin-top:60px;
+    padding:25px;
+    text-align:center;
+    background:rgba(15,23,42,0.85);
+    border-top:1px solid rgba(255,255,255,0.12);
+}
+footer span{
+    display:block;
+    color:#60a5fa;
+    font-weight:600;
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 DYNAMIC NAVBAR -->
+<!-- NAVBAR -->
 <div id="navbar-placeholder"></div>
 <script>
-    fetch("navbar.html")
-        .then(res => res.text())
-        .then(data => {
-            document.getElementById("navbar-placeholder").innerHTML = data;
-        });
+fetch("navbar.html")
+.then(res=>res.text())
+.then(data=>document.getElementById("navbar-placeholder").innerHTML=data);
 </script>
 
-<!-- PROJECT CHART SECTION -->
-<div class="container mt-4 mb-5">
-    <h2 class="text-center text-uppercase mb-4" style="color:#38bdf8; letter-spacing:2px;">Project Chart</h2>
-
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <div class="mb-4">
-            <img src="1img.jpg" alt="Project Chart 1"
-                 style="width: 100%; max-width: 500px; transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 0 20px rgba(56,189,248,0.4);">
-        </div>
-        <div>
-            <img src="p1.jpg" alt="Project Chart 2"
-                 style="width: 100%; max-width: 500px; transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 0 20px rgba(56,189,248,0.4);">
-        </div>
-    </div>
-</div>
-
-<!-- BUSINESS CASE STUDIES -->
+<!-- ================= BUSINESS CASE STUDIES ================= -->
 <div class="container">
-<h2 style="color:#60a5fa; margin-top:30px;">Business Case Studies</h2>
+<h2>Business Case Studies</h2>
 
 <div class="grid">
 
-<!-- CASES 1–10 (unchanged content) -->
-<div class="card"><h3>1. Primary Health Center Coverage Optimization</h3><p><b>Algorithms:</b> Dijkstra, BFS</p><p><b>Data Structures:</b> Graph</p><p><b>SDGs:</b> SDG 3, SDG 10</p><a class="btn" href="DIJKSTRA.cpp">View Code</a></div>
+<div class="card">
+<h3>1. Primary Health Center Coverage Optimization</h3>
+<div class="terminal-block">
+<div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">
+<span class="keyword">int</span> <span class="function">shortestPath</span>(graph, src) {
+    dist[src] = <span class="number">0</span>;
+    <span class="keyword">while</span>(pq not empty)
+        relax neighbors;
+}
+</div></div></div>
 
-<div class="card"><h3>2. Ambulance Dispatch & Golden-Hour Routing</h3><p><b>Algorithms:</b> Dijkstra</p><p><b>Data Structures:</b> Min Heap</p><p><b>SDGs:</b> SDG 3, SDG 11</p><a class="btn" href="DIJKSTRA.cpp">View Code</a></div>
-
-<div class="card"><h3>3. Hospital Referral Time Matrix</h3><p><b>Algorithms:</b> Floyd–Warshall</p><p><b>Data Structures:</b> Matrix</p><p><b>SDGs:</b> SDG 3, SDG 9</p><a class="btn" href="Floyds.cpp">View Code</a></div>
-
-<div class="card"><h3>4. High-Risk Outreach Mapping</h3><p><b>Algorithms:</b> Bellman–Ford</p><p><b>Data Structures:</b> Graph</p><p><b>SDGs:</b> SDG 3, SDG 10, SDG 11</p><a class="btn" href="Bellmanford.cpp">View Code</a></div>
-
-<div class="card"><h3>5. Telemedicine Fiber Backbone (MST)</h3><p><b>Algorithms:</b> Kruskal’s MST</p><p><b>Data Structures:</b> DSU</p><p><b>SDGs:</b> SDG 3, SDG 9, SDG 17</p><a class="btn" href="Kruskals.cpp">View Code</a></div>
-
-<div class="card"><h3>6. Bed Availability Analytics</h3><p><b>Algorithms:</b> Fenwick Tree</p><p><b>Data Structures:</b> BIT</p><p><b>SDGs:</b> SDG 3, SDG 12, SDG 13</p><a class="btn" href="Fenwick.cpp">View Code</a></div>
-
-<div class="card"><h3>7. Smart Health Card Lookup</h3><p><b>Algorithms:</b> Hashing</p><p><b>Data Structures:</b> Hash Table</p><p><b>SDGs:</b> SDG 16, SDG 9</p><a class="btn" href="Hashing.cpp">View Code</a></div>
-
-<div class="card"><h3>8. Drug & Diagnosis Auto-Complete</h3><p><b>Algorithms:</b> Trie</p><p><b>Data Structures:</b> Trie</p><p><b>SDGs:</b> SDG 3, SDG 8</p><a class="btn" href="Trie.cpp">View Code</a></div>
-
-<div class="card"><h3>9. Pharmacy Inventory System</h3><p><b>Algorithms:</b> BST</p><p><b>Data Structures:</b> BST</p><p><b>SDGs:</b> SDG 3, SDG 12</p><a class="btn" href="bst.cpp">View Code</a></div>
-
-<div class="card"><h3>10. Appointment Scheduling System</h3><p><b>Algorithms:</b> Red-Black Tree</p><p><b>Data Structures:</b> RB Tree</p><p><b>SDGs:</b> SDG 3, SDG 8, SDG 11</p><a class="btn" href="red_black_tree.cpp">View Code</a></div>
-
+<div class="card">
+<h3>2. Ambulance Dispatch Routing</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code"><span class="function">dijkstra</span>(src)</div></div>
 </div>
 
-<!-- SUMMARY TABLE -->
-<h2 style="color:#60a5fa; margin-top:40px;">Summary Table</h2>
+<div class="card">
+<h3>3. Hospital Referral Time Matrix</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">dist[i][j] = min(dist[i][j], dist[i][k]+dist[k][j]);</div></div>
+</div>
 
-<table class="summary-table">
-<tr><th>Service</th><th>Algorithms</th><th>Data Structures</th><th>Purpose</th><th>SDGs</th></tr>
-<tr><td>Health Coverage</td><td>Dijkstra, BFS</td><td>Graph</td><td>Coverage optimization</td><td>SDG 3, 10</td></tr>
-<tr><td>Ambulance Routing</td><td>Dijkstra</td><td>Min Heap</td><td>Golden-hour routing</td><td>SDG 3, 11</td></tr>
-<tr><td>Referral Matrix</td><td>Floyd</td><td>Matrix</td><td>Hospital navigation</td><td>SDG 3, 9</td></tr>
-<tr><td>Outreach Mapping</td><td>Bellman–Ford</td><td>Graph</td><td>Risk area detection</td><td>SDG 3, 10, 11</td></tr>
-<tr><td>Telemedicine Network</td><td>Kruskal</td><td>DSU</td><td>Network layout</td><td>SDG 3, 9, 17</td></tr>
-<tr><td>Bed Analytics</td><td>Fenwick</td><td>BIT</td><td>Real-time tracking</td><td>SDG 3, 12, 13</td></tr>
-<tr><td>Health Lookup</td><td>Hashing</td><td>Hash Table</td><td>Instant verification</td><td>SDG 16, 9</td></tr>
-<tr><td>Auto-Complete</td><td>Trie</td><td>Trie</td><td>Fast suggestions</td><td>SDG 3, 8</td></tr>
-<tr><td>Pharma Inventory</td><td>BST</td><td>BST</td><td>Stock control</td><td>SDG 3, 12</td></tr>
-<tr><td>Scheduling</td><td>RB Tree</td><td>RB Tree</td><td>Time slot management</td><td>SDG 3, 8, 11</td></tr>
+<div class="card">
+<h3>4. High-Risk Outreach Mapping</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">relax all edges V-1 times</div></div>
+</div>
+
+<div class="card">
+<h3>5. Telemedicine Network (MST)</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">union-find based MST</div></div>
+</div>
+
+<div class="card">
+<h3>6. Bed Availability Analytics</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">Fenwick Tree updates</div></div>
+</div>
+
+<div class="card">
+<h3>7. Smart Health Card Lookup</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">hash(key) % size</div></div>
+</div>
+
+<div class="card">
+<h3>8. Drug Auto-Complete</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">Trie insert & search</div></div>
+</div>
+
+<div class="card">
+<h3>9. Pharmacy Inventory System</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">BST insert/delete</div></div>
+</div>
+
+<div class="card">
+<h3>10. Appointment Scheduling</h3>
+<div class="terminal-block"><div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<div class="terminal-code">Red-Black Tree balancing</div></div>
+</div>
+
+</div>
+</div>
+
+<!-- ================= IMAGES ================= -->
+<div class="container">
+<div class="image-box">
+<img src="1img.jpg">
+<img src="p1.jpg">
+</div>
+</div>
+
+<!-- ================= AREA DISTRIBUTION ================= -->
+<div class="container">
+<h2 class="area-title">Urban & Regional Area Distribution Overview</h2>
+
+<div class="area-grid">
+<div class="area-card">
+<h3>Population Statistics</h3>
+<table>
+<tr><td>Total Population</td><td>2,50,00,000</td></tr>
+<tr><td>Density</td><td>2500 / km²</td></tr>
+<tr><td>Urban Area</td><td>6000 km²</td></tr>
+<tr><td>Rural Area</td><td>800 km²</td></tr>
 </table>
 
+<div class="motto">“When Innovation Meets Humanity”</div>
+
+<h3>Land Usage</h3>
+<table>
+<tr><td>Residential</td><td>250 km²</td></tr>
+<tr><td>Industrial</td><td>100 km²</td></tr>
+<tr><td>Institutional</td><td>150 km²</td></tr>
+<tr><td>Farmlands</td><td>200 km²</td></tr>
+<tr><td>Mountains</td><td>100 km²</td></tr>
+<tr><td>Airport & Port</td><td>50 km²</td></tr>
+<tr><td>Tourism</td><td>80 km²</td></tr>
+<tr><td>Governance</td><td>50 km²</td></tr>
+<tr><td>Solar</td><td>50 km²</td></tr>
+</table>
 </div>
 
-<!-- FOOTER -->
+<div class="area-card">
+<h3>Functional Land Division</h3>
+<table>
+<tr><td>Public Services</td><td>75 km²</td></tr>
+<tr><td>Education</td><td>70 km²</td></tr>
+<tr><td>Healthcare</td><td>150 km²</td></tr>
+<tr><td>Residential</td><td>400 km²</td></tr>
+<tr><td>Agriculture</td><td>275 km²</td></tr>
+<tr><td>Solar</td><td>50 km²</td></tr>
+<tr><td>Private Sector</td><td>150 km²</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ================= CHARTS ================= -->
+<div class="chart-box">
+<canvas id="landChart"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="divisionChart"></canvas>
+</div>
+</div>
+
 <footer>
-    Designed & Developed by <span>AKHIL TEJA K S</span>
-    © All Rights Reserved – 2025
+Designed & Developed by <span>AKHIL TEJA K S</span>
+© All Rights Reserved – 2025
 </footer>
+
+<script>
+new Chart(document.getElementById('landChart'),{
+type:'pie',
+data:{
+labels:['Residential','Industrial','Institutional','Farmland','Mountains','Transport','Tourism','Governance','Solar'],
+datasets:[{data:[250,100,150,200,100,50,80,50,50]}]
+}
+});
+
+new Chart(document.getElementById('divisionChart'),{
+type:'bar',
+data:{
+labels:['Public','Education','Healthcare','Residential','Agriculture','Solar','Private'],
+datasets:[{label:'Area (km²)',data:[75,70,150,400,275,50,150]}]
+}
+});
+</script>
 
 </body>
 </html>
