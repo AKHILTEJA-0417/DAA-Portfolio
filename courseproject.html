@@ -218,20 +218,121 @@
 
 <!-- SUMMARY TABLE -->
 <h2 style="color:#60a5fa; margin-top:40px;">Summary Table</h2>
+<h2 style="color:#60a5fa; margin-top:40px;">Summary Table with Efficiency Analysis</h2>
 
 <table class="summary-table">
-<tr><th>Service</th><th>Algorithms</th><th>Data Structures</th><th>Purpose</th><th>SDGs</th></tr>
-<tr><td>Health Coverage</td><td>Dijkstra, BFS</td><td>Graph</td><td>Coverage optimization</td><td>SDG 3, 10</td></tr>
-<tr><td>Ambulance Routing</td><td>Dijkstra</td><td>Min Heap</td><td>Golden-hour routing</td><td>SDG 3, 11</td></tr>
-<tr><td>Referral Matrix</td><td>Floyd</td><td>Matrix</td><td>Hospital navigation</td><td>SDG 3, 9</td></tr>
-<tr><td>Outreach Mapping</td><td>Bellman–Ford</td><td>Graph</td><td>Risk area detection</td><td>SDG 3, 10, 11</td></tr>
-<tr><td>Telemedicine Network</td><td>Kruskal</td><td>DSU</td><td>Network layout</td><td>SDG 3, 9, 17</td></tr>
-<tr><td>Bed Analytics</td><td>Fenwick</td><td>BIT</td><td>Real-time tracking</td><td>SDG 3, 12, 13</td></tr>
-<tr><td>Health Lookup</td><td>Hashing</td><td>Hash Table</td><td>Instant verification</td><td>SDG 16, 9</td></tr>
-<tr><td>Auto-Complete</td><td>Trie</td><td>Trie</td><td>Fast suggestions</td><td>SDG 3, 8</td></tr>
-<tr><td>Pharma Inventory</td><td>BST</td><td>BST</td><td>Stock control</td><td>SDG 3, 12</td></tr>
-<tr><td>Scheduling</td><td>RB Tree</td><td>RB Tree</td><td>Time slot management</td><td>SDG 3, 8, 11</td></tr>
+<tr>
+    <th>Service</th>
+    <th>Algorithms</th>
+    <th>Data Structures</th>
+    <th>Purpose</th>
+    <th>Time Complexity</th>
+    <th>Space Complexity</th>
+    <th>SDGs</th>
+</tr>
+
+<tr>
+    <td>Health Coverage Optimization</td>
+    <td>Dijkstra, BFS</td>
+    <td>Graph</td>
+    <td>Optimize PHC coverage</td>
+    <td>O((V + E) log V)</td>
+    <td>O(V + E)</td>
+    <td>SDG 3, 10</td>
+</tr>
+
+<tr>
+    <td>Ambulance Routing</td>
+    <td>Dijkstra</td>
+    <td>Min Heap</td>
+    <td>Golden-hour routing</td>
+    <td>O((V + E) log V)</td>
+    <td>O(V)</td>
+    <td>SDG 3, 11</td>
+</tr>
+
+<tr>
+    <td>Hospital Referral Matrix</td>
+    <td>Floyd–Warshall</td>
+    <td>Matrix</td>
+    <td>Fast inter-hospital navigation</td>
+    <td>O(V³)</td>
+    <td>O(V²)</td>
+    <td>SDG 3, 9</td>
+</tr>
+
+<tr>
+    <td>High-Risk Outreach Mapping</td>
+    <td>Bellman–Ford</td>
+    <td>Graph</td>
+    <td>Detect risk-prone regions</td>
+    <td>O(V × E)</td>
+    <td>O(V)</td>
+    <td>SDG 3, 10, 11</td>
+</tr>
+
+<tr>
+    <td>Telemedicine Network Design</td>
+    <td>Kruskal’s MST</td>
+    <td>DSU (Union-Find)</td>
+    <td>Minimum-cost connectivity</td>
+    <td>O(E log E)</td>
+    <td>O(V)</td>
+    <td>SDG 3, 9, 17</td>
+</tr>
+
+<tr>
+    <td>Bed Availability Analytics</td>
+    <td>Fenwick Tree</td>
+    <td>BIT</td>
+    <td>Real-time bed tracking</td>
+    <td>O(log N)</td>
+    <td>O(N)</td>
+    <td>SDG 3, 12, 13</td>
+</tr>
+
+<tr>
+    <td>Smart Health Card Lookup</td>
+    <td>Hashing</td>
+    <td>Hash Table</td>
+    <td>Instant patient verification</td>
+    <td>O(1) average</td>
+    <td>O(N)</td>
+    <td>SDG 16, 9</td>
+</tr>
+
+<tr>
+    <td>Drug & Diagnosis Auto-Complete</td>
+    <td>Trie</td>
+    <td>Trie</td>
+    <td>Fast medical suggestions</td>
+    <td>O(L)</td>
+    <td>O(N × L)</td>
+    <td>SDG 3, 8</td>
+</tr>
+
+<tr>
+    <td>Pharmacy Inventory Management</td>
+    <td>BST</td>
+    <td>BST</td>
+    <td>Medicine stock control</td>
+    <td>O(h)</td>
+    <td>O(N)</td>
+    <td>SDG 3, 12</td>
+</tr>
+
+<tr>
+    <td>Appointment Scheduling</td>
+    <td>Red-Black Tree</td>
+    <td>RB Tree</td>
+    <td>Balanced time-slot allocation</td>
+    <td>O(log N)</td>
+    <td>O(N)</td>
+    <td>SDG 3, 8, 11</td>
+</tr>
 </table>
+
+
 
 </div>
 
